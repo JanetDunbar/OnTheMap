@@ -27,7 +27,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="Nbv-gR-eIC">
                         <barButtonItem key="leftBarButtonItem" image="pin" id="Ptk-Fg-1Zm" userLabel="Post"/>
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="eFB-eI-QXp"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="eFB-eI-QXp"/>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gBh-yg-PZZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -60,7 +60,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="0Sc-zw-Xde">
                         <barButtonItem key="leftBarButtonItem" image="pin" id="A54-Vf-Eb4" userLabel="Post"/>
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="NCe-eB-xkh"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="NCe-eB-xkh"/>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OjX-Wu-3eX" userLabel="First Responder" sceneMemberID="firstResponder"/>

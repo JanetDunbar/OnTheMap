@@ -25,7 +25,10 @@
                             <outlet property="delegate" destination="T7h-Oa-9Yb" id="Y1A-ft-XRl"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Nbv-gR-eIC"/>
+                    <navigationItem key="navigationItem" id="Nbv-gR-eIC">
+                        <barButtonItem key="leftBarButtonItem" image="pin" id="Ptk-Fg-1Zm" userLabel="Post"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="eFB-eI-QXp"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gBh-yg-PZZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -55,7 +58,10 @@
                             <constraint firstItem="2Ck-Jg-N1H" firstAttribute="top" secondItem="isk-kd-ugJ" secondAttribute="top" id="u91-jj-mI1"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="0Sc-zw-Xde"/>
+                    <navigationItem key="navigationItem" id="0Sc-zw-Xde">
+                        <barButtonItem key="leftBarButtonItem" image="pin" id="A54-Vf-Eb4" userLabel="Post"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="NCe-eB-xkh"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OjX-Wu-3eX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -122,5 +128,6 @@
     <resources>
         <image name="list" width="32" height="32"/>
         <image name="map" width="32" height="32"/>
+        <image name="pin" width="32" height="32"/>
     </resources>
 </document>

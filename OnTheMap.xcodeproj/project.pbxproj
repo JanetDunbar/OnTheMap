@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		840E2C511B1D16CB005030FB /* InformationPostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840E2C501B1D16CB005030FB /* InformationPostingViewController.swift */; };
 		841828CF1B1CC2DF002C8774 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841828CE1B1CC2DF002C8774 /* AppDelegate.swift */; };
 		841828D11B1CC2DF002C8774 /* MapDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841828D01B1CC2DF002C8774 /* MapDataViewController.swift */; };
 		841828D41B1CC2DF002C8774 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 841828D21B1CC2DF002C8774 /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		840E2C501B1D16CB005030FB /* InformationPostingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationPostingViewController.swift; sourceTree = "<group>"; };
 		841828C91B1CC2DF002C8774 /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		841828CD1B1CC2DF002C8774 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		841828CE1B1CC2DF002C8774 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				841828D51B1CC2DF002C8774 /* Images.xcassets */,
 				841828D71B1CC2DF002C8774 /* LaunchScreen.xib */,
 				841828CC1B1CC2DF002C8774 /* Supporting Files */,
+				840E2C501B1D16CB005030FB /* InformationPostingViewController.swift */,
 			);
 			path = OnTheMap;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				840E2C511B1D16CB005030FB /* InformationPostingViewController.swift in Sources */,
 				841828D11B1CC2DF002C8774 /* MapDataViewController.swift in Sources */,
 				841828CF1B1CC2DF002C8774 /* AppDelegate.swift in Sources */,
 			);

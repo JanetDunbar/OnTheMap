@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Ac0-7m-gI0">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Table View Controller-->
@@ -71,10 +72,10 @@
             </objects>
             <point key="canvasLocation" x="1182" y="383"/>
         </scene>
-        <!--View Controller-->
+        <!--InformationPostingViewController-->
         <scene sceneID="Lwu-9p-NH8">
             <objects>
-                <viewController id="uuR-OF-J1Q" sceneMemberID="viewController">
+                <viewController id="uuR-OF-J1Q" userLabel="InformationPostingViewController" customClass="InformationPostingViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="O9X-7T-HD6"/>
                         <viewControllerLayoutGuide type="bottom" id="dTt-Yh-Zyv"/>
@@ -92,11 +93,32 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="4Pl-EA-fsf">
+                                <rect key="frame" x="50" y="285" width="499" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fv5-Ec-3r9">
+                                <rect key="frame" x="229" y="377" width="143" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="143" id="TOC-ME-oAw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Find on the Map">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="4Pl-EA-fsf" firstAttribute="leading" secondItem="nP2-tM-Ghp" secondAttribute="leadingMargin" constant="34" id="5De-TA-br5"/>
                             <constraint firstItem="dTt-Yh-Zyv" firstAttribute="top" secondItem="viX-C2-1ca" secondAttribute="bottom" constant="394" id="7T9-lI-AZO"/>
                             <constraint firstItem="viX-C2-1ca" firstAttribute="top" secondItem="O9X-7T-HD6" secondAttribute="bottom" constant="83" id="LgQ-Lj-CO5"/>
+                            <constraint firstItem="Fv5-Ec-3r9" firstAttribute="centerX" secondItem="viX-C2-1ca" secondAttribute="centerX" id="R0Z-Dz-Nbm"/>
+                            <constraint firstItem="Fv5-Ec-3r9" firstAttribute="top" secondItem="4Pl-EA-fsf" secondAttribute="bottom" constant="62" id="dPx-ZS-tKp"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="4Pl-EA-fsf" secondAttribute="trailing" constant="35" id="eUT-Kh-IPZ"/>
+                            <constraint firstItem="dTt-Yh-Zyv" firstAttribute="top" secondItem="Fv5-Ec-3r9" secondAttribute="bottom" constant="193" id="jXm-qN-zYs"/>
+                            <constraint firstItem="4Pl-EA-fsf" firstAttribute="centerY" secondItem="nP2-tM-Ghp" secondAttribute="centerY" id="m4G-7b-Z0v"/>
                             <constraint firstItem="viX-C2-1ca" firstAttribute="centerX" secondItem="nP2-tM-Ghp" secondAttribute="centerX" id="vcz-fo-flB"/>
                         </constraints>
                     </view>

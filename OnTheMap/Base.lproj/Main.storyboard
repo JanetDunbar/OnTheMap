@@ -59,13 +59,51 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="0Sc-zw-Xde">
-                        <barButtonItem key="leftBarButtonItem" image="pin" id="A54-Vf-Eb4" userLabel="Post"/>
+                        <barButtonItem key="leftBarButtonItem" image="pin" id="A54-Vf-Eb4" userLabel="Post">
+                            <connections>
+                                <segue destination="uuR-OF-J1Q" kind="presentation" id="9zj-Cy-itq"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="NCe-eB-xkh"/>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OjX-Wu-3eX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1182" y="383"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Lwu-9p-NH8">
+            <objects>
+                <viewController id="uuR-OF-J1Q" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="O9X-7T-HD6"/>
+                        <viewControllerLayoutGuide type="bottom" id="dTt-Yh-Zyv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nP2-tM-Ghp">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Where are you studying today?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="viX-C2-1ca">
+                                <rect key="frame" x="220" y="103" width="161" height="103"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="161" id="x2Y-OQ-oSj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dTt-Yh-Zyv" firstAttribute="top" secondItem="viX-C2-1ca" secondAttribute="bottom" constant="394" id="7T9-lI-AZO"/>
+                            <constraint firstItem="viX-C2-1ca" firstAttribute="top" secondItem="O9X-7T-HD6" secondAttribute="bottom" constant="83" id="LgQ-Lj-CO5"/>
+                            <constraint firstItem="viX-C2-1ca" firstAttribute="centerX" secondItem="nP2-tM-Ghp" secondAttribute="centerX" id="vcz-fo-flB"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PWk-jo-gp3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1897" y="581"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Sso-Je-ITy">

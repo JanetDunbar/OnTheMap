@@ -210,6 +210,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="debugLabel" destination="Bv1-eQ-8pV" id="moL-Fw-xEJ"/>
+                        <outlet property="loginButton" destination="rkm-NS-fT9" id="nKI-JT-LXN"/>
                         <outlet property="password" destination="aeO-0Z-pOE" id="TL1-dy-Grd"/>
                         <outlet property="username" destination="RB2-SA-4tI" id="1ql-3g-iA4"/>
                     </connections>

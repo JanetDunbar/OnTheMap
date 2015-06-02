@@ -87,9 +87,7 @@
 			children = (
 				841828D21B1CC2DF002C8774 /* Main.storyboard */,
 				845DA6BF1B1D4F98006ADA2C /* Client.swift */,
-				8446BB1C1B1D2A0700B37AF8 /* LoginViewController.swift */,
-				841828D01B1CC2DF002C8774 /* MapDataViewController.swift */,
-				840E2C501B1D16CB005030FB /* InformationPostingViewController.swift */,
+				845DA6C11B1E674F006ADA2C /* ViewControllers */,
 				841828CC1B1CC2DF002C8774 /* Supporting Files */,
 				84EC2B4A1B1D478E00084471 /* BorderedButton.swift */,
 			);
@@ -122,6 +120,16 @@
 				841828E31B1CC2DF002C8774 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		845DA6C11B1E674F006ADA2C /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				8446BB1C1B1D2A0700B37AF8 /* LoginViewController.swift */,
+				841828D01B1CC2DF002C8774 /* MapDataViewController.swift */,
+				840E2C501B1D16CB005030FB /* InformationPostingViewController.swift */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

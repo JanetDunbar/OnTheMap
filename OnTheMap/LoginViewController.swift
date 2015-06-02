@@ -12,18 +12,11 @@ import Foundation
 
 class LoginViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    @IBOutlet weak var username: UITextField!
+    @IBOutlet weak var password: UITextField!
     
-    func login() {
+    @IBAction func login(sender: AnyObject) {
+        
         // Create dictionary of userNames and passwords
         var udacity = ["username": "", "password": ""]
         
@@ -41,6 +34,16 @@ class LoginViewController: UIViewController {
             println(NSString(data: newData, encoding: NSUTF8StringEncoding))
         }
         task.resume()
+    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
 
     /*

@@ -130,7 +130,7 @@
         <!--LoginViewController-->
         <scene sceneID="cCf-5X-ZY1">
             <objects>
-                <viewController id="k6H-aC-i8F" userLabel="LoginViewController" sceneMemberID="viewController">
+                <viewController id="k6H-aC-i8F" userLabel="LoginViewController" customClass="LoginViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="IPH-x9-4dg"/>
                         <viewControllerLayoutGuide type="bottom" id="MRC-YL-j5K"/>
@@ -169,7 +169,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rkm-NS-fT9" customClass="BorderedButton" customModule="MyFavoriteMovies" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rkm-NS-fT9" customClass="BorderedButton" customModule="OnTheMap" customModuleProvider="target">
                                 <rect key="frame" x="175" y="379" width="250" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="Pc4-tc-PXv"/>
@@ -177,6 +177,9 @@
                                 <state key="normal" title="Login">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="login:" destination="k6H-aC-i8F" eventType="touchUpInside" id="e4B-Zf-EBe"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bv1-eQ-8pV">
                                 <rect key="frame" x="175" y="443" width="250" height="44"/>
@@ -206,6 +209,10 @@
                             <constraint firstItem="rkm-NS-fT9" firstAttribute="trailing" secondItem="aeO-0Z-pOE" secondAttribute="trailing" id="ucb-VL-vAf"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="password" destination="aeO-0Z-pOE" id="TL1-dy-Grd"/>
+                        <outlet property="username" destination="RB2-SA-4tI" id="1ql-3g-iA4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3RH-zz-pGP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

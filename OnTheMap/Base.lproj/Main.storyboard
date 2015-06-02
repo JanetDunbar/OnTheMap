@@ -169,11 +169,20 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M6D-RT-wpB">
-                                <rect key="frame" x="175" y="396" width="250" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rkm-NS-fT9" customClass="BorderedButton" customModule="MyFavoriteMovies" customModuleProvider="target">
+                                <rect key="frame" x="175" y="379" width="250" height="44"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="qzn-7e-hUR"/>
-                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="250" id="s18-Mf-KlI"/>
+                                    <constraint firstAttribute="height" constant="44" id="Pc4-tc-PXv"/>
+                                </constraints>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bv1-eQ-8pV">
+                                <rect key="frame" x="175" y="443" width="250" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="250" id="Qno-Xy-ToF"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="SHR-cx-hnc"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -183,15 +192,18 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="6OB-Hr-8fL" firstAttribute="centerX" secondItem="Feg-zN-y9y" secondAttribute="centerX" id="194-Zs-CDN"/>
-                            <constraint firstItem="M6D-RT-wpB" firstAttribute="top" secondItem="aeO-0Z-pOE" secondAttribute="bottom" constant="24" id="8Ot-r7-24O"/>
+                            <constraint firstItem="Bv1-eQ-8pV" firstAttribute="trailing" secondItem="rkm-NS-fT9" secondAttribute="trailing" id="1IX-Rs-2Jy"/>
+                            <constraint firstItem="rkm-NS-fT9" firstAttribute="leading" secondItem="aeO-0Z-pOE" secondAttribute="leading" id="BhC-x1-XlD"/>
+                            <constraint firstItem="Bv1-eQ-8pV" firstAttribute="top" secondItem="rkm-NS-fT9" secondAttribute="bottom" constant="20" id="FdQ-50-HCs"/>
                             <constraint firstItem="aeO-0Z-pOE" firstAttribute="top" secondItem="RB2-SA-4tI" secondAttribute="bottom" constant="6" id="IiB-h1-ejV"/>
                             <constraint firstItem="RB2-SA-4tI" firstAttribute="centerX" secondItem="6OB-Hr-8fL" secondAttribute="centerX" id="M5o-Py-5nw"/>
                             <constraint firstItem="RB2-SA-4tI" firstAttribute="centerY" secondItem="Feg-zN-y9y" secondAttribute="centerY" id="Rrf-1J-X1c"/>
                             <constraint firstItem="6OB-Hr-8fL" firstAttribute="top" secondItem="IPH-x9-4dg" secondAttribute="bottom" constant="201" id="UX6-V6-Erc"/>
                             <constraint firstItem="aeO-0Z-pOE" firstAttribute="leading" secondItem="RB2-SA-4tI" secondAttribute="leading" id="ZTg-Dm-8Q2"/>
-                            <constraint firstItem="M6D-RT-wpB" firstAttribute="trailing" secondItem="aeO-0Z-pOE" secondAttribute="trailing" id="Zon-zb-7yP"/>
-                            <constraint firstItem="M6D-RT-wpB" firstAttribute="leading" secondItem="aeO-0Z-pOE" secondAttribute="leading" id="iM0-AQ-DID"/>
+                            <constraint firstItem="Bv1-eQ-8pV" firstAttribute="leading" secondItem="rkm-NS-fT9" secondAttribute="leading" id="dM4-Ky-OSM"/>
+                            <constraint firstItem="rkm-NS-fT9" firstAttribute="top" secondItem="aeO-0Z-pOE" secondAttribute="bottom" constant="7" id="icm-81-lAj"/>
                             <constraint firstItem="aeO-0Z-pOE" firstAttribute="trailing" secondItem="RB2-SA-4tI" secondAttribute="trailing" id="sfd-I3-RiQ"/>
+                            <constraint firstItem="rkm-NS-fT9" firstAttribute="trailing" secondItem="aeO-0Z-pOE" secondAttribute="trailing" id="ucb-VL-vAf"/>
                         </constraints>
                     </view>
                 </viewController>

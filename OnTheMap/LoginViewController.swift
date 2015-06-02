@@ -40,7 +40,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 return
             }
             let newData = data.subdataWithRange(NSMakeRange(5, data.length - 5)) /* subset response data! */
-            println(NSString(data: newData, encoding: NSUTF8StringEncoding))
+            println(NSString(data: newData, encoding: NSUTF8StringEncoding) as! String)
             /*
             Optional({"account": {"registered": true, "key": "280195754"}, "session": {"id": "1464816385Sb5f1302a6d754bd54a7f63d5bb85bc9b", "expiration": "2015-08-01T21:26:25.946330Z"}})
             */
@@ -69,8 +69,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    // Get student locations, Parse API
-    func getStudentLocations(limit:Int = 100){
+    // Get student locations, via Parse API.  TODO: Change!!!!Using small number for testing
+    func getStudentLocations(){
         
         let request = NSMutableURLRequest(URL: NSURL(string: "https://api.parse.com/1/classes/StudentLocation")!)
         request.addValue("QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr", forHTTPHeaderField: "X-Parse-Application-Id")
@@ -80,7 +80,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             if error != nil { // Handle error...
                 return
             }
-            println(NSString(data: data, encoding: NSUTF8StringEncoding))
+            println(NSString(data: data, encoding: NSUTF8StringEncoding) as! String)
         }
         task.resume()
     }

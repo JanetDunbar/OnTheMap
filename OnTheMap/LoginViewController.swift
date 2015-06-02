@@ -40,7 +40,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 return
             }
             let newData = data.subdataWithRange(NSMakeRange(5, data.length - 5)) /* subset response data! */
-            println(NSString(data: newData, encoding: NSUTF8StringEncoding) as! String)
+            let loginString = NSString(data: newData, encoding: NSUTF8StringEncoding) as! String
+            println(loginString)
             /*
             Optional({"account": {"registered": true, "key": "280195754"}, "session": {"id": "1464816385Sb5f1302a6d754bd54a7f63d5bb85bc9b", "expiration": "2015-08-01T21:26:25.946330Z"}})
             */
@@ -80,7 +81,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             if error != nil { // Handle error...
                 return
             }
-            println(NSString(data: data, encoding: NSUTF8StringEncoding) as! String)
+            let studentLocationsString = NSString(data: data, encoding: NSUTF8StringEncoding) as! String
+            println(studentLocationsString)
         }
         task.resume()
     }

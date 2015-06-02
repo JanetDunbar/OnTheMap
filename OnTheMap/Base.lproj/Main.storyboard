@@ -160,13 +160,25 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aeO-0Z-pOE">
+                                <rect key="frame" x="175" y="328" width="250" height="44"/>
+                                <color key="backgroundColor" red="0.67632260870000005" green="0.92051799479999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="O2r-3l-NRF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="6OB-Hr-8fL" firstAttribute="centerX" secondItem="Feg-zN-y9y" secondAttribute="centerX" id="194-Zs-CDN"/>
+                            <constraint firstItem="aeO-0Z-pOE" firstAttribute="top" secondItem="RB2-SA-4tI" secondAttribute="bottom" constant="6" id="IiB-h1-ejV"/>
                             <constraint firstItem="RB2-SA-4tI" firstAttribute="centerX" secondItem="6OB-Hr-8fL" secondAttribute="centerX" id="M5o-Py-5nw"/>
                             <constraint firstItem="RB2-SA-4tI" firstAttribute="centerY" secondItem="Feg-zN-y9y" secondAttribute="centerY" id="Rrf-1J-X1c"/>
                             <constraint firstItem="6OB-Hr-8fL" firstAttribute="top" secondItem="IPH-x9-4dg" secondAttribute="bottom" constant="201" id="UX6-V6-Erc"/>
+                            <constraint firstItem="aeO-0Z-pOE" firstAttribute="leading" secondItem="RB2-SA-4tI" secondAttribute="leading" id="ZTg-Dm-8Q2"/>
+                            <constraint firstItem="aeO-0Z-pOE" firstAttribute="trailing" secondItem="RB2-SA-4tI" secondAttribute="trailing" id="sfd-I3-RiQ"/>
                         </constraints>
                     </view>
                 </viewController>

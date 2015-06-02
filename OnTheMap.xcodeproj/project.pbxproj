@@ -14,6 +14,7 @@
 		841828D61B1CC2DF002C8774 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 841828D51B1CC2DF002C8774 /* Images.xcassets */; };
 		841828D91B1CC2DF002C8774 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 841828D71B1CC2DF002C8774 /* LaunchScreen.xib */; };
 		841828E51B1CC2DF002C8774 /* OnTheMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841828E41B1CC2DF002C8774 /* OnTheMapTests.swift */; };
+		8446BB1D1B1D2A0700B37AF8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446BB1C1B1D2A0700B37AF8 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		841828DE1B1CC2DF002C8774 /* OnTheMapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OnTheMapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		841828E31B1CC2DF002C8774 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		841828E41B1CC2DF002C8774 /* OnTheMapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnTheMapTests.swift; sourceTree = "<group>"; };
+		8446BB1C1B1D2A0700B37AF8 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,13 +81,11 @@
 		841828CB1B1CC2DF002C8774 /* OnTheMap */ = {
 			isa = PBXGroup;
 			children = (
-				841828CE1B1CC2DF002C8774 /* AppDelegate.swift */,
-				841828D01B1CC2DF002C8774 /* MapDataViewController.swift */,
 				841828D21B1CC2DF002C8774 /* Main.storyboard */,
-				841828D51B1CC2DF002C8774 /* Images.xcassets */,
-				841828D71B1CC2DF002C8774 /* LaunchScreen.xib */,
-				841828CC1B1CC2DF002C8774 /* Supporting Files */,
+				8446BB1C1B1D2A0700B37AF8 /* LoginViewController.swift */,
+				841828D01B1CC2DF002C8774 /* MapDataViewController.swift */,
 				840E2C501B1D16CB005030FB /* InformationPostingViewController.swift */,
+				841828CC1B1CC2DF002C8774 /* Supporting Files */,
 			);
 			path = OnTheMap;
 			sourceTree = "<group>";
@@ -93,6 +93,9 @@
 		841828CC1B1CC2DF002C8774 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				841828D51B1CC2DF002C8774 /* Images.xcassets */,
+				841828CE1B1CC2DF002C8774 /* AppDelegate.swift */,
+				841828D71B1CC2DF002C8774 /* LaunchScreen.xib */,
 				841828CD1B1CC2DF002C8774 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -215,6 +218,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8446BB1D1B1D2A0700B37AF8 /* LoginViewController.swift in Sources */,
 				840E2C511B1D16CB005030FB /* InformationPostingViewController.swift in Sources */,
 				841828D11B1CC2DF002C8774 /* MapDataViewController.swift in Sources */,
 				841828CF1B1CC2DF002C8774 /* AppDelegate.swift in Sources */,

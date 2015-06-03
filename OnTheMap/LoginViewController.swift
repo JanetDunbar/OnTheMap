@@ -50,6 +50,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         task.resume()
         getStudentLocations()
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -81,9 +82,23 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             if error != nil { // Handle error...
                 return
             }
-            let studentLocationsString = NSString(data: data, encoding: NSUTF8StringEncoding) as! String
+            
+            var err: NSError?
+            
+            //var options
+            //let studentLocationsString = NSString(data: data, encoding: NSUTF8StringEncoding) as! String
+            let studentLocationsString = NSString(data: data, encoding: NSUTF8StringEncoding)
             println(studentLocationsString)
+            //let jsonObject: AnyObject! = NSJSONSerialization.JSONObjectWithData(data,
+            //options: NSJSONReadingOptions(0), error: &error)
+            if let convertedString: AnyObject! = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(0), error: &err){
+                println(convertedString)
+            }
+            else{
+                println("error from conversion = \(err)")
+            }
         }
+        
         task.resume()
     }
 

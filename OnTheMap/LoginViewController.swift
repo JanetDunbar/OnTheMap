@@ -93,7 +93,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             //options: NSJSONReadingOptions(0), error: &error)
             if let convertedString: AnyObject! = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(0), error: &err){
                 println(convertedString)
-            }
+                let dict = convertedString as! NSDictionary
+                println(dict)            }
             else{
                 println("error from conversion = \(err)")
             }

@@ -16,8 +16,8 @@ struct StudentInformation{
     var lastName  : String = ""
     var mapString : String = ""
     var mediaURL  : String = ""
-    var latitude  : Float  = 0
-    var longitude : Float  = 0
+    var latitude  : Double  = 0
+    var longitude : Double  = 0
     var objectId  : String = ""
     
     //var updatedAt:  String

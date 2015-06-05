@@ -91,10 +91,27 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             println(studentLocationsString)
             //let jsonObject: AnyObject! = NSJSONSerialization.JSONObjectWithData(data,
             //options: NSJSONReadingOptions(0), error: &error)
+/*
+            let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(0), error: &err) as! NSDictionary
+            //println(convertedString)
+            //let dict = convertedString as! NSDictionary
+            println(dict)
+            //let swiftDict:Dictionary = dict
+            if let results = dict.valueForKey("results") as? [[String : AnyObject]] {
+                var students = StudentInformation.studentInformationFromResults(results)
+            }
+            */
+            
             if let convertedString: AnyObject! = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(0), error: &err){
                 println(convertedString)
                 let dict = convertedString as! NSDictionary
-                println(dict)            }
+                println(dict)
+                //let swiftDict:Dictionary = dict
+                if let results = dict.valueForKey("results") as? [[String : AnyObject]] {
+                    var students = StudentInformation.studentInformationFromResults(results)
+                    println(students)
+                }
+            }
             else{
                 println("error from conversion = \(err)")
             }

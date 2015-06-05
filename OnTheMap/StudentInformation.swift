@@ -19,6 +19,59 @@ struct StudentInformation{
     var latitude  : Double  = 0
     var longitude : Double  = 0
     var objectId  : String = ""
+    //var coord: (Double, Double)
+    var updatedAt:  String?
+
+
+    // TODO:  !!!!Create a StudentInformation struct from a dictionary
+    init(dictionary: [String : AnyObject]) {
+        //Iterate through the keys in dictionary to initialize each property in StudentInformation
+
+        for (key, value) in dictionary{
+            
+            switch (key) {
+                case "uniqueKey":
+                    self.uniqueKey = value as! String
+                    break;
+                case "firstName":
+                    self.firstName = value as! String
+                    break;
+                case "lastName":
+                    self.lastName =  value as! String
+                    break;
+                case "mapString":
+                    self.mapString = value as! String
+                    break;
+                case "mediaURL":
+                    self.mediaURL =  value as! String
+                    break;
+                case "latitude":
+                    self.latitude =  value as! Double
+                    break;
+                case "longitude":
+                    self.longitude = value as! Double
+                    break;
+                case "objectId":
+                    self.objectId = value as! String
+                    break;
+                case "updatedAt":
+                    self.updatedAt =  value as! String
+                    break;
+                
+                default:
+                break;
+            }
+        }
+    }
     
-    //var updatedAt:  String
+    static func studentInformationFromResults(results: [[String : AnyObject]]) -> [StudentInformation] {   
+        var students = [StudentInformation]()
+        
+        for result in results {
+            students.append( StudentInformation(dictionary: result) )
+        }
+        
+        return students
+        
+    }
 }

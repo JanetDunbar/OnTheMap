@@ -7,9 +7,10 @@
 //
 
 import Foundation
-
+/*
 class DataModel{
+        
     
-    var ArrayOfStudentInformation = [StudentInformation]()
     
 }
+*/

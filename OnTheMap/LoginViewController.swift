@@ -110,6 +110,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 if let results = dict.valueForKey("results") as? [[String : AnyObject]] {
                     var students = StudentInformation.studentInformationFromResults(results)
                     println(students)
+                    self.completeLogin()
                 }
             }
             else{
@@ -118,6 +119,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
         
         task.resume()
+    }
+    
+    func completeLogin() {
+        dispatch_async(dispatch_get_main_queue(), {
+            self.debugLabel.text = ""
+            let controller = self.storyboard!.instantiateViewControllerWithIdentifier("MapTabBarController") as! UITabBarController
+            self.presentViewController(controller, animated: true, completion: nil)
+        })
     }
 
     /*

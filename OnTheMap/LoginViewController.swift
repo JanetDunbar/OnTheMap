@@ -108,8 +108,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 println(dict)
                 //let swiftDict:Dictionary = dict
                 if let results = dict.valueForKey("results") as? [[String : AnyObject]] {
-                    var students = StudentInformation.studentInformationFromResults(results)
-                    println(students)
+                    //var students = StudentInformation.studentInformationFromResults(results)
+                    Model.sharedInstance.students = StudentInformation.studentInformationFromResults(results)
+                    // Update model singleton with current data from server
+                    var students = Model.sharedInstance.students
+                    println(students[0])
                     self.completeLogin()
                 }
             }

@@ -1,5 +1,5 @@
 //
-//  MapDataViewController.swift
+//  MapViewController.swift
 //  OnTheMap
 //
 //  Created by Dr. Janet M. Dunbar on 6/1/15.
@@ -9,9 +9,14 @@
 import UIKit
 import MapKit
 
-class MapDataViewController: UIViewController {
+class MapViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
+    
+    var pin: MKPinAnnotationView?
+    //let studentArray = StudentInformation.StudentInformationFromResults()
+    
+    //func MakePinAnnotationFromStudentInformation()
     
     override func viewDidLoad() {
         super.viewDidLoad()

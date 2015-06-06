@@ -9,14 +9,14 @@
 /* Begin PBXBuildFile section */
 		840E2C511B1D16CB005030FB /* InformationPostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840E2C501B1D16CB005030FB /* InformationPostingViewController.swift */; };
 		841828CF1B1CC2DF002C8774 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841828CE1B1CC2DF002C8774 /* AppDelegate.swift */; };
-		841828D11B1CC2DF002C8774 /* MapDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841828D01B1CC2DF002C8774 /* MapDataViewController.swift */; };
+		841828D11B1CC2DF002C8774 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841828D01B1CC2DF002C8774 /* MapViewController.swift */; };
 		841828D41B1CC2DF002C8774 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 841828D21B1CC2DF002C8774 /* Main.storyboard */; };
 		841828D61B1CC2DF002C8774 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 841828D51B1CC2DF002C8774 /* Images.xcassets */; };
 		841828D91B1CC2DF002C8774 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 841828D71B1CC2DF002C8774 /* LaunchScreen.xib */; };
 		841828E51B1CC2DF002C8774 /* OnTheMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841828E41B1CC2DF002C8774 /* OnTheMapTests.swift */; };
 		8446BB1D1B1D2A0700B37AF8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446BB1C1B1D2A0700B37AF8 /* LoginViewController.swift */; };
 		845DA6C01B1D4F98006ADA2C /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845DA6BF1B1D4F98006ADA2C /* Client.swift */; };
-		84C2D6BA1B1F80F600546D7A /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C2D6B91B1F80F600546D7A /* DataModel.swift */; };
+		84C2D6BA1B1F80F600546D7A /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C2D6B91B1F80F600546D7A /* Model.swift */; };
 		84EC2B4B1B1D478E00084471 /* BorderedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EC2B4A1B1D478E00084471 /* BorderedButton.swift */; };
 		84F321BD1B1F6E26006BA869 /* StudentInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F321BC1B1F6E26006BA869 /* StudentInformation.swift */; };
 /* End PBXBuildFile section */
@@ -36,7 +36,7 @@
 		841828C91B1CC2DF002C8774 /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		841828CD1B1CC2DF002C8774 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		841828CE1B1CC2DF002C8774 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		841828D01B1CC2DF002C8774 /* MapDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDataViewController.swift; sourceTree = "<group>"; };
+		841828D01B1CC2DF002C8774 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		841828D31B1CC2DF002C8774 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		841828D51B1CC2DF002C8774 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		841828D81B1CC2DF002C8774 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -45,7 +45,7 @@
 		841828E41B1CC2DF002C8774 /* OnTheMapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnTheMapTests.swift; sourceTree = "<group>"; };
 		8446BB1C1B1D2A0700B37AF8 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		845DA6BF1B1D4F98006ADA2C /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
-		84C2D6B91B1F80F600546D7A /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		84C2D6B91B1F80F600546D7A /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		84EC2B4A1B1D478E00084471 /* BorderedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderedButton.swift; sourceTree = "<group>"; };
 		84F321BC1B1F6E26006BA869 /* StudentInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentInformation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -92,7 +92,7 @@
 				841828D21B1CC2DF002C8774 /* Main.storyboard */,
 				845DA6BF1B1D4F98006ADA2C /* Client.swift */,
 				84F321BC1B1F6E26006BA869 /* StudentInformation.swift */,
-				84C2D6B91B1F80F600546D7A /* DataModel.swift */,
+				84C2D6B91B1F80F600546D7A /* Model.swift */,
 				845DA6C11B1E674F006ADA2C /* ViewControllers */,
 				841828CC1B1CC2DF002C8774 /* Supporting Files */,
 				84EC2B4A1B1D478E00084471 /* BorderedButton.swift */,
@@ -132,7 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				8446BB1C1B1D2A0700B37AF8 /* LoginViewController.swift */,
-				841828D01B1CC2DF002C8774 /* MapDataViewController.swift */,
+				841828D01B1CC2DF002C8774 /* MapViewController.swift */,
 				840E2C501B1D16CB005030FB /* InformationPostingViewController.swift */,
 			);
 			name = ViewControllers;
@@ -241,10 +241,10 @@
 				84EC2B4B1B1D478E00084471 /* BorderedButton.swift in Sources */,
 				8446BB1D1B1D2A0700B37AF8 /* LoginViewController.swift in Sources */,
 				845DA6C01B1D4F98006ADA2C /* Client.swift in Sources */,
-				84C2D6BA1B1F80F600546D7A /* DataModel.swift in Sources */,
+				84C2D6BA1B1F80F600546D7A /* Model.swift in Sources */,
 				840E2C511B1D16CB005030FB /* InformationPostingViewController.swift in Sources */,
 				84F321BD1B1F6E26006BA869 /* StudentInformation.swift in Sources */,
-				841828D11B1CC2DF002C8774 /* MapDataViewController.swift in Sources */,
+				841828D11B1CC2DF002C8774 /* MapViewController.swift in Sources */,
 				841828CF1B1CC2DF002C8774 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -5,10 +5,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--TableView-->
         <scene sceneID="R4T-gU-Fw1">
             <objects>
-                <tableViewController id="T7h-Oa-9Yb" sceneMemberID="viewController">
+                <tableViewController title="TableView" id="T7h-Oa-9Yb" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="M6E-gM-ICD">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -35,10 +35,10 @@
             </objects>
             <point key="canvasLocation" x="1170" y="1083"/>
         </scene>
-        <!--Map-->
+        <!--MapView-->
         <scene sceneID="i9p-Fa-ixQ">
             <objects>
-                <viewController title="Map" id="G2F-yb-i40" sceneMemberID="viewController">
+                <viewController title="MapView" id="G2F-yb-i40" userLabel="MapView" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="C1k-ZJ-ZNM"/>
                         <viewControllerLayoutGuide type="bottom" id="B6j-Z2-raY"/>
@@ -218,7 +218,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3RH-zz-pGP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1125" y="848"/>
+            <point key="canvasLocation" x="-1085" y="762"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Sso-Je-ITy">
@@ -239,10 +239,10 @@
             </objects>
             <point key="canvasLocation" x="-417" y="762"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Map-->
         <scene sceneID="py6-qh-nDd">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lfa-w1-fIH" sceneMemberID="viewController">
+                <navigationController title="Map" automaticallyAdjustsScrollViewInsets="NO" id="lfa-w1-fIH" userLabel="Map" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="map" id="n3I-y7-hEV"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ohX-LM-kzu">
@@ -258,10 +258,10 @@
             </objects>
             <point key="canvasLocation" x="370" y="383"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Table-->
         <scene sceneID="xha-at-pHl">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XeK-nY-VtS" sceneMemberID="viewController">
+                <navigationController title="Table" automaticallyAdjustsScrollViewInsets="NO" id="XeK-nY-VtS" userLabel="Table" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="list" id="Kj6-Bo-kLF" userLabel="Table"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Zmb-27-sb0">

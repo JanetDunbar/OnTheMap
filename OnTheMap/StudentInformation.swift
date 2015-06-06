@@ -23,7 +23,7 @@ struct StudentInformation{
     var updatedAt:  String?
 
 
-    // TODO:  !!!!Create a StudentInformation struct from a dictionary
+    // TODO:  !!!!Test each case for validity
     init(dictionary: [String : AnyObject]) {
         //Iterate through the keys in dictionary to initialize each property in StudentInformation
 
@@ -55,7 +55,7 @@ struct StudentInformation{
                     self.objectId = value as! String
                     break;
                 case "updatedAt":
-                    self.updatedAt =  value as! String
+                    self.updatedAt =  value as? String
                     break;
                 
                 default:
@@ -74,4 +74,6 @@ struct StudentInformation{
         return students
         
     }
+
+    
 }

@@ -38,7 +38,7 @@
         <!--MapView-->
         <scene sceneID="i9p-Fa-ixQ">
             <objects>
-                <viewController title="MapView" id="G2F-yb-i40" userLabel="MapView" sceneMemberID="viewController">
+                <viewController title="MapView" id="G2F-yb-i40" userLabel="MapView" customClass="MapViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="C1k-ZJ-ZNM"/>
                         <viewControllerLayoutGuide type="bottom" id="B6j-Z2-raY"/>
@@ -67,6 +67,9 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="NCe-eB-xkh"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="mapView" destination="2Ck-Jg-N1H" id="b4v-x4-B2R"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OjX-Wu-3eX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

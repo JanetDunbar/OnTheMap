@@ -22,30 +22,61 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         
     }*/
     
-    
-    func makeStudentAnnotationFromStudentInformation(){
+    func makeStudentAnnotationFromStudentInformation(currentIndex:Int)-> StudentAnnotation{
         
     //Pin is showing, and map now centered on pin.
-    let annotationLocation = CLLocationCoordinate2D(latitude: -students[0].latitude, longitude: students[0].longitude)
+    var studentAnnotation: StudentAnnotation
+    let currentStudent = students[currentIndex]
+    let annotationLocation = CLLocationCoordinate2D(latitude: -currentStudent.latitude, longitude: students[currentIndex].longitude)
     println(annotationLocation)
-    let fullName = students[0].firstName + " " + students[0].lastName
+    let fullName = students[currentIndex].firstName + " " + currentStudent.lastName
     println("fullName = \(fullName)")
-    let url = students[0].mediaURL
+    let url = currentStudent.mediaURL
     
     var span = MKCoordinateSpanMake(100, 100)
     var region = MKCoordinateRegion(center: annotationLocation, span: span)
     
     mapView.setRegion(region, animated: true)
     
-    let studentAnnotation = StudentAnnotation(coordinate: annotationLocation, title: fullName, subtitle: url)
-    mapView.addAnnotation(studentAnnotation)
+    studentAnnotation = StudentAnnotation(coordinate: annotationLocation, title: fullName, subtitle: url)
+    return studentAnnotation
+    //mapView.addAnnotation(studentAnnotation)
     
+    }
+    
+    //untested - may need to change MKPinAnnotationView to MKAnnotationView?
+    func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
+        if let annotation = annotation as? StudentAnnotation {
+            let identifier = "pin"
+            var view: MKPinAnnotationView
+            if let dequeuedView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier)
+                as? MKPinAnnotationView { // 2
+                    dequeuedView.annotation = annotation
+                    view = dequeuedView
+            } else {
+                // 3
+                view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+                view.canShowCallout = true
+                view.calloutOffset = CGPoint(x: -5, y: 5)
+                view.rightCalloutAccessoryView = UIButton.buttonWithType(.DetailDisclosure) as! UIView
+            }
+            return view
+        }
+        return nil
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        makeStudentAnnotationFromStudentInformation()
-        
+        //makeStudentAnnotationFromStudentInformation()
+        mapView.delegate = self
+        var studentAnnotationArray = [AnyObject]()
+        for (currentIndex,student) in enumerate(students){
+            var studentAnnotation: AnyObject = makeStudentAnnotationFromStudentInformation(currentIndex) as AnyObject
+            println("studentAnnotation = \(studentAnnotation) in viewDidLoad")
+            studentAnnotationArray.append(studentAnnotation)
+        }
+        mapView.addAnnotations(studentAnnotationArray)
+
         
     }
 

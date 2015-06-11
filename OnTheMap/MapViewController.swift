@@ -23,7 +23,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     }*/
     
     
-    func makePinAnnotationFromStudentInformation(){
+    func makeStudentAnnotationFromStudentInformation(){
         
     //Pin is showing, and map now centered on pin.
     let annotationLocation = CLLocationCoordinate2D(latitude: -students[0].latitude, longitude: students[0].longitude)
@@ -44,7 +44,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        makePinAnnotationFromStudentInformation()
+        makeStudentAnnotationFromStudentInformation()
         
         
     }

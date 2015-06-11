@@ -41,13 +41,14 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         println(annotationLocation)
         let fullName = students[0].firstName + " " + students[0].lastName
         println("fullName = \(fullName)")
+        let url = students[0].mediaURL
         
         var span = MKCoordinateSpanMake(100, 100)
         var region = MKCoordinateRegion(center: annotationLocation, span: span)
         
         mapView.setRegion(region, animated: true)
 
-        let studentAnnotation = StudentAnnotation(title: fullName, coordinate: annotationLocation)
+        let studentAnnotation = StudentAnnotation(coordinate: annotationLocation, title: fullName, subtitle: url)
         mapView.addAnnotation(studentAnnotation)
         
         // Below code places pin on map but out of initial view.

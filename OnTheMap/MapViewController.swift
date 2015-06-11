@@ -13,11 +13,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
     var students = Model.sharedInstance.students
-    
-    
-    
-    
-    
 
         /*
     protocol MKAnnotation: NSObject{
@@ -30,21 +25,36 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
 //    func makePinAnnotationFromStudentInformation(student: StudentInformation){
 //        
-//        var annotation: StudentAnnotation
+//        var annotation: StudentAnnotation = []
 //        var student = students[0]
 //        
-//        annotation.title = student.firstName + "" +
+//        student.title = student.firstName + "" +
 //            student.lastName
+//    
 //            }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let annotationLocation = CLLocationCoordinate2D(latitude: -25.4283563, longitude: -49.2732515)
         
-        //let initialLocation = CLLocation(latitude: 21.282778, longitude: -157.829444)
-        // Do any additional setup after loading the view, typically from a nib.
-        let studentAnnotation = StudentAnnotation(title: "Thiago Ricieri", coordinate: annotationLocation)
+        //Pin is showing, but map not centered on pin.  Separate into its own function and call here.
+        let annotationLocation = CLLocationCoordinate2D(latitude: -students[0].latitude, longitude: students[0].longitude)
+        println(annotationLocation)
+        let fullName = students[0].firstName + " " + students[0].lastName
+        println("fullName = \(fullName)")
+        
+        var span = MKCoordinateSpanMake(100, 100)
+        var region = MKCoordinateRegion(center: annotationLocation, span: span)
+        
+        mapView.setRegion(region, animated: true)
+
+        let studentAnnotation = StudentAnnotation(title: fullName, coordinate: annotationLocation)
         mapView.addAnnotation(studentAnnotation)
+        
+        // Below code places pin on map but out of initial view.
+        
+//        let annotationLocation = CLLocationCoordinate2D(latitude: -25.4283563, longitude: -49.2732515)
+//        let studentAnnotation = StudentAnnotation(title: "Thiago Ricieri", coordinate: annotationLocation)
+//        mapView.addAnnotation(studentAnnotation)
     }
 
     override func didReceiveMemoryWarning() {

@@ -69,34 +69,41 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         super.viewDidLoad()
         //makeStudentAnnotationFromStudentInformation()
         mapView.delegate = self
-        var studentAnnotationArray = [AnyObject]()
         
-        for (currentIndex,student) in enumerate(students){
-            var studentAnnotation: AnyObject! = makeStudentAnnotationFromStudentInformation(currentIndex) as AnyObject
-            
-            println("studentAnnotation = \(studentAnnotation) in viewDidLoad")
-            
-            
-            studentAnnotationArray.append(studentAnnotation)
-        }
-        //mapView.addAnnotations(studentAnnotationArray)
-        
-        
-        mapView.showAnnotations(studentAnnotationArray, animated: true)
-        //mapView.showAnnotations(studentAnnotationArray, animated: true)
-
-        var finalRegion = mapView.region
-        //var finalRegion = mapView.setRegion(<#region: MKCoordinateRegion#>, animated: true)
-        //mapView.region = mapView.regionThatFits(finalRegion)
 
         
     }
-//    
-//    override func viewWillAppear(animated: Bool) {
-//        super.viewWillAppear(true)
-//        mapView.showAnnotations(studentAnnotationArray, animated: true)
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        
+    var studentAnnotationArray = [AnyObject]()
+    
+    for (currentIndex,student) in enumerate(students){
+    var studentAnnotation: AnyObject! = makeStudentAnnotationFromStudentInformation(currentIndex) as AnyObject
+    
+    println("studentAnnotation = \(studentAnnotation) in viewDidLoad")
+    
+    
+    studentAnnotationArray.append(studentAnnotation)
+    }
+    //mapView.addAnnotations(studentAnnotationArray)
+    
+    
+    mapView.addAnnotations(studentAnnotationArray)
+    //mapView.showAnnotations(studentAnnotationArray, animated: true)
+    
+    var finalRegion = mapView.region
+    //var finalRegion = mapView.setRegion(<#region: MKCoordinateRegion#>, animated: true)
+    //mapView.region = mapView.regionThatFits(finalRegion)
 //
-//    }
+//    
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(true)
+        mapView.showAnnotations(mapView.annotations, animated: true)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

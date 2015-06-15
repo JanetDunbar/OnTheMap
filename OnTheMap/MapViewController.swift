@@ -24,23 +24,23 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     func makeStudentAnnotationFromStudentInformation(currentIndex:Int)-> StudentAnnotation{
         
-    //Pin is showing, and map now centered on pin.
-    var studentAnnotation: StudentAnnotation
-    let currentStudent = students[currentIndex]
-    let annotationLocation = CLLocationCoordinate2D(latitude: -currentStudent.latitude, longitude: students[currentIndex].longitude)
-    println(annotationLocation)
-    let fullName = students[currentIndex].firstName + " " + currentStudent.lastName
-    println("fullName = \(fullName)")
-    let url = currentStudent.mediaURL
-    
-    var span = MKCoordinateSpanMake(100, 100)
-    var region = MKCoordinateRegion(center: annotationLocation, span: span)
-    
-    mapView.setRegion(region, animated: true)
-    
-    studentAnnotation = StudentAnnotation(coordinate: annotationLocation, title: fullName, subtitle: url)
-    return studentAnnotation
-    //mapView.addAnnotation(studentAnnotation)
+        //Pin is showing, and map now centered on pin.
+        var studentAnnotation: StudentAnnotation
+        let currentStudent = students[currentIndex]
+        let annotationLocation = CLLocationCoordinate2D(latitude: currentStudent.latitude, longitude: students[currentIndex].longitude)
+        println(annotationLocation)
+        let fullName = students[currentIndex].firstName + " " + currentStudent.lastName
+        println("fullName = \(fullName)")
+        let url = currentStudent.mediaURL
+        
+        var span = MKCoordinateSpanMake(100, 100)
+        var region = MKCoordinateRegion(center: annotationLocation, span: span)
+        
+        mapView.setRegion(region, animated: true)
+        
+        studentAnnotation = StudentAnnotation(coordinate: annotationLocation, title: fullName, subtitle: url)
+        return studentAnnotation
+        //mapView.addAnnotation(studentAnnotation)
     
     }
     
@@ -70,12 +70,20 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         //makeStudentAnnotationFromStudentInformation()
         mapView.delegate = self
         var studentAnnotationArray = [AnyObject]()
+        
         for (currentIndex,student) in enumerate(students){
             var studentAnnotation: AnyObject = makeStudentAnnotationFromStudentInformation(currentIndex) as AnyObject
+            
             println("studentAnnotation = \(studentAnnotation) in viewDidLoad")
+            
+            
             studentAnnotationArray.append(studentAnnotation)
         }
         mapView.addAnnotations(studentAnnotationArray)
+        var finalRegion = mapView.region
+        //mapView.showAnnotations(studentAnnotationArray, animated: true)
+
+        println("mapView.region = \(mapView.region)")
 
         
     }

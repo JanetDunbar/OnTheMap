@@ -67,11 +67,9 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //makeStudentAnnotationFromStudentInformation()
+        // Set up mapViewDelegate.
         mapView.delegate = self
-        
-
-        
+       
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -84,20 +82,10 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     println("studentAnnotation = \(studentAnnotation) in viewDidLoad")
     
-    
     studentAnnotationArray.append(studentAnnotation)
     }
-    //mapView.addAnnotations(studentAnnotationArray)
-    
-    
+   
     mapView.addAnnotations(studentAnnotationArray)
-    //mapView.showAnnotations(studentAnnotationArray, animated: true)
-    
-    var finalRegion = mapView.region
-    //var finalRegion = mapView.setRegion(<#region: MKCoordinateRegion#>, animated: true)
-    //mapView.region = mapView.regionThatFits(finalRegion)
-//
-//    
     }
     
     override func viewDidAppear(animated: Bool) {

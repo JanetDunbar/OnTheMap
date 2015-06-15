@@ -72,21 +72,31 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         var studentAnnotationArray = [AnyObject]()
         
         for (currentIndex,student) in enumerate(students){
-            var studentAnnotation: AnyObject = makeStudentAnnotationFromStudentInformation(currentIndex) as AnyObject
+            var studentAnnotation: AnyObject! = makeStudentAnnotationFromStudentInformation(currentIndex) as AnyObject
             
             println("studentAnnotation = \(studentAnnotation) in viewDidLoad")
             
             
             studentAnnotationArray.append(studentAnnotation)
         }
-        mapView.addAnnotations(studentAnnotationArray)
-        var finalRegion = mapView.region
+        //mapView.addAnnotations(studentAnnotationArray)
+        
+        
+        mapView.showAnnotations(studentAnnotationArray, animated: true)
         //mapView.showAnnotations(studentAnnotationArray, animated: true)
 
-        println("mapView.region = \(mapView.region)")
+        var finalRegion = mapView.region
+        //var finalRegion = mapView.setRegion(<#region: MKCoordinateRegion#>, animated: true)
+        //mapView.region = mapView.regionThatFits(finalRegion)
 
         
     }
+//    
+//    override func viewWillAppear(animated: Bool) {
+//        super.viewWillAppear(true)
+//        mapView.showAnnotations(studentAnnotationArray, animated: true)
+//
+//    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -40,9 +40,11 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         
         studentAnnotation = StudentAnnotation(coordinate: annotationLocation, title: fullName, subtitle: url)
         return studentAnnotation
-        //mapView.addAnnotation(studentAnnotation)
     
     }
+  
+    
+
     
     //untested - may need to change MKPinAnnotationView to MKAnnotationView?
     func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
@@ -65,6 +67,11 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         return nil
     }
     
+    func mapView(mapView: MKMapView!, annotationView view: MKAnnotationView!, calloutAccessoryControlTapped control: UIControl!) {
+        
+        UIApplication.sharedApplication().openURL(NSURL(string: view.annotation.subtitle!)!)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Set up mapViewDelegate.
@@ -75,17 +82,17 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         
-    var studentAnnotationArray = [AnyObject]()
-    
-    for (currentIndex,student) in enumerate(students){
-    var studentAnnotation: AnyObject! = makeStudentAnnotationFromStudentInformation(currentIndex) as AnyObject
-    
-    println("studentAnnotation = \(studentAnnotation) in viewDidLoad")
-    
-    studentAnnotationArray.append(studentAnnotation)
-    }
-   
-    mapView.addAnnotations(studentAnnotationArray)
+        var studentAnnotationArray = [AnyObject]()
+        
+        for (currentIndex,student) in enumerate(students){
+        var studentAnnotation: AnyObject! = makeStudentAnnotationFromStudentInformation(currentIndex) as AnyObject
+        
+        println("studentAnnotation = \(studentAnnotation) in viewDidLoad")
+        
+        studentAnnotationArray.append(studentAnnotation)
+        }
+       
+        mapView.addAnnotations(studentAnnotationArray)
     }
     
     override func viewDidAppear(animated: Bool) {

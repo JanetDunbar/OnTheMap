@@ -33,6 +33,7 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
         let separator  = " "
         // Configure the cell...
         cell.textLabel?.text = currentElement.firstName + separator + currentElement.lastName
+        cell.detailTextLabel?.text = currentElement.mediaURL
         println(currentElement.firstName + separator + currentElement.lastName)
         //cell.imageView?.image = currentElement.memedImage
         
@@ -44,6 +45,14 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
         // Return the number of rows in the section.
         return students.count
     }
-
-
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        //UIApplication.sharedApplication().openURL(NSURL(string: view.annotation.subtitle!)!)
+        if let tableCell = tableView.cellForRowAtIndexPath(indexPath){
+            let text = tableCell.detailTextLabel?.text
+            println(text)
+            //UIApplication.sharedApplication().openURL(NSURL(string: tableCell!.detailTextLabel?.text))
+            UIApplication.sharedApplication().openURL(NSURL(string: tableCell.detailTextLabel!.text!)!)
+        }
+    }
 }

@@ -75,7 +75,6 @@ class InformationPostingViewController: UIViewController, UITextFieldDelegate, M
         let secondsFromNow = 1.0
         dispatch_after(dispatch_time (DISPATCH_TIME_NOW, Int64(secondsFromNow * Double(NSEC_PER_SEC))), dispatch_get_main_queue()){
             self.activityIndicatorView.stopAnimating()
-
         }
     }
 
@@ -93,31 +92,28 @@ class InformationPostingViewController: UIViewController, UITextFieldDelegate, M
         }
         
         if placemarks.count > 0 {
-        let placemark = placemarks[0] as! CLPlacemark
-        let location = placemark.location
-        //self.coords = location.coordinate
-        
-        println("\(location.coordinate.latitude) \(location.coordinate.longitude)")
-        let annotationLocation = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-        println(annotationLocation)
-        let url = ""
+            let placemark = placemarks[0] as! CLPlacemark
+            let location = placemark.location
+            println("\(location.coordinate.latitude) \(location.coordinate.longitude)")
+            let annotationLocation = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+            println(annotationLocation)
             
-        var span = MKCoordinateSpanMake(100, 100)
-        var region = MKCoordinateRegion(center: annotationLocation, span: span)
-        
-        self.mapView.setRegion(region, animated: true)
-        
-        let studentAnnotation = StudentAnnotation(coordinate: annotationLocation, title: "", subtitle: "")
-        //studentAnnotation = StudentAnnotation(coordinate: annotationLocation, title: fullName, subtitle: url)
-        //return annotation
+            let url = ""
+                
+            var span = MKCoordinateSpanMake(100, 100)
+            var region = MKCoordinateRegion(center: annotationLocation, span: span)
             
-        self.secondState()
-        self.mapView.addAnnotation(studentAnnotation)
+            self.mapView.setRegion(region, animated: true)
+            
+            let studentAnnotation = StudentAnnotation(coordinate: annotationLocation, title: "", subtitle: "")
+            //studentAnnotation = StudentAnnotation(coordinate: annotationLocation, title: fullName, subtitle: url)
+            //return annotation
+                
+            self.secondState()
+            self.mapView.addAnnotation(studentAnnotation)
 
-        }
-        
+            }
         })
-        
     }
     
     

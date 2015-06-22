@@ -10,19 +10,51 @@ import UIKit
 import MapKit
 
 
-class InformationPostingViewController: UIViewController, UITextFieldDelegate {
+class InformationPostingViewController: UIViewController, UITextFieldDelegate, MKMapViewDelegate {
 
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     @IBOutlet weak var address: UITextField!
+    @IBOutlet weak var whereAreYouStudying: UILabel!
+    @IBOutlet weak var findOnTheMap: UIButton!
+    
+    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var enterALink: UILabel!
+    @IBOutlet weak var url: UITextField!
+    @IBOutlet weak var submit: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         address.delegate = self
+        url.delegate = self
+        mapView.delegate = self
         activityIndicatorView.hidesWhenStopped = true
-
+        initialState()
         
+    }
+    
+    func initialState(){
+        address.hidden = false
+        whereAreYouStudying.hidden = false
+        findOnTheMap.hidden = false
+        
+        mapView.hidden = true
+        enterALink.hidden = true
+        url.hidden = true
+        submit.hidden = true
+    }
+    
+    func secondState(){
+        address.hidden = true
+        whereAreYouStudying.hidden = true
+        findOnTheMap.hidden = true
+        
+        mapView.hidden = false
+        enterALink.hidden = false
+        url.hidden = false
+        submit.hidden = false
     }
 
     override func didReceiveMemoryWarning() {
@@ -67,6 +99,7 @@ class InformationPostingViewController: UIViewController, UITextFieldDelegate {
         }
         
         })
+        secondState()
     }
 
     

@@ -101,6 +101,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="HAg-kj-7EP">
+                                <rect key="frame" x="0.0" y="265" width="600" height="335"/>
+                            </mapView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Where are you studying today?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="viX-C2-1ca">
                                 <rect key="frame" x="220" y="103" width="161" height="103"/>
                                 <constraints>
@@ -132,26 +135,69 @@
                                 <rect key="frame" x="281" y="431" width="37" height="37"/>
                                 <color key="color" red="1" green="0.56183449074074077" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter a link to share here." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8N3-wi-qRr">
+                                <rect key="frame" x="187" y="68" width="227" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="F6r-FZ-eRr"/>
+                                    <constraint firstAttribute="width" constant="227" id="MUG-Ei-5Z7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wDQ-8N-1yp" userLabel="Url">
+                                <rect key="frame" x="50" y="227" width="499" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NFH-AQ-5jh">
+                                <rect key="frame" x="259" y="418" width="82" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="82" id="kXA-gD-Vsx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Submit">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="4Pl-EA-fsf" firstAttribute="leading" secondItem="nP2-tM-Ghp" secondAttribute="leadingMargin" constant="34" id="5De-TA-br5"/>
                             <constraint firstItem="dTt-Yh-Zyv" firstAttribute="top" secondItem="viX-C2-1ca" secondAttribute="bottom" constant="394" id="7T9-lI-AZO"/>
+                            <constraint firstItem="8N3-wi-qRr" firstAttribute="top" secondItem="O9X-7T-HD6" secondAttribute="bottom" constant="48" id="GTW-GQ-7Il"/>
                             <constraint firstItem="viX-C2-1ca" firstAttribute="top" secondItem="O9X-7T-HD6" secondAttribute="bottom" constant="83" id="LgQ-Lj-CO5"/>
+                            <constraint firstItem="HAg-kj-7EP" firstAttribute="bottom" secondItem="dTt-Yh-Zyv" secondAttribute="top" id="NEE-J6-Le5"/>
+                            <constraint firstItem="wDQ-8N-1yp" firstAttribute="leading" secondItem="4Pl-EA-fsf" secondAttribute="leading" id="Qfo-y1-dMi"/>
                             <constraint firstItem="Fv5-Ec-3r9" firstAttribute="centerX" secondItem="viX-C2-1ca" secondAttribute="centerX" id="R0Z-Dz-Nbm"/>
                             <constraint firstItem="dTt-Yh-Zyv" firstAttribute="top" secondItem="unY-vX-5RK" secondAttribute="bottom" constant="132" id="S7D-oV-kGe"/>
                             <constraint firstAttribute="centerX" secondItem="unY-vX-5RK" secondAttribute="centerX" id="Tpj-k2-OKx"/>
                             <constraint firstItem="Fv5-Ec-3r9" firstAttribute="top" secondItem="4Pl-EA-fsf" secondAttribute="bottom" constant="62" id="dPx-ZS-tKp"/>
                             <constraint firstAttribute="trailingMargin" secondItem="4Pl-EA-fsf" secondAttribute="trailing" constant="35" id="eUT-Kh-IPZ"/>
                             <constraint firstItem="dTt-Yh-Zyv" firstAttribute="top" secondItem="Fv5-Ec-3r9" secondAttribute="bottom" constant="210" id="jXm-qN-zYs"/>
+                            <constraint firstItem="HAg-kj-7EP" firstAttribute="top" secondItem="wDQ-8N-1yp" secondAttribute="bottom" constant="8" symbolic="YES" id="lPL-v0-44P"/>
                             <constraint firstItem="4Pl-EA-fsf" firstAttribute="centerY" secondItem="nP2-tM-Ghp" secondAttribute="centerY" id="m4G-7b-Z0v"/>
+                            <constraint firstItem="NFH-AQ-5jh" firstAttribute="top" secondItem="Fv5-Ec-3r9" secondAttribute="bottom" constant="28" id="mtJ-U6-Gpy"/>
+                            <constraint firstItem="dTt-Yh-Zyv" firstAttribute="top" secondItem="NFH-AQ-5jh" secondAttribute="bottom" constant="152" id="olg-On-Odf"/>
+                            <constraint firstItem="NFH-AQ-5jh" firstAttribute="centerX" secondItem="Fv5-Ec-3r9" secondAttribute="centerX" id="qtO-pe-2xt"/>
+                            <constraint firstItem="wDQ-8N-1yp" firstAttribute="trailing" secondItem="4Pl-EA-fsf" secondAttribute="trailing" id="spZ-ZF-Hm0"/>
+                            <constraint firstItem="HAg-kj-7EP" firstAttribute="centerX" secondItem="Fv5-Ec-3r9" secondAttribute="centerX" id="twt-ow-oot"/>
+                            <constraint firstItem="HAg-kj-7EP" firstAttribute="leading" secondItem="nP2-tM-Ghp" secondAttribute="leading" id="vO1-GH-DDJ"/>
                             <constraint firstItem="viX-C2-1ca" firstAttribute="centerX" secondItem="nP2-tM-Ghp" secondAttribute="centerX" id="vcz-fo-flB"/>
+                            <constraint firstItem="HAg-kj-7EP" firstAttribute="top" secondItem="viX-C2-1ca" secondAttribute="bottom" constant="59" id="vr6-Fa-nvs"/>
+                            <constraint firstItem="8N3-wi-qRr" firstAttribute="centerX" secondItem="viX-C2-1ca" secondAttribute="centerX" id="xMT-Qw-hmf"/>
                             <constraint firstItem="unY-vX-5RK" firstAttribute="top" secondItem="Fv5-Ec-3r9" secondAttribute="bottom" constant="41" id="zSF-RE-Ry7"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="activityIndicatorView" destination="unY-vX-5RK" id="nGd-47-VLz"/>
                         <outlet property="address" destination="4Pl-EA-fsf" id="SVv-bO-uhX"/>
+                        <outlet property="enterALink" destination="8N3-wi-qRr" id="99H-mB-uzX"/>
+                        <outlet property="findOnTheMap" destination="Fv5-Ec-3r9" id="d5z-WE-p09"/>
+                        <outlet property="mapView" destination="HAg-kj-7EP" id="OId-7V-lX0"/>
+                        <outlet property="submit" destination="NFH-AQ-5jh" id="gde-k0-34a"/>
+                        <outlet property="url" destination="wDQ-8N-1yp" id="8Lh-sT-gLr"/>
+                        <outlet property="whereAreYouStudying" destination="viX-C2-1ca" id="NnR-Oq-6lV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PWk-jo-gp3" userLabel="First Responder" sceneMemberID="firstResponder"/>

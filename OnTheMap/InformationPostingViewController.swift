@@ -12,6 +12,7 @@ import MapKit
 
 class InformationPostingViewController: UIViewController, UITextFieldDelegate {
 
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     @IBOutlet weak var address: UITextField!
     
     override func viewDidLoad() {
@@ -19,6 +20,7 @@ class InformationPostingViewController: UIViewController, UITextFieldDelegate {
 
         // Do any additional setup after loading the view.
         address.delegate = self
+        activityIndicatorView.hidesWhenStopped = true
 
         
     }
@@ -34,7 +36,14 @@ class InformationPostingViewController: UIViewController, UITextFieldDelegate {
         //let address = "350 5th Avenue New York, NY"
         println(address)
         let mapString = address.text
+        activityIndicatorView.startAnimating()
         forwardGeocode(mapString)
+        
+        let secondsFromNow = 1.0
+        dispatch_after(dispatch_time (DISPATCH_TIME_NOW, Int64(secondsFromNow * Double(NSEC_PER_SEC))), dispatch_get_main_queue()){
+            self.activityIndicatorView.stopAnimating()
+
+        }
     }
 
     func forwardGeocode(mapString: String!){

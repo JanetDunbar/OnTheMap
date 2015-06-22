@@ -116,7 +116,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fv5-Ec-3r9">
-                                <rect key="frame" x="229" y="377" width="143" height="30"/>
+                                <rect key="frame" x="229" y="377" width="143" height="13"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="143" id="TOC-ME-oAw"/>
                                 </constraints>
@@ -128,6 +128,10 @@
                                     <action selector="findOnTheMap:" destination="uuR-OF-J1Q" eventType="touchUpInside" id="Nnc-gV-bVj"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="unY-vX-5RK">
+                                <rect key="frame" x="281" y="431" width="37" height="37"/>
+                                <color key="color" red="1" green="0.56183449074074077" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -135,14 +139,18 @@
                             <constraint firstItem="dTt-Yh-Zyv" firstAttribute="top" secondItem="viX-C2-1ca" secondAttribute="bottom" constant="394" id="7T9-lI-AZO"/>
                             <constraint firstItem="viX-C2-1ca" firstAttribute="top" secondItem="O9X-7T-HD6" secondAttribute="bottom" constant="83" id="LgQ-Lj-CO5"/>
                             <constraint firstItem="Fv5-Ec-3r9" firstAttribute="centerX" secondItem="viX-C2-1ca" secondAttribute="centerX" id="R0Z-Dz-Nbm"/>
+                            <constraint firstItem="dTt-Yh-Zyv" firstAttribute="top" secondItem="unY-vX-5RK" secondAttribute="bottom" constant="132" id="S7D-oV-kGe"/>
+                            <constraint firstAttribute="centerX" secondItem="unY-vX-5RK" secondAttribute="centerX" id="Tpj-k2-OKx"/>
                             <constraint firstItem="Fv5-Ec-3r9" firstAttribute="top" secondItem="4Pl-EA-fsf" secondAttribute="bottom" constant="62" id="dPx-ZS-tKp"/>
                             <constraint firstAttribute="trailingMargin" secondItem="4Pl-EA-fsf" secondAttribute="trailing" constant="35" id="eUT-Kh-IPZ"/>
-                            <constraint firstItem="dTt-Yh-Zyv" firstAttribute="top" secondItem="Fv5-Ec-3r9" secondAttribute="bottom" constant="193" id="jXm-qN-zYs"/>
+                            <constraint firstItem="dTt-Yh-Zyv" firstAttribute="top" secondItem="Fv5-Ec-3r9" secondAttribute="bottom" constant="210" id="jXm-qN-zYs"/>
                             <constraint firstItem="4Pl-EA-fsf" firstAttribute="centerY" secondItem="nP2-tM-Ghp" secondAttribute="centerY" id="m4G-7b-Z0v"/>
                             <constraint firstItem="viX-C2-1ca" firstAttribute="centerX" secondItem="nP2-tM-Ghp" secondAttribute="centerX" id="vcz-fo-flB"/>
+                            <constraint firstItem="unY-vX-5RK" firstAttribute="top" secondItem="Fv5-Ec-3r9" secondAttribute="bottom" constant="41" id="zSF-RE-Ry7"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicatorView" destination="unY-vX-5RK" id="nGd-47-VLz"/>
                         <outlet property="address" destination="4Pl-EA-fsf" id="SVv-bO-uhX"/>
                     </connections>
                 </viewController>

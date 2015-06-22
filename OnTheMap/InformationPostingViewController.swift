@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import Foundation
 
 
 class InformationPostingViewController: UIViewController, UITextFieldDelegate, MKMapViewDelegate {
@@ -81,6 +82,7 @@ class InformationPostingViewController: UIViewController, UITextFieldDelegate, M
     func forwardGeocode(mapString: String!){
         let geoCoder = CLGeocoder()
         
+        
         geoCoder.geocodeAddressString(mapString,
         completionHandler:
         {(placemarks: [AnyObject]!, error: NSError!) in
@@ -96,19 +98,27 @@ class InformationPostingViewController: UIViewController, UITextFieldDelegate, M
         //self.coords = location.coordinate
         
         println("\(location.coordinate.latitude) \(location.coordinate.longitude)")
+        let annotationLocation = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+        println(annotationLocation)
+        let url = ""
+            
+        var span = MKCoordinateSpanMake(100, 100)
+        var region = MKCoordinateRegion(center: annotationLocation, span: span)
+        
+        self.mapView.setRegion(region, animated: true)
+        
+        let studentAnnotation = StudentAnnotation(coordinate: annotationLocation, title: "", subtitle: "")
+        //studentAnnotation = StudentAnnotation(coordinate: annotationLocation, title: fullName, subtitle: url)
+        //return annotation
+            
+        self.secondState()
+        self.mapView.addAnnotation(studentAnnotation)
+
         }
         
         })
-        secondState()
+        
     }
-
-    
-//    func mapLocation(){
-//        
-//        let coords = CLLocationCoordinate2DMake(40.7483, -73.984911)
-//        
-//        let place = MKPlacemark(coordinate: coords, addressDictionary: address)
-//    }
     
     
 

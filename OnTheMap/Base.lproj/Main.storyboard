@@ -110,7 +110,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="4Pl-EA-fsf">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="4Pl-EA-fsf" userLabel="Address">
                                 <rect key="frame" x="50" y="285" width="499" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -124,6 +124,9 @@
                                 <state key="normal" title="Find on the Map">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="findOnTheMap:" destination="uuR-OF-J1Q" eventType="touchUpInside" id="Nnc-gV-bVj"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -139,6 +142,9 @@
                             <constraint firstItem="viX-C2-1ca" firstAttribute="centerX" secondItem="nP2-tM-Ghp" secondAttribute="centerX" id="vcz-fo-flB"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="address" destination="4Pl-EA-fsf" id="SVv-bO-uhX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PWk-jo-gp3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -23,6 +23,10 @@ class InformationPostingViewController: UIViewController, UITextFieldDelegate, M
     @IBOutlet weak var url: UITextField!
     @IBOutlet weak var submit: UIButton!
     
+    var newLatitude = 0.0
+    var newLongitude = 0.0
+    var mediaUrl = ""
+    var mapString = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,7 +72,7 @@ class InformationPostingViewController: UIViewController, UITextFieldDelegate, M
         
         //let address = "350 5th Avenue New York, NY"
         println(address)
-        let mapString = address.text
+        mapString = address.text
         activityIndicatorView.startAnimating()
         forwardGeocode(mapString)
         
@@ -95,6 +99,8 @@ class InformationPostingViewController: UIViewController, UITextFieldDelegate, M
             let placemark = placemarks[0] as! CLPlacemark
             let location = placemark.location
             println("\(location.coordinate.latitude) \(location.coordinate.longitude)")
+            self.newLatitude = location.coordinate.latitude
+            self.newLongitude = location.coordinate.longitude
             let annotationLocation = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
             println(annotationLocation)
             
@@ -116,6 +122,14 @@ class InformationPostingViewController: UIViewController, UITextFieldDelegate, M
         })
     }
     
+
+    @IBAction func submitNewLocationAndUrl(sender: UIButton) {
+        
+        println("mapString = \(mapString)")
+        println("mediaUrl = \(url.text)")
+        println("newLatitude = \(newLatitude)")
+        println("newLongitude = \(newLongitude)")
+    }
     
 
     /*

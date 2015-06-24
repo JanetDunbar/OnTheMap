@@ -164,6 +164,11 @@ class InformationPostingViewController: UIViewController, UITextFieldDelegate, M
         task.resume()
     }
     
+    @IBAction func cancel(sender: UIBarButtonItem) {
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
+        
+    }
 
     /*
     // MARK: - Navigation

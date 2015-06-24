@@ -166,7 +166,11 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="akB-tG-TtT">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
-                                    <barButtonItem systemItem="cancel" id="emN-ic-fS6"/>
+                                    <barButtonItem systemItem="cancel" id="emN-ic-fS6">
+                                        <connections>
+                                            <action selector="cancel:" destination="uuR-OF-J1Q" id="boW-5F-ycs"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>

@@ -34,6 +34,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let un = username.text
         let pw = password.text
         request.HTTPBody = "{\"udacity\": {\"username\": \"\(un)\", \"password\": \"\(pw)\"}}".dataUsingEncoding(NSUTF8StringEncoding)
+        println("LoginVC request.HTTPBody = \(request.HTTPBody)")
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(request) { data, response, error in
             if error != nil { // Handle error…
@@ -41,7 +42,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             }
             let newData = data.subdataWithRange(NSMakeRange(5, data.length - 5)) /* subset response data! */
             let loginString = NSString(data: newData, encoding: NSUTF8StringEncoding) as! String
-            println(loginString)
+            println("loginString = \(loginString)")
             /*
             Optional({"account": {"registered": true, "key": "280195754"}, "session": {"id": "1464816385Sb5f1302a6d754bd54a7f63d5bb85bc9b", "expiration": "2015-08-01T21:26:25.946330Z"}})
             */
@@ -88,7 +89,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             //var options
             //let studentLocationsString = NSString(data: data, encoding: NSUTF8StringEncoding) as! String
             let studentLocationsString = NSString(data: data, encoding: NSUTF8StringEncoding)
-            println(studentLocationsString)
+            println("studentLocationsString = \(studentLocationsString)")
             //let jsonObject: AnyObject! = NSJSONSerialization.JSONObjectWithData(data,
             //options: NSJSONReadingOptions(0), error: &error)
 /*

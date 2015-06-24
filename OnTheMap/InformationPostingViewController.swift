@@ -25,7 +25,7 @@ class InformationPostingViewController: UIViewController, UITextFieldDelegate, M
     
     var newLatitude = 0.0
     var newLongitude = 0.0
-    var mediaUrl = ""
+    //var mediaUrl = ""
     var mapString = ""
     
     override func viewDidLoad() {
@@ -73,6 +73,7 @@ class InformationPostingViewController: UIViewController, UITextFieldDelegate, M
         //let address = "350 5th Avenue New York, NY"
         println(address)
         mapString = address.text
+        
         activityIndicatorView.startAnimating()
         forwardGeocode(mapString)
         
@@ -122,6 +123,11 @@ class InformationPostingViewController: UIViewController, UITextFieldDelegate, M
         })
     }
     
+    func reformatString(string: String)->String{
+        
+        let aString = "\"\(string)\""
+        return aString
+    }
 
     @IBAction func submitNewLocationAndUrl(sender: UIButton) {
         
@@ -130,19 +136,29 @@ class InformationPostingViewController: UIViewController, UITextFieldDelegate, M
         println("newLatitude = \(newLatitude)")
         println("newLongitude = \(newLongitude)")
         
+        // Reformat strings.
+        let reformattedMapString = reformatString(mapString)
+        let reformattedUrl = reformatString(url.text)
+        
         let request = NSMutableURLRequest(URL: NSURL(string: "https://api.parse.com/1/classes/StudentLocation")!)
         request.HTTPMethod = "POST"
         request.addValue("QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr", forHTTPHeaderField: "X-Parse-Application-Id")
         request.addValue("QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY", forHTTPHeaderField: "X-Parse-REST-API-Key")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         //request.HTTPBody = "{\"uniqueKey\": \"1234\", \"firstName\": \"John\", \"lastName\": \"Doe\",\"mapString\": \"Mountain View, CA\", \"mediaURL\": \"https://udacity.com\",\"latitude\": 37.386052, \"longitude\": -122.083851}".dataUsingEncoding(NSUTF8StringEncoding)
-        request.HTTPBody = "{\"uniqueKey\": \"1234\", \"firstName\": \"John\", \"lastName\": \"Doe\",\"mapString\": \"Mountain View, CA\", \"mediaURL\": \"https://udacity.com\",\"latitude\": 37.386052, \"longitude\": -122.083851}".dataUsingEncoding(NSUTF8StringEncoding)
+        //request.HTTPBody = "{\"uniqueKey\": \"jmd@ccrma.stanford.edu\", \"firstName\": \"Janet\", \"lastName\": \"Dunbar\", \"mapString\": \"\(mapString)\", \"mediaURL\": \"\(url.text)\", \"latitude\": newLatitude, \"longitude\": newLongitude}".dataUsingEncoding(NSUTF8StringEncoding)
+        //request.HTTPBody = "{\"uniqueKey\": \"jmd@ccrma.stanford.edu\", \"mapString\": \"\(mapString)\", \"mediaURL\": \"\(url.text)\", \"latitude\": newLatitude, \"longitude\": newLongitude}".dataUsingEncoding(NSUTF8StringEncoding)
+        
+        request.HTTPBody = "{\"uniqueKey\": \"1234\", \"firstName\": \"Janet\", \"lastName\": \"Dunbar\",\"mapString\": \"Mountain View, CA\", \"mediaURL\": \"https://udacity.com\",\"latitude\": 37.386052, \"longitude\": -122.083851}".dataUsingEncoding(NSUTF8StringEncoding)
+        println("request.HTTPBody = \(request.HTTPBody)")
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(request) { data, response, error in
             if error != nil { // Handle error…
+                println("Error, task, InformationPostingViewController")
                 return
             }
-            println(NSString(data: data, encoding: NSUTF8StringEncoding))
+            let studentLocationString = NSString(data: data, encoding: NSUTF8StringEncoding) as! String
+            println("studentLocationString = \(studentLocationString)")
         }
         task.resume()
     }

@@ -149,7 +149,13 @@ class InformationPostingViewController: UIViewController, UITextFieldDelegate, M
         //request.HTTPBody = "{\"uniqueKey\": \"jmd@ccrma.stanford.edu\", \"firstName\": \"Janet\", \"lastName\": \"Dunbar\", \"mapString\": \"\(mapString)\", \"mediaURL\": \"\(url.text)\", \"latitude\": newLatitude, \"longitude\": newLongitude}".dataUsingEncoding(NSUTF8StringEncoding)
         //request.HTTPBody = "{\"uniqueKey\": \"jmd@ccrma.stanford.edu\", \"mapString\": \"\(mapString)\", \"mediaURL\": \"\(url.text)\", \"latitude\": newLatitude, \"longitude\": newLongitude}".dataUsingEncoding(NSUTF8StringEncoding)
         
-        request.HTTPBody = "{\"uniqueKey\": \"1234\", \"firstName\": \"Janet\", \"lastName\": \"Dunbar\",\"mapString\": \"Mountain View, CA\", \"mediaURL\": \"https://udacity.com\",\"latitude\": 37.386052, \"longitude\": -122.083851}".dataUsingEncoding(NSUTF8StringEncoding)
+        // This version posts correctly with only firstName and lastName hard-coded.
+        //request.HTTPBody = "{\"uniqueKey\": \"1234\", \"firstName\": \"Janet\", \"lastName\": \"Dunbar\",\"mapString\": \"Mountain View, CA\", \"mediaURL\": \"https://udacity.com\",\"latitude\": 37.386052, \"longitude\": -122.083851}".dataUsingEncoding(NSUTF8StringEncoding)
+        // This version now accepting url.text.  Required to be logged in to post/
+        //request.HTTPBody = "{\"uniqueKey\": \"1234\", \"firstName\": \"Janet\", \"lastName\": \"Dunbar\",\"mapString\": \"Mountain View, CA\", \"mediaURL\": \"\(url.text)\",\"latitude\": 37.386052, \"longitude\": -122.083851}".dataUsingEncoding(NSUTF8StringEncoding)
+        request.HTTPBody = "{\"uniqueKey\": \"1234\", \"firstName\": \"Janet\", \"lastName\": \"Dunbar\",\"mapString\": \"\(mapString)\", \"mediaURL\": \"\(url.text)\",\"latitude\": \(newLatitude), \"longitude\": \(newLongitude)}".dataUsingEncoding(NSUTF8StringEncoding)
+        println("request.HTTPBody = \(request.HTTPBody)")
+
         println("request.HTTPBody = \(request.HTTPBody)")
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(request) { data, response, error in

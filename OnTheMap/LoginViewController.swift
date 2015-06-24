@@ -12,6 +12,7 @@ import Foundation
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
 
+    @IBOutlet weak var udacityImage: UIImageView!
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var loginButton: BorderedButton!
@@ -58,6 +59,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         // Do any additional setup after loading the view.
         username.delegate = self
         password.delegate = self
+        udacityImage.image = UIImage(named: "udacity")
     }
     
     // After typing in a textField, user presses return to end input for that textField.

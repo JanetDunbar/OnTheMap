@@ -228,7 +228,7 @@
                         <viewControllerLayoutGuide type="top" id="IPH-x9-4dg"/>
                         <viewControllerLayoutGuide type="bottom" id="MRC-YL-j5K"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Feg-zN-y9y">
+                    <view key="view" contentMode="scaleAspectFit" id="Feg-zN-y9y">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -284,17 +284,26 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iLF-fU-kGQ">
+                                <rect key="frame" x="200" y="20" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="2Pt-Me-Fgo"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="0.56183449070000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="6OB-Hr-8fL" firstAttribute="centerX" secondItem="Feg-zN-y9y" secondAttribute="centerX" id="194-Zs-CDN"/>
                             <constraint firstItem="Bv1-eQ-8pV" firstAttribute="trailing" secondItem="rkm-NS-fT9" secondAttribute="trailing" id="1IX-Rs-2Jy"/>
+                            <constraint firstItem="6OB-Hr-8fL" firstAttribute="top" secondItem="iLF-fU-kGQ" secondAttribute="bottom" constant="1" id="4uP-Hk-Ze9"/>
                             <constraint firstItem="rkm-NS-fT9" firstAttribute="leading" secondItem="aeO-0Z-pOE" secondAttribute="leading" id="BhC-x1-XlD"/>
                             <constraint firstItem="Bv1-eQ-8pV" firstAttribute="top" secondItem="rkm-NS-fT9" secondAttribute="bottom" constant="20" id="FdQ-50-HCs"/>
                             <constraint firstItem="aeO-0Z-pOE" firstAttribute="top" secondItem="RB2-SA-4tI" secondAttribute="bottom" constant="6" id="IiB-h1-ejV"/>
                             <constraint firstItem="RB2-SA-4tI" firstAttribute="centerX" secondItem="6OB-Hr-8fL" secondAttribute="centerX" id="M5o-Py-5nw"/>
+                            <constraint firstAttribute="centerX" secondItem="iLF-fU-kGQ" secondAttribute="centerX" id="PcO-Mn-xch"/>
                             <constraint firstItem="RB2-SA-4tI" firstAttribute="centerY" secondItem="Feg-zN-y9y" secondAttribute="centerY" id="Rrf-1J-X1c"/>
                             <constraint firstItem="6OB-Hr-8fL" firstAttribute="top" secondItem="IPH-x9-4dg" secondAttribute="bottom" constant="201" id="UX6-V6-Erc"/>
+                            <constraint firstItem="iLF-fU-kGQ" firstAttribute="top" secondItem="IPH-x9-4dg" secondAttribute="bottom" id="WvK-xK-4Ua"/>
                             <constraint firstItem="aeO-0Z-pOE" firstAttribute="leading" secondItem="RB2-SA-4tI" secondAttribute="leading" id="ZTg-Dm-8Q2"/>
                             <constraint firstItem="Bv1-eQ-8pV" firstAttribute="leading" secondItem="rkm-NS-fT9" secondAttribute="leading" id="dM4-Ky-OSM"/>
                             <constraint firstItem="rkm-NS-fT9" firstAttribute="top" secondItem="aeO-0Z-pOE" secondAttribute="bottom" constant="7" id="icm-81-lAj"/>
@@ -306,6 +315,7 @@
                         <outlet property="debugLabel" destination="Bv1-eQ-8pV" id="moL-Fw-xEJ"/>
                         <outlet property="loginButton" destination="rkm-NS-fT9" id="nKI-JT-LXN"/>
                         <outlet property="password" destination="aeO-0Z-pOE" id="TL1-dy-Grd"/>
+                        <outlet property="udacityImage" destination="iLF-fU-kGQ" id="ekS-Ww-70p"/>
                         <outlet property="username" destination="RB2-SA-4tI" id="1ql-3g-iA4"/>
                     </connections>
                 </viewController>

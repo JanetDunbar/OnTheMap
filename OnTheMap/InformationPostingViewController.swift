@@ -145,15 +145,10 @@ class InformationPostingViewController: UIViewController, UITextFieldDelegate, M
         request.addValue("QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr", forHTTPHeaderField: "X-Parse-Application-Id")
         request.addValue("QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY", forHTTPHeaderField: "X-Parse-REST-API-Key")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        //request.HTTPBody = "{\"uniqueKey\": \"1234\", \"firstName\": \"John\", \"lastName\": \"Doe\",\"mapString\": \"Mountain View, CA\", \"mediaURL\": \"https://udacity.com\",\"latitude\": 37.386052, \"longitude\": -122.083851}".dataUsingEncoding(NSUTF8StringEncoding)
-        //request.HTTPBody = "{\"uniqueKey\": \"jmd@ccrma.stanford.edu\", \"firstName\": \"Janet\", \"lastName\": \"Dunbar\", \"mapString\": \"\(mapString)\", \"mediaURL\": \"\(url.text)\", \"latitude\": newLatitude, \"longitude\": newLongitude}".dataUsingEncoding(NSUTF8StringEncoding)
-        //request.HTTPBody = "{\"uniqueKey\": \"jmd@ccrma.stanford.edu\", \"mapString\": \"\(mapString)\", \"mediaURL\": \"\(url.text)\", \"latitude\": newLatitude, \"longitude\": newLongitude}".dataUsingEncoding(NSUTF8StringEncoding)
         
-        // This version posts correctly with only firstName and lastName hard-coded.
-        //request.HTTPBody = "{\"uniqueKey\": \"1234\", \"firstName\": \"Janet\", \"lastName\": \"Dunbar\",\"mapString\": \"Mountain View, CA\", \"mediaURL\": \"https://udacity.com\",\"latitude\": 37.386052, \"longitude\": -122.083851}".dataUsingEncoding(NSUTF8StringEncoding)
-        // This version now accepting url.text.  Required to be logged in to post/
-        //request.HTTPBody = "{\"uniqueKey\": \"1234\", \"firstName\": \"Janet\", \"lastName\": \"Dunbar\",\"mapString\": \"Mountain View, CA\", \"mediaURL\": \"\(url.text)\",\"latitude\": 37.386052, \"longitude\": -122.083851}".dataUsingEncoding(NSUTF8StringEncoding)
+        // Post student location and ul; mapString, newLatitude and newLongitude post correctly.
         request.HTTPBody = "{\"uniqueKey\": \"1234\", \"firstName\": \"Janet\", \"lastName\": \"Dunbar\",\"mapString\": \"\(mapString)\", \"mediaURL\": \"\(url.text)\",\"latitude\": \(newLatitude), \"longitude\": \(newLongitude)}".dataUsingEncoding(NSUTF8StringEncoding)
+        
         println("request.HTTPBody = \(request.HTTPBody)")
 
         println("request.HTTPBody = \(request.HTTPBody)")

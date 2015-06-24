@@ -163,14 +163,22 @@
                                     <action selector="submitNewLocationAndUrl:" destination="uuR-OF-J1Q" eventType="touchUpInside" id="DBZ-ch-u2F"/>
                                 </connections>
                             </button>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="akB-tG-TtT">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem systemItem="cancel" id="emN-ic-fS6"/>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="4Pl-EA-fsf" firstAttribute="leading" secondItem="nP2-tM-Ghp" secondAttribute="leadingMargin" constant="34" id="5De-TA-br5"/>
                             <constraint firstItem="dTt-Yh-Zyv" firstAttribute="top" secondItem="viX-C2-1ca" secondAttribute="bottom" constant="394" id="7T9-lI-AZO"/>
+                            <constraint firstItem="akB-tG-TtT" firstAttribute="trailing" secondItem="HAg-kj-7EP" secondAttribute="trailing" id="8d8-qE-Ggk"/>
                             <constraint firstItem="8N3-wi-qRr" firstAttribute="top" secondItem="O9X-7T-HD6" secondAttribute="bottom" constant="48" id="GTW-GQ-7Il"/>
                             <constraint firstItem="viX-C2-1ca" firstAttribute="top" secondItem="O9X-7T-HD6" secondAttribute="bottom" constant="83" id="LgQ-Lj-CO5"/>
                             <constraint firstItem="HAg-kj-7EP" firstAttribute="bottom" secondItem="dTt-Yh-Zyv" secondAttribute="top" id="NEE-J6-Le5"/>
+                            <constraint firstItem="akB-tG-TtT" firstAttribute="bottom" secondItem="dTt-Yh-Zyv" secondAttribute="top" id="Q1J-JJ-c4k"/>
                             <constraint firstItem="wDQ-8N-1yp" firstAttribute="leading" secondItem="4Pl-EA-fsf" secondAttribute="leading" id="Qfo-y1-dMi"/>
                             <constraint firstItem="Fv5-Ec-3r9" firstAttribute="centerX" secondItem="viX-C2-1ca" secondAttribute="centerX" id="R0Z-Dz-Nbm"/>
                             <constraint firstItem="dTt-Yh-Zyv" firstAttribute="top" secondItem="unY-vX-5RK" secondAttribute="bottom" constant="132" id="S7D-oV-kGe"/>
@@ -184,6 +192,7 @@
                             <constraint firstItem="dTt-Yh-Zyv" firstAttribute="top" secondItem="NFH-AQ-5jh" secondAttribute="bottom" constant="152" id="olg-On-Odf"/>
                             <constraint firstItem="NFH-AQ-5jh" firstAttribute="centerX" secondItem="Fv5-Ec-3r9" secondAttribute="centerX" id="qtO-pe-2xt"/>
                             <constraint firstItem="wDQ-8N-1yp" firstAttribute="trailing" secondItem="4Pl-EA-fsf" secondAttribute="trailing" id="spZ-ZF-Hm0"/>
+                            <constraint firstItem="akB-tG-TtT" firstAttribute="leading" secondItem="HAg-kj-7EP" secondAttribute="leading" id="t75-hl-PPD"/>
                             <constraint firstItem="HAg-kj-7EP" firstAttribute="centerX" secondItem="Fv5-Ec-3r9" secondAttribute="centerX" id="twt-ow-oot"/>
                             <constraint firstItem="HAg-kj-7EP" firstAttribute="leading" secondItem="nP2-tM-Ghp" secondAttribute="leading" id="vO1-GH-DDJ"/>
                             <constraint firstItem="viX-C2-1ca" firstAttribute="centerX" secondItem="nP2-tM-Ghp" secondAttribute="centerX" id="vcz-fo-flB"/>

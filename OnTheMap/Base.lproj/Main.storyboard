@@ -80,19 +80,20 @@
                             <constraint firstItem="2Ck-Jg-N1H" firstAttribute="top" secondItem="isk-kd-ugJ" secondAttribute="top" id="u91-jj-mI1"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="0Sc-zw-Xde">
-                        <barButtonItem key="leftBarButtonItem" image="pin" id="A54-Vf-Eb4" userLabel="Post">
-                            <connections>
-                                <segue destination="uuR-OF-J1Q" kind="presentation" id="9zj-Cy-itq"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="NCe-eB-xkh"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="0Sc-zw-Xde"/>
                     <connections>
                         <outlet property="mapView" destination="2Ck-Jg-N1H" id="b4v-x4-B2R"/>
+                        <outlet property="post" destination="3KK-pR-0j4" id="OX5-gV-usk"/>
+                        <outlet property="refresh" destination="ssv-wh-wzR" id="VNd-Gl-vge"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OjX-Wu-3eX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <barButtonItem systemItem="refresh" id="ssv-wh-wzR"/>
+                <barButtonItem image="pin" id="3KK-pR-0j4" userLabel="Post">
+                    <connections>
+                        <segue destination="uuR-OF-J1Q" kind="presentation" id="Awd-qE-0Md"/>
+                    </connections>
+                </barButtonItem>
             </objects>
             <point key="canvasLocation" x="1182" y="383"/>
         </scene>
@@ -308,6 +309,6 @@
         <image name="pin" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hgf-Lv-Mt7"/>
+        <segue reference="Awd-qE-0Md"/>
     </inferredMetricsTieBreakers>
 </document>

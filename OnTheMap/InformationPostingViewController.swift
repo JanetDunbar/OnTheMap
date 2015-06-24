@@ -67,6 +67,10 @@ class InformationPostingViewController: UIViewController, UITextFieldDelegate, M
         // Dispose of any resources that can be recreated.
     }
     
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
     
     @IBAction func findOnTheMap(sender: AnyObject) {
         
@@ -162,8 +166,10 @@ class InformationPostingViewController: UIViewController, UITextFieldDelegate, M
             println("studentLocationString = \(studentLocationString)")
         }
         task.resume()
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
+    // On iPhone6 device, now not dismissing on submit.
     @IBAction func cancel(sender: UIBarButtonItem) {
         
         self.dismissViewControllerAnimated(true, completion: nil)

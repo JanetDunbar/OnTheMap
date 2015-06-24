@@ -40,12 +40,19 @@
                             <outlet property="delegate" destination="T7h-Oa-9Yb" id="Y1A-ft-XRl"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Nbv-gR-eIC">
-                        <barButtonItem key="leftBarButtonItem" image="pin" id="Ptk-Fg-1Zm" userLabel="Post"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="eFB-eI-QXp"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="Nbv-gR-eIC"/>
+                    <connections>
+                        <outlet property="post" destination="YDO-ab-7y9" id="ODv-3Q-RQQ"/>
+                        <outlet property="refresh" destination="WH8-v7-9fD" id="AUB-0Y-kGX"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gBh-yg-PZZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <barButtonItem systemItem="refresh" id="WH8-v7-9fD"/>
+                <barButtonItem image="pin" id="YDO-ab-7y9" userLabel="Post">
+                    <connections>
+                        <segue destination="uuR-OF-J1Q" kind="presentation" id="hgf-Lv-Mt7"/>
+                    </connections>
+                </barButtonItem>
             </objects>
             <point key="canvasLocation" x="1170" y="1083"/>
         </scene>
@@ -300,4 +307,7 @@
         <image name="map" width="32" height="32"/>
         <image name="pin" width="32" height="32"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="hgf-Lv-Mt7"/>
+    </inferredMetricsTieBreakers>
 </document>

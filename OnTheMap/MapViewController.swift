@@ -27,6 +27,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     //TODO:  Finish!!!!!
     @IBAction func logout(sender: UIBarButtonItem) {
+
+    // See branch LogoutFunctionality for noncompiling code.
         
         
     }

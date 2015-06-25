@@ -248,7 +248,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="Sso-Je-ITy">
             <objects>
-                <tabBarController storyboardIdentifier="MapTabBarController" id="Ac0-7m-gI0" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarController" id="Ac0-7m-gI0" customClass="TabBarController" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="QWM-au-59E">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
@@ -261,6 +261,7 @@
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Z8-vU-dcb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <barButtonItem title="Logout" id="qcb-ej-I17"/>
             </objects>
             <point key="canvasLocation" x="-417" y="762"/>
         </scene>

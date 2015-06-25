@@ -45,6 +45,7 @@
 		841828DE1B1CC2DF002C8774 /* OnTheMapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OnTheMapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		841828E31B1CC2DF002C8774 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		841828E41B1CC2DF002C8774 /* OnTheMapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnTheMapTests.swift; sourceTree = "<group>"; };
+		841B44351B3B7D8D00B72C68 /* Base */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Base; path = OnTheMap/Base.lproj/TabBarController.swift; sourceTree = "<group>"; };
 		8426EE931B23D51000E95551 /* StudentAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentAnnotation.swift; sourceTree = "<group>"; };
 		8446BB1C1B1D2A0700B37AF8 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		845DA6BF1B1D4F98006ADA2C /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
@@ -135,6 +136,7 @@
 		845DA6C11B1E674F006ADA2C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				841B44341B3B7D8D00B72C68 /* TabBarController.swift */,
 				847040191B335262008A1C9F /* TableViewController.swift */,
 				8446BB1C1B1D2A0700B37AF8 /* LoginViewController.swift */,
 				841828D01B1CC2DF002C8774 /* MapViewController.swift */,
@@ -290,6 +292,15 @@
 				841828D81B1CC2DF002C8774 /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		841B44341B3B7D8D00B72C68 /* TabBarController.swift */ = {
+			isa = PBXVariantGroup;
+			children = (
+				841B44351B3B7D8D00B72C68 /* Base */,
+			);
+			name = TabBarController.swift;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

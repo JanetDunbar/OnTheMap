@@ -40,12 +40,19 @@
                             <outlet property="delegate" destination="T7h-Oa-9Yb" id="Y1A-ft-XRl"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Nbv-gR-eIC">
-                        <barButtonItem key="leftBarButtonItem" image="pin" id="Ptk-Fg-1Zm" userLabel="Post"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="eFB-eI-QXp"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="Nbv-gR-eIC"/>
+                    <connections>
+                        <outlet property="post" destination="YDO-ab-7y9" id="ODv-3Q-RQQ"/>
+                        <outlet property="refresh" destination="WH8-v7-9fD" id="AUB-0Y-kGX"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gBh-yg-PZZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <barButtonItem systemItem="refresh" id="WH8-v7-9fD"/>
+                <barButtonItem image="pin" id="YDO-ab-7y9" userLabel="Post">
+                    <connections>
+                        <segue destination="uuR-OF-J1Q" kind="presentation" id="hgf-Lv-Mt7"/>
+                    </connections>
+                </barButtonItem>
             </objects>
             <point key="canvasLocation" x="1170" y="1083"/>
         </scene>
@@ -73,19 +80,20 @@
                             <constraint firstItem="2Ck-Jg-N1H" firstAttribute="top" secondItem="isk-kd-ugJ" secondAttribute="top" id="u91-jj-mI1"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="0Sc-zw-Xde">
-                        <barButtonItem key="leftBarButtonItem" image="pin" id="A54-Vf-Eb4" userLabel="Post">
-                            <connections>
-                                <segue destination="uuR-OF-J1Q" kind="presentation" id="9zj-Cy-itq"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="NCe-eB-xkh"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="0Sc-zw-Xde"/>
                     <connections>
                         <outlet property="mapView" destination="2Ck-Jg-N1H" id="b4v-x4-B2R"/>
+                        <outlet property="post" destination="3KK-pR-0j4" id="OX5-gV-usk"/>
+                        <outlet property="refresh" destination="ssv-wh-wzR" id="VNd-Gl-vge"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OjX-Wu-3eX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <barButtonItem systemItem="refresh" id="ssv-wh-wzR"/>
+                <barButtonItem image="pin" id="3KK-pR-0j4" userLabel="Post">
+                    <connections>
+                        <segue destination="uuR-OF-J1Q" kind="presentation" id="Awd-qE-0Md"/>
+                    </connections>
+                </barButtonItem>
             </objects>
             <point key="canvasLocation" x="1182" y="383"/>
         </scene>
@@ -329,7 +337,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="Sso-Je-ITy">
             <objects>
-                <tabBarController storyboardIdentifier="MapTabBarController" id="Ac0-7m-gI0" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarController" id="Ac0-7m-gI0" customClass="TabBarController" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="QWM-au-59E">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
@@ -342,6 +350,7 @@
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Z8-vU-dcb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <barButtonItem title="Logout" id="qcb-ej-I17"/>
             </objects>
             <point key="canvasLocation" x="-417" y="762"/>
         </scene>
@@ -389,4 +398,7 @@
         <image name="map" width="32" height="32"/>
         <image name="pin" width="32" height="32"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Awd-qE-0Md"/>
+    </inferredMetricsTieBreakers>
 </document>

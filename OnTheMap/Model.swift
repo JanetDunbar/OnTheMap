@@ -12,7 +12,7 @@ class Model{
     
     var students = [StudentInformation]()
     
-    //Make soft singleton
+    // Make soft singleton
     class var sharedInstance: Model{
         
         struct Statics{

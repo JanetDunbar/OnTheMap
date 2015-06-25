@@ -11,6 +11,9 @@ import MapKit
 
 class MapViewController: UIViewController, MKMapViewDelegate {
 
+    @IBOutlet var refresh: UIBarButtonItem!
+    @IBOutlet var post: UIBarButtonItem!
+    
     @IBOutlet weak var mapView: MKMapView!
     var students = Model.sharedInstance.students
 
@@ -76,6 +79,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         super.viewDidLoad()
         // Set up mapViewDelegate.
         mapView.delegate = self
+        self.navigationItem.rightBarButtonItems = [refresh, post]
        
     }
     

@@ -11,11 +11,17 @@ import UIKit
 
 class TableViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate {
     
+    // TODO:  Check if these button outlets need to be weak
+    @IBOutlet var refresh: UIBarButtonItem!
+    
+    @IBOutlet var post: UIBarButtonItem!
+    
     var students = Model.sharedInstance.students
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = 100
+        self.navigationItem.rightBarButtonItems = [refresh, post]
         
     }
     

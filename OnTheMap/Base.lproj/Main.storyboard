@@ -40,7 +40,11 @@
                             <outlet property="delegate" destination="T7h-Oa-9Yb" id="Y1A-ft-XRl"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Nbv-gR-eIC"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="Nbv-gR-eIC">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="Ays-zA-s9L"/>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="post" destination="YDO-ab-7y9" id="ODv-3Q-RQQ"/>
                         <outlet property="refresh" destination="WH8-v7-9fD" id="AUB-0Y-kGX"/>
@@ -80,8 +84,11 @@
                             <constraint firstItem="2Ck-Jg-N1H" firstAttribute="top" secondItem="isk-kd-ugJ" secondAttribute="top" id="u91-jj-mI1"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="0Sc-zw-Xde"/>
+                    <navigationItem key="navigationItem" id="0Sc-zw-Xde">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="KYM-qm-E64"/>
+                    </navigationItem>
                     <connections>
+                        <outlet property="logout" destination="KYM-qm-E64" id="DYB-8U-bgS"/>
                         <outlet property="mapView" destination="2Ck-Jg-N1H" id="b4v-x4-B2R"/>
                         <outlet property="post" destination="3KK-pR-0j4" id="OX5-gV-usk"/>
                         <outlet property="refresh" destination="ssv-wh-wzR" id="VNd-Gl-vge"/>
@@ -350,7 +357,6 @@
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Z8-vU-dcb" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <barButtonItem title="Logout" id="qcb-ej-I17"/>
             </objects>
             <point key="canvasLocation" x="-417" y="762"/>
         </scene>
@@ -358,7 +364,7 @@
         <scene sceneID="py6-qh-nDd">
             <objects>
                 <navigationController title="Map" automaticallyAdjustsScrollViewInsets="NO" id="lfa-w1-fIH" userLabel="Map" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="map" id="n3I-y7-hEV"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="map" id="n3I-y7-hEV"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ohX-LM-kzu">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -377,7 +383,7 @@
         <scene sceneID="xha-at-pHl">
             <objects>
                 <navigationController title="Table" automaticallyAdjustsScrollViewInsets="NO" id="XeK-nY-VtS" userLabel="Table" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="list" id="Kj6-Bo-kLF" userLabel="Table"/>
+                    <tabBarItem key="tabBarItem" title="Table" image="list" id="Kj6-Bo-kLF" userLabel="Table"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Zmb-27-sb0">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -399,6 +405,6 @@
         <image name="pin" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hgf-Lv-Mt7"/>
+        <segue reference="Awd-qE-0Md"/>
     </inferredMetricsTieBreakers>
 </document>

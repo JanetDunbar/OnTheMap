@@ -15,6 +15,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet var post: UIBarButtonItem!
     
     @IBOutlet weak var mapView: MKMapView!
+    
     var students = Model.sharedInstance.students
 
         /*

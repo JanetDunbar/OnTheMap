@@ -334,10 +334,10 @@
             </objects>
             <point key="canvasLocation" x="-1085" y="762"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Map Tab Bar Controller-->
         <scene sceneID="Sso-Je-ITy">
             <objects>
-                <tabBarController storyboardIdentifier="MapTabBarController" id="Ac0-7m-gI0" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MapTabBarController" id="Ac0-7m-gI0" userLabel="Map Tab Bar Controller" customClass="MapTabBarController" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="QWM-au-59E">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>

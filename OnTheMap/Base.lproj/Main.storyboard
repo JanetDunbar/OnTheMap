@@ -334,10 +334,10 @@
             </objects>
             <point key="canvasLocation" x="-1085" y="762"/>
         </scene>
-        <!--Map Tab Bar Controller-->
+        <!--MapTabBarController-->
         <scene sceneID="Sso-Je-ITy">
             <objects>
-                <tabBarController storyboardIdentifier="MapTabBarController" id="Ac0-7m-gI0" userLabel="Map Tab Bar Controller" customClass="MapTabBarController" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MapTabBarController" id="Ac0-7m-gI0" userLabel="MapTabBarController" customClass="MapTabBarController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="QWM-au-59E">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
@@ -399,6 +399,6 @@
         <image name="pin" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Awd-qE-0Md"/>
+        <segue reference="hgf-Lv-Mt7"/>
     </inferredMetricsTieBreakers>
 </document>

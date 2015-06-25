@@ -80,7 +80,13 @@
                             <constraint firstItem="2Ck-Jg-N1H" firstAttribute="top" secondItem="isk-kd-ugJ" secondAttribute="top" id="u91-jj-mI1"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="0Sc-zw-Xde"/>
+                    <navigationItem key="navigationItem" id="0Sc-zw-Xde">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="cxD-GK-Zrd">
+                            <connections>
+                                <action selector="logout:" destination="G2F-yb-i40" id="us6-ma-S5L"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="2Ck-Jg-N1H" id="b4v-x4-B2R"/>
                         <outlet property="post" destination="3KK-pR-0j4" id="OX5-gV-usk"/>
@@ -399,6 +405,6 @@
         <image name="pin" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hgf-Lv-Mt7"/>
+        <segue reference="Awd-qE-0Md"/>
     </inferredMetricsTieBreakers>
 </document>

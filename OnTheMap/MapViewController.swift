@@ -25,6 +25,12 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         
     }*/
     
+    //TODO:  Finish!!!!!
+    @IBAction func logout(sender: UIBarButtonItem) {
+        
+        
+    }
+    
     func makeStudentAnnotationFromStudentInformation(currentIndex:Int)-> StudentAnnotation{
         
         //Pin is showing, and map now centered on pin.

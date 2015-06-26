@@ -29,6 +29,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let pwd = password.text
         let client = Client()
         client.loginWithClient(un, pw: pwd)
+        getStudentLocations()
        
     }
     

@@ -39,7 +39,7 @@ class Client {
         }
         task.resume()
         
-        // TODO:!!!! Is still in loginViewController-move?????
+        // TODO:!!!! Is now in login func of LoginViewController-move?????
         //getStudentLocations()
     }
     

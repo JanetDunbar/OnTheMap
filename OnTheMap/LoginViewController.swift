@@ -30,7 +30,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let client = Client()
         client.loginWithClient(un, pw: pwd)
         getStudentLocations()
-       
     }
     
     override func viewDidLoad() {

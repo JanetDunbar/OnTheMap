@@ -21,10 +21,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBAction func login(sender: AnyObject) {
         
         // Create dictionary of userNames and passwords
-        var udacity = ["username": "", "password": ""]
-        udacity["username"] = username.text
-        //println("username = /(username.text)")
-        udacity["password"] = password.text
+//        var udacity = ["username": "", "password": ""]
+//        udacity["username"] = username.text
+//        //println("username = /(username.text)")
+//        udacity["password"] = password.text
         let un = username.text
         let pwd = password.text
         let client = Client()

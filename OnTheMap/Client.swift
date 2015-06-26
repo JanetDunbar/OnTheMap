@@ -10,7 +10,7 @@ import Foundation
 
 class Client {
     
-    func loginWithClient(un:String!, pw: String!){
+    func loginToUdacity(un:String!, pw: String!){
         
         let request = NSMutableURLRequest(URL: NSURL(string: "https://www.udacity.com/api/session")!)
         request.HTTPMethod = "POST"

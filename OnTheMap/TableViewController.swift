@@ -16,7 +16,7 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
     
     @IBOutlet weak var post: UIBarButtonItem!
     
-    var students = Model.sharedInstance.students
+//    var students = Model.sharedInstance.students
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,13 +29,14 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        
         self.tableView.reloadData()
     }
     
     // Create cell; add its data.
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("TableViewCell", forIndexPath: indexPath) as! UITableViewCell
-        let currentElement = students[indexPath.row]
+        let currentElement = Model.sharedInstance.students[indexPath.row]
         let separator  = " "
         // Configure the cell...
         cell.textLabel?.text = currentElement.firstName + separator + currentElement.lastName
@@ -49,7 +50,7 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         // Return the number of rows in the section.
-        return students.count
+        return Model.sharedInstance.students.count
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

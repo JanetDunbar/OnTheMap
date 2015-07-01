@@ -11,8 +11,8 @@ import MapKit
 
 class MapViewController: UIViewController, MKMapViewDelegate {
 
-    @IBOutlet weak var refresh: UIBarButtonItem!
-    @IBOutlet weak var post: UIBarButtonItem!
+    @IBOutlet var refresh: UIBarButtonItem!
+    @IBOutlet var post: UIBarButtonItem!
     
     @IBOutlet weak var mapView: MKMapView!
     var students = Model.sharedInstance.students

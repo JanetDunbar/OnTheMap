@@ -21,14 +21,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBAction func login(sender: AnyObject) {
         
         // Create dictionary of userNames and passwords
-//        var udacity = ["username": "", "password": ""]
-//        udacity["username"] = username.text
-//        //println("username = /(username.text)")
-//        udacity["password"] = password.text
+        var udacity = ["username": "", "password": ""]
+        udacity["username"] = username.text
+        //println("username = /(username.text)")
+        udacity["password"] = password.text
         let un = username.text
         let pwd = password.text
         let client = Client()
-        client.loginToUdacity(un, pw: pwd)
+        client.loginWithClient(un, pw: pwd)
         getStudentLocations()
     }
     
@@ -56,7 +56,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     // Get student locations, via Parse API.  TODO: Change!!!!Using small number for testing
     func getStudentLocations(){
         
-        let request = NSMutableURLRequest(URL: NSURL(string: "https://api.parse.com/1/classes/StudentLocation?limit=10")!)
+        let request = NSMutableURLRequest(URL: NSURL(string: "https://api.parse.com/1/classes/StudentLocation?limit=3")!)
         request.addValue("QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr", forHTTPHeaderField: "X-Parse-Application-Id")
         request.addValue("QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY", forHTTPHeaderField: "X-Parse-REST-API-Key")
         let session = NSURLSession.sharedSession()

@@ -12,6 +12,10 @@ class MapTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        let client = Client()
+//        client.getStudentLocations(){
+//        }
 
         // Do any additional setup after loading the view.
     }

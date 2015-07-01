@@ -43,4 +43,61 @@ class Client {
         //getStudentLocations()
     }
     
+    // Get student locations, via Parse API.  TODO: Change!!!!Using small number for testing
+    func getStudentLocations(completion: ()->()){
+        
+        let request = NSMutableURLRequest(URL: NSURL(string: "https://api.parse.com/1/classes/StudentLocation?limit=3")!)
+        request.addValue("QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr", forHTTPHeaderField: "X-Parse-Application-Id")
+        request.addValue("QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY", forHTTPHeaderField: "X-Parse-REST-API-Key")
+        let session = NSURLSession.sharedSession()
+        let task = session.dataTaskWithRequest(request) { data, response, error in
+            if error != nil { // Handle error...
+                return
+            }
+            
+            var err: NSError?
+            
+            //var options
+            //let studentLocationsString = NSString(data: data, encoding: NSUTF8StringEncoding) as! String
+            let studentLocationsString = NSString(data: data, encoding: NSUTF8StringEncoding)
+            println("studentLocationsString = \(studentLocationsString)")
+            //let jsonObject: AnyObject! = NSJSONSerialization.JSONObjectWithData(data,
+            //options: NSJSONReadingOptions(0), error: &error)
+            /*
+            let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(0), error: &err) as! NSDictionary
+            //println(convertedString)
+            //let dict = convertedString as! NSDictionary
+            println(dict)
+            //let swiftDict:Dictionary = dict
+            if let results = dict.valueForKey("results") as? [[String : AnyObject]] {
+            var students = StudentInformation.studentInformationFromResults(results)
+            }
+            */
+            
+            if let convertedString: AnyObject! = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(0), error: &err){
+                println(convertedString)
+                let dict = convertedString as! NSDictionary
+                println(dict)
+                //let swiftDict:Dictionary = dict
+                if let results = dict.valueForKey("results") as? [[String : AnyObject]] {
+                    //var students = StudentInformation.studentInformationFromResults(results)
+                    Model.sharedInstance.students = StudentInformation.studentInformationFromResults(results)
+                    // Update model singleton with current data from server
+                    var students = Model.sharedInstance.students
+                    println(students[0])
+                    
+                    completion()
+                    //self.completeLogin()
+                }
+            }
+            else{
+                println("error from conversion = \(err)")
+            }
+        }
+        
+        task.resume()
+    }
+    
+    
+    
 }

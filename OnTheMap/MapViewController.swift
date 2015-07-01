@@ -15,7 +15,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var post: UIBarButtonItem!
     
     @IBOutlet weak var mapView: MKMapView!
-    var students = Model.sharedInstance.students
+    ///var students = Model.sharedInstance.students
 
         /*
     protocol MKAnnotation: NSObject{
@@ -62,7 +62,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     }
     
     func makeStudentAnnotationFromStudentInformation(currentIndex:Int)-> StudentAnnotation{
-        
+        var students = Model.sharedInstance.students
         //Pin is showing, and map now centered on pin.
         var studentAnnotation: StudentAnnotation
         let currentStudent = students[currentIndex]
@@ -122,17 +122,27 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         
-        var studentAnnotationArray = [AnyObject]()
-        
-        for (currentIndex,student) in enumerate(students){
-        var studentAnnotation: AnyObject! = makeStudentAnnotationFromStudentInformation(currentIndex) as AnyObject
-        
-        println("studentAnnotation = \(studentAnnotation) in viewDidLoad")
-        
-        studentAnnotationArray.append(studentAnnotation)
+        let client = Client()
+        client.getStudentLocations(){
+            var studentAnnotationArray = [AnyObject]()
+            
+            println("Model.sharedInstance.students.count = \(Model.sharedInstance.students.count)")
+            
+            for (currentIndex,student) in enumerate(Model.sharedInstance.students){
+                var studentAnnotation: AnyObject! = self.makeStudentAnnotationFromStudentInformation(currentIndex) as AnyObject
+                
+                println("studentAnnotation = \(studentAnnotation) in viewWillAppear")
+                
+                studentAnnotationArray.append(studentAnnotation)
+            }
+            
+            self.mapView.addAnnotations(studentAnnotationArray)
         }
+
+        
        
-        mapView.addAnnotations(studentAnnotationArray)
+        
+        
     }
     
     override func viewDidAppear(animated: Bool) {

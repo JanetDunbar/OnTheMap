@@ -67,9 +67,9 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         var studentAnnotation: StudentAnnotation
         let currentStudent = students[currentIndex]
         let annotationLocation = CLLocationCoordinate2D(latitude: currentStudent.latitude, longitude: students[currentIndex].longitude)
-        println(annotationLocation)
+        //println(annotationLocation)
         let fullName = students[currentIndex].firstName + " " + currentStudent.lastName
-        println("fullName = \(fullName)")
+        //println("fullName = \(fullName)")
         let url = currentStudent.mediaURL
         
         var span = MKCoordinateSpanMake(100, 100)
@@ -119,8 +119,9 @@ class MapViewController: UIViewController, MKMapViewDelegate {
        
     }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(true)
+    func refreshData(){
+        
+        println("In refreshData")
         
         let client = Client()
         client.getStudentLocations(){
@@ -138,6 +139,46 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             
             self.mapView.addAnnotations(studentAnnotationArray)
         }
+       
+    }
+    
+//    @IBAction func refresh(sender: UIBarButtonItem) {
+//        
+//        println("In refresh")
+//
+//        
+//        refreshData()
+//    }
+    
+    override func viewWillAppear(animated: Bool) {
+        
+        println("In viewWillAppear")
+
+        super.viewWillAppear(true)
+        
+        
+        
+        dispatch_async(dispatch_get_main_queue(), {
+            self.refreshData()
+        })
+        
+        
+//        let client = Client()
+//        client.getStudentLocations(){
+//            var studentAnnotationArray = [AnyObject]()
+//            
+//            println("Model.sharedInstance.students.count = \(Model.sharedInstance.students.count)")
+//            
+//            for (currentIndex,student) in enumerate(Model.sharedInstance.students){
+//                var studentAnnotation: AnyObject! = self.makeStudentAnnotationFromStudentInformation(currentIndex) as AnyObject
+//                
+//                println("studentAnnotation = \(studentAnnotation) in viewWillAppear")
+//                
+//                studentAnnotationArray.append(studentAnnotation)
+//            }
+//        
+//            self.mapView.addAnnotations(studentAnnotationArray)
+//        }
     }
     
     override func viewDidAppear(animated: Bool) {

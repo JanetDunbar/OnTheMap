@@ -94,7 +94,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OjX-Wu-3eX" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <barButtonItem systemItem="refresh" id="ssv-wh-wzR"/>
+                <barButtonItem systemItem="refresh" id="ssv-wh-wzR">
+                    <connections>
+                        <action selector="refresh:" destination="G2F-yb-i40" id="Gzb-iN-l6A"/>
+                    </connections>
+                </barButtonItem>
                 <barButtonItem image="pin" id="3KK-pR-0j4" userLabel="Post">
                     <connections>
                         <segue destination="uuR-OF-J1Q" kind="presentation" id="Awd-qE-0Md"/>

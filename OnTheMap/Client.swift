@@ -58,7 +58,7 @@ class Client {
             //var options
             //let studentLocationsString = NSString(data: data, encoding: NSUTF8StringEncoding) as! String
             let studentLocationsString = NSString(data: data, encoding: NSUTF8StringEncoding)
-            println("studentLocationsString = \(studentLocationsString)")
+            //println("studentLocationsString = \(studentLocationsString)")
             //let jsonObject: AnyObject! = NSJSONSerialization.JSONObjectWithData(data,
             //options: NSJSONReadingOptions(0), error: &error)
             /*
@@ -82,7 +82,7 @@ class Client {
                     Model.sharedInstance.students = StudentInformation.studentInformationFromResults(results)
                     // Update model singleton with current data from server
                     var students = Model.sharedInstance.students
-                    println(students[0])
+                    //println(students[0])
                     
                     completion()
                     //self.completeLogin()

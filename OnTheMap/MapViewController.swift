@@ -85,7 +85,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
 
     
-    //untested - may need to change MKPinAnnotationView to MKAnnotationView?
+    // May need to change MKPinAnnotationView to MKAnnotationView?
     func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
         if let annotation = annotation as? StudentAnnotation {
             let identifier = "pin"
@@ -138,11 +138,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             
             self.mapView.addAnnotations(studentAnnotationArray)
         }
-
-        
-       
-        
-        
     }
     
     override func viewDidAppear(animated: Bool) {

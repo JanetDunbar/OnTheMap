@@ -26,6 +26,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     }*/
     
     //TODO:  Finish!!!!Doesn't appear to be logging out.  Shouldn't allow post.
+    //Use println--Must take away optional.
     @IBAction func logout(sender: UIBarButtonItem) {
 
         let request = NSMutableURLRequest(URL: NSURL(string: "https://www.udacity.com/api/session")!)
@@ -141,21 +142,14 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         }
     }
     
-// Not working either.
-//    @IBAction func refresh(sender: UIBarButtonItem) {
-//        
-//        println("In refresh")
-//        viewWillAppear(true)
-//    }
+     // Call refreshData asynchronously when user hits refresh button.
+        @IBAction func refresh(sender: UIBarButtonItem) {
     
-    // This code NOT working.
-    //    @IBAction func refresh(sender: UIBarButtonItem) {
-    //
-    //        println("In refresh")
-    //        dispatch_async(dispatch_get_main_queue(), {
-    //            self.refreshData()
-    //        })
-    //    }
+            println("In refresh")
+            dispatch_async(dispatch_get_main_queue(), {
+                self.refreshData()
+            })
+        }
     
     override func viewWillAppear(animated: Bool) {
         

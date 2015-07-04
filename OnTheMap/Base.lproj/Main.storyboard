@@ -47,7 +47,11 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gBh-yg-PZZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <barButtonItem systemItem="refresh" id="WH8-v7-9fD"/>
+                <barButtonItem systemItem="refresh" id="WH8-v7-9fD">
+                    <connections>
+                        <action selector="refresh:" destination="T7h-Oa-9Yb" id="e2f-pb-rfu"/>
+                    </connections>
+                </barButtonItem>
                 <barButtonItem image="pin" id="YDO-ab-7y9" userLabel="Post">
                     <connections>
                         <segue destination="uuR-OF-J1Q" kind="presentation" id="hgf-Lv-Mt7"/>

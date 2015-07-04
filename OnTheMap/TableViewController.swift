@@ -16,6 +16,8 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
     
     @IBOutlet weak var post: UIBarButtonItem!
     
+    let mapViewController = MapViewController()
+    
 //    var students = Model.sharedInstance.students
     
     override func viewDidLoad() {
@@ -62,4 +64,17 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
             UIApplication.sharedApplication().openURL(NSURL(string: tableCell.detailTextLabel!.text!)!)
         }
     }
+// Error message:  fatal error: unexpectedly found nil while unwrapping an Optional value
+    
+//    @IBAction func refresh(sender: UIBarButtonItem) {
+//        
+//        
+//        println("In refresh")
+//        dispatch_async(dispatch_get_main_queue(), {
+//            self.mapViewController.refreshData()
+//        })
+//        
+//    }
+    
+    
 }

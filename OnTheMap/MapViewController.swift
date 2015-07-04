@@ -75,7 +75,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         var span = MKCoordinateSpanMake(100, 100)
         var region = MKCoordinateRegion(center: annotationLocation, span: span)
         
-        mapView.setRegion(region, animated: true)
+        //mapView.setRegion(region, animated: true)
         
         studentAnnotation = StudentAnnotation(coordinate: annotationLocation, title: fullName, subtitle: url)
         return studentAnnotation
@@ -132,7 +132,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             for (currentIndex,student) in enumerate(Model.sharedInstance.students){
                 var studentAnnotation: AnyObject! = self.makeStudentAnnotationFromStudentInformation(currentIndex) as AnyObject
                 
-                println("studentAnnotation = \(studentAnnotation) in viewWillAppear")
+                println("studentAnnotation = \(studentAnnotation) in refreshData")
                 
                 studentAnnotationArray.append(studentAnnotation)
             }
@@ -142,13 +142,21 @@ class MapViewController: UIViewController, MKMapViewDelegate {
        
     }
     
+// Not working either.
 //    @IBAction func refresh(sender: UIBarButtonItem) {
 //        
 //        println("In refresh")
-//
-//        
-//        refreshData()
+//        viewWillAppear(true)
 //    }
+    
+    // This code NOT working.
+    //    @IBAction func refresh(sender: UIBarButtonItem) {
+    //
+    //        println("In refresh")
+    //        dispatch_async(dispatch_get_main_queue(), {
+    //            self.refreshData()
+    //        })
+    //    }
     
     override func viewWillAppear(animated: Bool) {
         

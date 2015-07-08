@@ -30,10 +30,47 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
     // Setup data model and update data.
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+//        dispatch_async(dispatch_get_main_queue(), {
+//            self.refreshData()
+//        })
+        self.refreshData()
         
-        
-        self.tableView.reloadData()
+        //self.tableView.reloadData()
     }
+    
+//    override func viewDidAppear(animated: Bool) {
+//        super.viewDidAppear(true)
+//        
+//        self.tableView.reloadData()
+//    }
+    
+    func refreshData(){
+        
+        println("In refreshData")
+        
+        let client = Client()
+        client.getStudentLocations(){
+            dispatch_async(dispatch_get_main_queue(), {
+                self.tableView.reloadData()
+            })
+            
+            //self.tableView.reloadData()
+//            var studentAnnotationArray = [AnyObject]()
+//            
+//            println("Model.sharedInstance.students.count = \(Model.sharedInstance.students.count)")
+//            
+//            for (currentIndex,student) in enumerate(Model.sharedInstance.students){
+//                var studentAnnotation: AnyObject! = self.makeStudentAnnotationFromStudentInformation(currentIndex) as AnyObject
+//                
+//                println("studentAnnotation = \(studentAnnotation) in refreshData")
+//                
+//                studentAnnotationArray.append(studentAnnotation)
+//            }
+            
+            //self.mapView.addAnnotations(studentAnnotationArray)
+        }
+    }
+
     
     // Create cell; add its data.
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -52,7 +89,9 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         // Return the number of rows in the section.
+        
         return Model.sharedInstance.students.count
+        
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -65,16 +104,17 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
         }
     }
 // Error message:  fatal error: unexpectedly found nil while unwrapping an Optional value
-    
-//    @IBAction func refresh(sender: UIBarButtonItem) {
-//        
-//        
-//        println("In refresh")
+//??Need to add analogous refreshData func
+    @IBAction func refresh(sender: UIBarButtonItem) {
+        
+        
+        println("TableViewController: In IBAction refresh")
+        refreshData()
 //        dispatch_async(dispatch_get_main_queue(), {
 //            self.mapViewController.refreshData()
 //        })
-//        
-//    }
+        
+    }
     
     
 }

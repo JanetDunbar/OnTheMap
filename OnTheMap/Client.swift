@@ -82,7 +82,7 @@ class Client {
                     Model.sharedInstance.students = StudentInformation.studentInformationFromResults(results)
                     // Update model singleton with current data from server
                     var students = Model.sharedInstance.students
-                    //println(students[0])
+                    println("getStudentLocations: students[0] = \(students[0])")
                     
                     completion()
                     //self.completeLogin()

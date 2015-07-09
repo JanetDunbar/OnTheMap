@@ -16,6 +16,7 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
     
     @IBOutlet weak var post: UIBarButtonItem!
     
+    //????Not necessary
     let mapViewController = MapViewController()
     
 //    var students = Model.sharedInstance.students
@@ -33,9 +34,18 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
 //        dispatch_async(dispatch_get_main_queue(), {
 //            self.refreshData()
 //        })
-        self.refreshData()
+     
+        let qos = Int(QOS_CLASS_USER_INITIATED.value)
+        let queue = dispatch_get_global_queue(qos, 0)
         
-        //self.tableView.reloadData()
+        dispatch_async(queue){
+            self.refreshData()
+            
+            dispatch_async(dispatch_get_main_queue()){
+                self.tableView.reloadData()
+                
+            }
+        }
     }
     
 //    override func viewDidAppear(animated: Bool) {
@@ -105,7 +115,7 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
     }
 // Error message:  fatal error: unexpectedly found nil while unwrapping an Optional value
 //??Need to add analogous refreshData func
-    @IBAction func refresh(sender: UIBarButtonItem) {
+    @IBAction func refresh(sender: AnyObject) {
         
         
         println("TableViewController: In IBAction refresh")
@@ -114,6 +124,13 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
 //            self.mapViewController.refreshData()
 //        })
         
+    }
+    
+    @IBAction func goBack(segue: UIStoryboardSegue){
+        println("Someone unwound back to me")
+        
+        self.refreshData()
+        //self.tableView.reloadData()
     }
     
     

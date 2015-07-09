@@ -54,7 +54,7 @@
                 </barButtonItem>
                 <barButtonItem image="pin" id="YDO-ab-7y9" userLabel="Post">
                     <connections>
-                        <segue destination="uuR-OF-J1Q" kind="presentation" id="hgf-Lv-Mt7"/>
+                        <segue destination="uuR-OF-J1Q" kind="presentation" identifier="" id="hgf-Lv-Mt7"/>
                     </connections>
                 </barButtonItem>
             </objects>
@@ -239,9 +239,11 @@
                         <outlet property="submit" destination="NFH-AQ-5jh" id="gde-k0-34a"/>
                         <outlet property="url" destination="wDQ-8N-1yp" id="8Lh-sT-gLr"/>
                         <outlet property="whereAreYouStudying" destination="viX-C2-1ca" id="NnR-Oq-6lV"/>
+                        <segue destination="Vyl-Fs-84S" kind="unwind" identifier="GoBack Unwind Segue" unwindAction="goBack:" id="PQO-cm-aGg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PWk-jo-gp3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Vyl-Fs-84S" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1897" y="581"/>
         </scene>

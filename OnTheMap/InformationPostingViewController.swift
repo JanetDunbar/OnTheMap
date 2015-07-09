@@ -175,6 +175,15 @@ class InformationPostingViewController: UIViewController, UITextFieldDelegate, M
         self.dismissViewControllerAnimated(true, completion: nil)
         
     }
+    
+    func refreshData(){
+        
+        println("In refreshData, IPVC")
+        
+        
+        let client = Client()
+        client.getStudentLocations(){}
+    }
 
     /*
     // MARK: - Navigation
@@ -185,5 +194,19 @@ class InformationPostingViewController: UIViewController, UITextFieldDelegate, M
         // Pass the selected object to the new view controller.
     }
     */
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        if segue.identifier == "GoBack Unwind Segue"{
+            
+            
+            if let unwoundToMVC = segue.destinationViewController as? UITableViewController{
+                
+                refreshData()
+            }
+        }
+    }
+    
 
 }

@@ -28,16 +28,72 @@ class Client {
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(request) { data, response, error in
             if error != nil { // Handle error…
+                println("!!!!!!!!!!!Error not nil")
                 return
             }
+            
+            //let responseString = NSString(data: response, encoding: NSUTF8StringEncoding) //as! String
+            if let httpResponse = response as? NSHTTPURLResponse{
+                println("httpResponse = \(httpResponse)")
+                println("httpResponse.statusCode = \(httpResponse.statusCode)")
+                println(NSHTTPURLResponse.localizedStringForStatusCode(httpResponse.statusCode))
+                
+                switch httpResponse.statusCode{
+                case 100...199:
+                    println("\(httpResponse.statusCode) is an informational status.")
+                case 200...299:
+                    println("\(httpResponse.statusCode) is a success status.")
+                case 300...399:
+                    println("\(httpResponse.statusCode) is a redirection error status.")
+                case 400...499:
+                    println("\(httpResponse.statusCode) is a client error status.")
+                case 500...599:
+                    println("\(httpResponse.statusCode) is a server error status.")
+                default:
+                    println("\(httpResponse.statusCode) is not a valid status.")
+                }
+                
+                
+            }
+            
+            
             let newData = data.subdataWithRange(NSMakeRange(5, data.length - 5)) /* subset response data! */
-            let loginString = NSString(data: newData, encoding: NSUTF8StringEncoding) as! String
-            //println("loginString = \(loginString)")
-            /*
-            Optional({"account": {"registered": true, "key": "280195754"}, "session": {"id": "1464816385Sb5f1302a6d754bd54a7f63d5bb85bc9b", "expiration": "2015-08-01T21:26:25.946330Z"}})
-            */
+            let loginString = NSString(data: newData, encoding: NSUTF8StringEncoding) //as! String
+            println("loginString = \(loginString)")
+            
             //TODO: ?Convert NSString optional to JSON.  Then convert JSON to swift object?
-        }
+            
+            //!!!Took away as! String from let loginString
+            //Added below code to convert loginString to JSON
+            
+//            var err: NSError?
+//            if let convertedString: AnyObject! = NSJSONSerialization.JSONObjectWithData(newData, options: NSJSONReadingOptions(0), error: &err){
+//                //println(convertedString)
+//                let dict = convertedString as! NSDictionary
+//                //println(dict)
+//                //let swiftDict:Dictionary = dict
+//                if let httpStatus = dict.valueForKey("status") as? Int {
+//                    switch httpStatus{
+//                    case 100...199:
+//                        println("\(httpStatus) is an informational status.")
+//                    case 200...299:
+//                        println("\(httpStatus) is a success status.")
+//                    case 300...399:
+//                        println("\(httpStatus) is a redirection error status.")
+//                    case 400...499:
+//                            println("\(httpStatus) is a client error status.")
+//                    case 500...599:
+//                        println("\(httpStatus) is a server error status.")
+//                    default:
+//                        println("\(httpStatus) is not a valid status.")
+//                    }
+//                }
+//            }
+//            else{
+//                println("error from conversion = \(err)")
+//            }
+       }
+        // Needed
         task.resume()
         
     }
@@ -51,6 +107,7 @@ class Client {
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(request) { data, response, error in
             if error != nil { // !!!!!!!!Handle error...
+                println("!!!!error in getStudentLocations")
                 return
             }
             
@@ -85,7 +142,7 @@ class Client {
                     var students = Model.sharedInstance.students
                     println("getStudentLocations: students[0] = \(students[0])")
                     
-                    completion()
+                    //completion()
                     //self.completeLogin()
                 }
             }

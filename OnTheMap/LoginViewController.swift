@@ -28,10 +28,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let un = username.text
         let pwd = password.text
 
-        if  un  == "" || pwd  == ""{
-            displayAlert("Please enter your user name and password.")
-        }
-        
+//        if  un  == "" || pwd  == ""{
+//            displayAlert("Please enter your user name and password.")
+//        }
+//        
         
         let client = Client()
         client.loginWithClient(un, pw: pwd)

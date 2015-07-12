@@ -46,7 +46,7 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
     
     func refreshData(){
         
-        println("In refreshData")
+        println("In refreshData in TableViewController")
         
         let client = Client()
         client.getStudentLocations(){

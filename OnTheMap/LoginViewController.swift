@@ -34,22 +34,29 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 //        
         
         let client = Client()
-        client.loginWithClient(un, pw: pwd)
+        client.loginWithClient(un, pw: pwd){success, errorString in
+            println(success)
+            println(errorString)
+            if success{
+                self.completeLogin()
+            }
+            else{
+                println("TODO:  Put alert here")
+                self.displayAlert(errorString)
+            }
+        
+        }
         //client.getStudentLocations()
-        completeLogin()
     }
     
     // Working code from experiment project:  use in view controllers
-        func displayAlert(aTitle: String){
+    func displayAlert(errorMessage: String){
     
-            let alertController = UIAlertController(title: aTitle, message: "User name and/or password cannot be empty.", preferredStyle: .Alert)
+            let alertController = UIAlertController(title: "Login Error", message: errorMessage, preferredStyle: .Alert)
     
             let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
             alertController.addAction(defaultAction)
-    
             presentViewController(alertController, animated: true, completion: nil)
-    
-            
         }
     
     override func viewDidLoad() {

@@ -122,7 +122,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     func refreshData(){
         
-        println("In refreshData")
+        println("In refreshData in MapViewController")
         
         let client = Client()
         client.getStudentLocations(){

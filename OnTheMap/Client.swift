@@ -11,7 +11,7 @@ import Foundation
 
 class Client {
     
-    func loginWithClient(un:String!, pw: String!){
+    func loginWithClient(un:String!, pw: String!, completion: (success: Bool, errorString: String)->()){
         
         let request = NSMutableURLRequest(URL: NSURL(string: "https://www.udacity.com/api/session")!)
         request.HTTPMethod = "POST"
@@ -29,30 +29,25 @@ class Client {
         let task = session.dataTaskWithRequest(request) { data, response, error in
             if error != nil { // Handle error…
                 println("!!!!!!!!!!!Error not nil")
+                completion(success: false, errorString: "Failed to connect.")
                 return
             }
-            
-            //let responseString = NSString(data: response, encoding: NSUTF8StringEncoding) //as! String
+
             if let httpResponse = response as? NSHTTPURLResponse{
                 println("httpResponse = \(httpResponse)")
                 println("httpResponse.statusCode = \(httpResponse.statusCode)")
                 println(NSHTTPURLResponse.localizedStringForStatusCode(httpResponse.statusCode))
+                let errorMessage = NSHTTPURLResponse.localizedStringForStatusCode(httpResponse.statusCode)
                 
                 switch httpResponse.statusCode{
-                case 100...199:
-                    println("\(httpResponse.statusCode) is an informational status.")
+                
                 case 200...299:
                     println("\(httpResponse.statusCode) is a success status.")
-                case 300...399:
-                    println("\(httpResponse.statusCode) is a redirection error status.")
-                case 400...499:
-                    println("\(httpResponse.statusCode) is a client error status.")
-                case 500...599:
-                    println("\(httpResponse.statusCode) is a server error status.")
                 default:
                     println("\(httpResponse.statusCode) is not a valid status.")
+                    completion(success: false, errorString: errorMessage)
+                    return
                 }
-                
                 
             }
             
@@ -60,38 +55,11 @@ class Client {
             let newData = data.subdataWithRange(NSMakeRange(5, data.length - 5)) /* subset response data! */
             let loginString = NSString(data: newData, encoding: NSUTF8StringEncoding) //as! String
             println("loginString = \(loginString)")
+            // Success so call completion
+            completion(success: true, errorString: "")
             
-            //TODO: ?Convert NSString optional to JSON.  Then convert JSON to swift object?
             
-            //!!!Took away as! String from let loginString
-            //Added below code to convert loginString to JSON
-            
-//            var err: NSError?
-//            if let convertedString: AnyObject! = NSJSONSerialization.JSONObjectWithData(newData, options: NSJSONReadingOptions(0), error: &err){
-//                //println(convertedString)
-//                let dict = convertedString as! NSDictionary
-//                //println(dict)
-//                //let swiftDict:Dictionary = dict
-//                if let httpStatus = dict.valueForKey("status") as? Int {
-//                    switch httpStatus{
-//                    case 100...199:
-//                        println("\(httpStatus) is an informational status.")
-//                    case 200...299:
-//                        println("\(httpStatus) is a success status.")
-//                    case 300...399:
-//                        println("\(httpStatus) is a redirection error status.")
-//                    case 400...499:
-//                            println("\(httpStatus) is a client error status.")
-//                    case 500...599:
-//                        println("\(httpStatus) is a server error status.")
-//                    default:
-//                        println("\(httpStatus) is not a valid status.")
-//                    }
-//                }
-//            }
-//            else{
-//                println("error from conversion = \(err)")
-//            }
+
        }
         // Needed
         task.resume()
@@ -117,18 +85,6 @@ class Client {
             //let studentLocationsString = NSString(data: data, encoding: NSUTF8StringEncoding) as! String
             let studentLocationsString = NSString(data: data, encoding: NSUTF8StringEncoding)
             //println("studentLocationsString = \(studentLocationsString)")
-            //let jsonObject: AnyObject! = NSJSONSerialization.JSONObjectWithData(data,
-            //options: NSJSONReadingOptions(0), error: &error)
-            /*
-            let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(0), error: &err) as! NSDictionary
-            //println(convertedString)
-            //let dict = convertedString as! NSDictionary
-            println(dict)
-            //let swiftDict:Dictionary = dict
-            if let results = dict.valueForKey("results") as? [[String : AnyObject]] {
-            var students = StudentInformation.studentInformationFromResults(results)
-            }
-            */
             
             if let convertedString: AnyObject! = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(0), error: &err){
                 //println(convertedString)
@@ -142,7 +98,7 @@ class Client {
                     var students = Model.sharedInstance.students
                     println("getStudentLocations: students[0] = \(students[0])")
                     
-                    //completion()
+                    completion()
                     //self.completeLogin()
                 }
             }

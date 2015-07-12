@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Dr. Janet M. Dunbar. All rights reserved.
 //
 
+import UIKit
 import Foundation
 
 class Client {
@@ -95,7 +96,29 @@ class Client {
         
         task.resume()
     }
-    
-    
+
+    //Working code for alert view generation.
+//    func alertHelper(viewController: UIViewController){
+//        
+//        let alertController = UIAlertController(title: "Alert Popup", message: "Please try again.", preferredStyle: .Alert)
+//        
+//        let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+//        alertController.addAction(defaultAction)
+//        
+//        viewController.presentViewController(alertController, animated: true, completion: nil)
+//    }
+
+    // Working code from experiment project:  use in view controllers
+//    @IBAction func experiment(){
+//        
+//        let alertController = UIAlertController(title: "Alert Popup", message: "Please try again.", preferredStyle: .Alert)
+//        
+//        let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+//        alertController.addAction(defaultAction)
+//        
+//        presentViewController(alertController, animated: true, completion: nil)
+//        
+//        
+//    }
     
 }

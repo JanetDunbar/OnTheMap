@@ -27,11 +27,30 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         udacity["password"] = password.text
         let un = username.text
         let pwd = password.text
+
+        if  un  == "" || pwd  == ""{
+            displayAlert("Please enter your user name and password.")
+        }
+        
+        
         let client = Client()
         client.loginWithClient(un, pw: pwd)
         //client.getStudentLocations()
         completeLogin()
     }
+    
+    // Working code from experiment project:  use in view controllers
+        func displayAlert(aTitle: String){
+    
+            let alertController = UIAlertController(title: aTitle, message: "User name and/or password cannot be empty.", preferredStyle: .Alert)
+    
+            let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+            alertController.addAction(defaultAction)
+    
+            presentViewController(alertController, animated: true, completion: nil)
+    
+            
+        }
     
     override func viewDidLoad() {
         super.viewDidLoad()

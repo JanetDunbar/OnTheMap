@@ -98,6 +98,8 @@ class InformationPostingViewController: UIViewController, UITextFieldDelegate, M
         if error != nil {
             //TODO:  Display an alert if geocoder fails
             println("Geocode failed with error: \(error.localizedDescription)")
+            self.displayAlert("Please enter your location again.")
+            return
         }
         
         if placemarks.count > 0 {
@@ -126,6 +128,8 @@ class InformationPostingViewController: UIViewController, UITextFieldDelegate, M
             }
         })
     }
+    
+    
     
     func reformatString(string: String)->String{
         
@@ -168,6 +172,16 @@ class InformationPostingViewController: UIViewController, UITextFieldDelegate, M
         task.resume()
         self.dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    func displayAlert(errorMessage: String){
+        
+        let alertController = UIAlertController(title: "Geocoding Error", message: errorMessage, preferredStyle: .Alert)
+        
+        let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        alertController.addAction(defaultAction)
+        presentViewController(alertController, animated: true, completion: nil)
+    }
+
     
     // On iPhone6 device, now not dismissing on submit.
     @IBAction func cancel(sender: UIBarButtonItem) {

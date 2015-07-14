@@ -41,7 +41,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 self.completeLogin()
             }
             else{
-                println("TODO:  Put alert here")
+                //println("TODO:  Put alert here")
                 self.displayAlert(errorString)
             }
         
@@ -83,11 +83,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
     
     func completeLogin() {
-        //dispatch_async(dispatch_get_main_queue(), {
+        dispatch_async(dispatch_get_main_queue(), {
             self.debugLabel.text = ""
             let controller = self.storyboard!.instantiateViewControllerWithIdentifier("MapTabBarController") as! UITabBarController
             self.presentViewController(controller, animated: true, completion: nil)
-        //})
+        })
         
 //        self.debugLabel.text = ""
 //        let controller = self.storyboard!.instantiateViewControllerWithIdentifier("MapTabBarController") as! UITabBarController

@@ -38,6 +38,10 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
         //self.tableView.reloadData()
     }
     
+    override func viewDidAppear(animated: Bool) {
+        tableView.reloadData()
+    }
+    
 //    override func viewDidAppear(animated: Bool) {
 //        super.viewDidAppear(true)
 //        

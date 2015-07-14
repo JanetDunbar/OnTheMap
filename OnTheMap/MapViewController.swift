@@ -125,7 +125,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         println("In refreshData in MapViewController")
         
         let client = Client()
-        client.getStudentLocations(){
+        client.getStudentLocations() {success, errorString in
             var studentAnnotationArray = [AnyObject]()
             
             println("Model.sharedInstance.students.count = \(Model.sharedInstance.students.count)")

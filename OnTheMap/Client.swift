@@ -28,7 +28,7 @@ class Client {
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(request) { data, response, error in
             if error != nil { // Handle error…
-                println("!!!!!!!!!!!Error not nil")
+                //println("!!!!!!!!!!!Error not nil")
                 completion(success: false, errorString: "Failed to connect.")
                 return
             }
@@ -67,7 +67,7 @@ class Client {
     }
     
     // Get student locations, via Parse API.  TODO: Change!!!!Using small number for testing.  Need alert?
-    func getStudentLocations(completion: ()->()){
+    func getStudentLocations(completion: (success: Bool, errorString: String)->()){
         
         let request = NSMutableURLRequest(URL: NSURL(string: "https://api.parse.com/1/classes/StudentLocation?limit=10")!)
         request.addValue("QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr", forHTTPHeaderField: "X-Parse-Application-Id")
@@ -76,6 +76,7 @@ class Client {
         let task = session.dataTaskWithRequest(request) { data, response, error in
             if error != nil { // !!!!!!!!Handle error...
                 println("!!!!error in getStudentLocations")
+                completion(success: false, errorString: "error from server")
                 return
             }
             
@@ -98,12 +99,20 @@ class Client {
                     var students = Model.sharedInstance.students
                     println("getStudentLocations: students[0] = \(students[0])")
                     
-                    completion()
+                    completion(success: true, errorString: "")
+                    return
                     //self.completeLogin()
+                }
+                else {
+                    println("error from conversion = \(err)")
+                    completion(success: false, errorString: "error from results not found")
+                    return
                 }
             }
             else{
                 println("error from conversion = \(err)")
+                completion(success: false, errorString: "error from conversion")
+                return
             }
         }
         

@@ -22,6 +22,7 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.delegate = self
         tableView.rowHeight = 100
         self.navigationItem.rightBarButtonItems = [refresh, post]
         

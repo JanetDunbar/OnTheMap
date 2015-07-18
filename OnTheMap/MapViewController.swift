@@ -184,13 +184,64 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
+        let secondsFromNow = 1.0
+        //zoomMapViewToFitAnnotations(mapView, animated: true )
+//        dispatch_after(dispatch_time (DISPATCH_TIME_NOW, Int64(secondsFromNow * Double(NSEC_PER_SEC))), dispatch_get_main_queue()){
+//            self.mapView.showAnnotations(self.mapView.annotations, animated: true)
+//        }
+
         mapView.showAnnotations(mapView.annotations, animated: true)
+        //mapView.camera.altitude *= 1.4;
+        //self.reloadInputViews()
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+//    func zoomMapViewToFitAnnotations(mapView: MKMapView, animated: Bool) {
+//        let MINIMUM_ZOOM_ARC = 0.014 //approximately 1 miles (1 degree of arc ~= 69 miles)
+//        let ANNOTATION_REGION_PAD_FACTOR = 1.15
+//        //let ANNOTATION_REGION_PAD_FACTOR = 15.0
+//        let MAX_DEGREES_ARC: CLLocationDegrees = 360
+//        
+//        var annotations = mapView.annotations
+//        let count = mapView.annotations.count
+//        if (count == 0) { return } //bail if no annotations
+//        
+//        //convert NSArray of id into an MKCoordinateRegion that can be used to set the map size
+//        var points = [MKMapPoint]() //C array of MKMapPoint struct
+//        for annotation in annotations {
+//            let coordinate = (annotation as! MKAnnotation).coordinate
+//            points.append(MKMapPointForCoordinate(coordinate))
+//        }
+//        
+//        //create MKMapRect from array of MKMapPoint
+//        let polygon = MKPolygon(points: UnsafeMutablePointer(points), count:count)
+//        let mapRect = polygon.boundingMapRect
+//        //convert MKCoordinateRegion from MKMapRect
+//        var region = MKCoordinateRegionForMapRect(mapRect)
+//        
+//        //add padding so pins aren’t scrunched on the edges
+//        region.span.latitudeDelta *= ANNOTATION_REGION_PAD_FACTOR
+//        region.span.longitudeDelta *= ANNOTATION_REGION_PAD_FACTOR
+//        //but padding can’t be bigger than the world
+//        if (region.span.latitudeDelta > MAX_DEGREES_ARC) { region.span.latitudeDelta = MAX_DEGREES_ARC }
+//        if (region.span.longitudeDelta > MAX_DEGREES_ARC) { region.span.longitudeDelta = MAX_DEGREES_ARC }
+//        
+//        //and don’t zoom in stupid-close on small samples
+//        if (region.span.latitudeDelta < MINIMUM_ZOOM_ARC) { region.span.latitudeDelta = MINIMUM_ZOOM_ARC }
+//        if (region.span.longitudeDelta < MINIMUM_ZOOM_ARC) { region.span.longitudeDelta = MINIMUM_ZOOM_ARC }
+//        //and if there is a sample of 1 we want the max zoom-in instead of max zoom-out
+//        if (count == 1) {
+//            region.span.latitudeDelta = MINIMUM_ZOOM_ARC
+//            region.span.longitudeDelta = MINIMUM_ZOOM_ARC
+//        }
+//        mapView.setRegion(region, animated: animated)
+//    }
 
 
 }

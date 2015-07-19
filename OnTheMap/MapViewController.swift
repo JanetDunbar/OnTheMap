@@ -138,7 +138,9 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                 studentAnnotationArray.append(studentAnnotation)
             }
             
-            self.mapView.addAnnotations(studentAnnotationArray)
+            dispatch_async(dispatch_get_main_queue(), {
+                self.mapView.addAnnotations(studentAnnotationArray)
+            })
         }
     }
     

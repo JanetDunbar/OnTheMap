@@ -168,9 +168,12 @@ class InformationPostingViewController: UIViewController, UITextFieldDelegate, M
             }
             let studentLocationString = NSString(data: data, encoding: NSUTF8StringEncoding) as! String
             println("studentLocationString = \(studentLocationString)")
+            
+            dispatch_async(dispatch_get_main_queue(), {
+                self.dismissViewControllerAnimated(true, completion: nil)
+            })
         }
         task.resume()
-        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func displayAlert(errorMessage: String){

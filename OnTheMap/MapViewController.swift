@@ -15,31 +15,12 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var post: UIBarButtonItem!
     
     @IBOutlet weak var mapView: MKMapView!
-    ///var students = Model.sharedInstance.students
-
-        /*
-    protocol MKAnnotation: NSObject{
-        var coordinate: CLLocationCoordinate2D{get}
-        var title: String! {get}
-        var subtitle: String! {get}
-        
-    }*/
     
-    //TODO:  Finish!!!!Doesn't appear to be logging out.  Shouldn't allow post.
-    //Use println--Must take away optional.
+    // Logout and dismiss MapViewController back to LoginViewController.
     @IBAction func logout(sender: UIBarButtonItem) {
 
         let request = NSMutableURLRequest(URL: NSURL(string: "https://www.udacity.com/api/session")!)
         request.HTTPMethod = "DELETE"
-        
-        //Still not logging out.  Still allows posting.
-        //request.addValue("application/json", forHTTPHeaderField: "Accept")
-        //request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-//        request.addValue("QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr", forHTTPHeaderField: "X-Parse-Application-Id")
-//        request.addValue("QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY", forHTTPHeaderField: "X-Parse-REST-API-Key")
-
-
         var xsrfCookie: NSHTTPCookie? = nil
         let sharedCookieStorage = NSHTTPCookieStorage.sharedHTTPCookieStorage()
         for cookie in sharedCookieStorage.cookies as! [NSHTTPCookie] {

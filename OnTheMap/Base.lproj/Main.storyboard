@@ -40,7 +40,13 @@
                             <outlet property="delegate" destination="T7h-Oa-9Yb" id="Y1A-ft-XRl"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Nbv-gR-eIC"/>
+                    <navigationItem key="navigationItem" id="Nbv-gR-eIC">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="TLp-lH-5vr">
+                            <connections>
+                                <action selector="logout:" destination="T7h-Oa-9Yb" id="26X-qL-UL4"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="post" destination="YDO-ab-7y9" id="HMe-Ml-Qgn"/>
                         <outlet property="refresh" destination="WH8-v7-9fD" id="AUB-0Y-kGX"/>
@@ -413,6 +419,6 @@
         <image name="pin" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Awd-qE-0Md"/>
+        <segue reference="hgf-Lv-Mt7"/>
     </inferredMetricsTieBreakers>
 </document>

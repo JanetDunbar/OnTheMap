@@ -49,7 +49,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             }
             else{
                 //println("TODO:  Put alert here")
-                self.displayAlert(errorString)
+                self.debugLabel.text! = errorString
+                //self.displayAlert(errorString)
             }
         
         }

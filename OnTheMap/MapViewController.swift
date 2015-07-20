@@ -57,9 +57,9 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             }
             let newData = data.subdataWithRange(NSMakeRange(5, data.length - 5)) /* subset response data! */
             println(NSString(data: newData, encoding: NSUTF8StringEncoding))
+            self.dismissViewControllerAnimated(true, completion: nil)
         }
-        task.resume()
-        
+        task.resume()     
     }
     
     func makeStudentAnnotationFromStudentInformation(currentIndex:Int)-> StudentAnnotation{

@@ -321,16 +321,30 @@
                                     <constraint firstAttribute="width" constant="200" id="2Pt-Me-Fgo"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JMj-fw-QsK">
+                                <rect key="frame" x="175" y="425" width="250" height="32"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                <state key="normal" title="Don't have an account? Sign Up">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="visitUdacity:" destination="k6H-aC-i8F" eventType="touchUpInside" id="pV8-wa-vbn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.56183449070000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="6OB-Hr-8fL" firstAttribute="centerX" secondItem="Feg-zN-y9y" secondAttribute="centerX" id="194-Zs-CDN"/>
                             <constraint firstItem="Bv1-eQ-8pV" firstAttribute="trailing" secondItem="rkm-NS-fT9" secondAttribute="trailing" id="1IX-Rs-2Jy"/>
                             <constraint firstItem="6OB-Hr-8fL" firstAttribute="top" secondItem="iLF-fU-kGQ" secondAttribute="bottom" constant="1" id="4uP-Hk-Ze9"/>
+                            <constraint firstItem="JMj-fw-QsK" firstAttribute="trailing" secondItem="Bv1-eQ-8pV" secondAttribute="trailing" id="7Hv-Ui-P39"/>
                             <constraint firstItem="rkm-NS-fT9" firstAttribute="leading" secondItem="aeO-0Z-pOE" secondAttribute="leading" id="BhC-x1-XlD"/>
                             <constraint firstItem="Bv1-eQ-8pV" firstAttribute="top" secondItem="rkm-NS-fT9" secondAttribute="bottom" constant="20" id="FdQ-50-HCs"/>
+                            <constraint firstItem="JMj-fw-QsK" firstAttribute="top" secondItem="rkm-NS-fT9" secondAttribute="bottom" constant="2" id="HUC-uo-khs"/>
                             <constraint firstItem="aeO-0Z-pOE" firstAttribute="top" secondItem="RB2-SA-4tI" secondAttribute="bottom" constant="6" id="IiB-h1-ejV"/>
                             <constraint firstItem="RB2-SA-4tI" firstAttribute="centerX" secondItem="6OB-Hr-8fL" secondAttribute="centerX" id="M5o-Py-5nw"/>
+                            <constraint firstItem="JMj-fw-QsK" firstAttribute="leading" secondItem="Bv1-eQ-8pV" secondAttribute="leading" id="OS8-ej-xRu"/>
                             <constraint firstAttribute="centerX" secondItem="iLF-fU-kGQ" secondAttribute="centerX" id="PcO-Mn-xch"/>
                             <constraint firstItem="RB2-SA-4tI" firstAttribute="centerY" secondItem="Feg-zN-y9y" secondAttribute="centerY" id="Rrf-1J-X1c"/>
                             <constraint firstItem="6OB-Hr-8fL" firstAttribute="top" secondItem="IPH-x9-4dg" secondAttribute="bottom" constant="201" id="UX6-V6-Erc"/>
@@ -346,6 +360,7 @@
                         <outlet property="debugLabel" destination="Bv1-eQ-8pV" id="moL-Fw-xEJ"/>
                         <outlet property="loginButton" destination="rkm-NS-fT9" id="nKI-JT-LXN"/>
                         <outlet property="password" destination="aeO-0Z-pOE" id="TL1-dy-Grd"/>
+                        <outlet property="signUp" destination="JMj-fw-QsK" id="giP-to-BJS"/>
                         <outlet property="udacityImage" destination="iLF-fU-kGQ" id="ekS-Ww-70p"/>
                         <outlet property="username" destination="RB2-SA-4tI" id="1ql-3g-iA4"/>
                     </connections>

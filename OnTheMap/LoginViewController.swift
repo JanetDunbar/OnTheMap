@@ -12,11 +12,18 @@ import Foundation
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
 
+    @IBOutlet weak var signUp: UIButton!
     @IBOutlet weak var udacityImage: UIImageView!
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var loginButton: BorderedButton!
     @IBOutlet weak var debugLabel: UILabel!
+    
+    @IBAction func visitUdacity(sender: UIButton) {
+        
+        UIApplication.sharedApplication().openURL(NSURL(string: "https://udacity.com")!)
+        
+    }
     
     @IBAction func login(sender: AnyObject) {
         

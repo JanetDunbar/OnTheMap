@@ -322,7 +322,7 @@
                                     <action selector="visitUdacity:" destination="k6H-aC-i8F" eventType="touchUpInside" id="pV8-wa-vbn"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Debug label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bv1-eQ-8pV">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bv1-eQ-8pV" userLabel="Debug Label">
                                 <rect key="frame" x="175" y="473" width="250" height="49"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="49" id="2qp-VW-kmA"/>

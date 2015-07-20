@@ -25,6 +25,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+    func updateDebugLabel(string: String) {
+        self.debugLabel.fadeOut(completion: {
+            (finished: Bool) -> Void in
+            self.debugLabel.text! = string
+            self.debugLabel.fadeIn()
+        })
+    }
+    
     @IBAction func login(sender: AnyObject) {
         
         // Create dictionary of userNames and passwords
@@ -50,12 +58,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             else{
                 //println("TODO:  Put alert here")
                 self.debugLabel.text! = errorString
+                self.updateDebugLabel(errorString)
                 //self.displayAlert(errorString)
             }
         
         }
         //client.getStudentLocations()
     }
+    
+    
     
     // Working code from experiment project:  use in view controllers
     func displayAlert(errorMessage: String){

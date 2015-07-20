@@ -48,7 +48,6 @@ class Client {
                     completion(success: false, errorString: errorMessage)
                     return
                 }
-                
             }
             
             

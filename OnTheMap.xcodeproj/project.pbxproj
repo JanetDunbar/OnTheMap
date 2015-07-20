@@ -22,6 +22,7 @@
 		84C2D6BA1B1F80F600546D7A /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C2D6B91B1F80F600546D7A /* Model.swift */; };
 		84EC2B4B1B1D478E00084471 /* BorderedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EC2B4A1B1D478E00084471 /* BorderedButton.swift */; };
 		84F321BD1B1F6E26006BA869 /* StudentInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F321BC1B1F6E26006BA869 /* StudentInformation.swift */; };
+		84F48E901B5D818600701DA8 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F48E8F1B5D818600701DA8 /* UIViewExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		84C2D6B91B1F80F600546D7A /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		84EC2B4A1B1D478E00084471 /* BorderedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderedButton.swift; sourceTree = "<group>"; };
 		84F321BC1B1F6E26006BA869 /* StudentInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentInformation.swift; sourceTree = "<group>"; };
+		84F48E8F1B5D818600701DA8 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 				8492B31D1B3C4CF2005C7B29 /* MapTabBarController.swift */,
 				847040191B335262008A1C9F /* TableViewController.swift */,
 				8446BB1C1B1D2A0700B37AF8 /* LoginViewController.swift */,
+				84F48E8F1B5D818600701DA8 /* UIViewExtensions.swift */,
 				841828D01B1CC2DF002C8774 /* MapViewController.swift */,
 				8426EE931B23D51000E95551 /* StudentAnnotation.swift */,
 				840E2C501B1D16CB005030FB /* InformationPostingViewController.swift */,
@@ -257,6 +260,7 @@
 				840E2C511B1D16CB005030FB /* InformationPostingViewController.swift in Sources */,
 				84F321BD1B1F6E26006BA869 /* StudentInformation.swift in Sources */,
 				841828D11B1CC2DF002C8774 /* MapViewController.swift in Sources */,
+				84F48E901B5D818600701DA8 /* UIViewExtensions.swift in Sources */,
 				841828CF1B1CC2DF002C8774 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

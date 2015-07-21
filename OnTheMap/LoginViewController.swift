@@ -58,8 +58,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             else{
                 //println("TODO:  Put alert here")
                 dispatch_async(dispatch_get_main_queue(), {
+                    self.debugLabel.text! = "Please try again."
+                    self.updateDebugLabel("Please try again.")
                     self.debugLabel.text! = errorString
-                    self.updateDebugLabel(errorString)
                 //self.displayAlert(errorString)
                 })
             }

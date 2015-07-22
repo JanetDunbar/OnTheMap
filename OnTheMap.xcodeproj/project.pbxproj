@@ -10,11 +10,11 @@
 		840E2C511B1D16CB005030FB /* InformationPostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840E2C501B1D16CB005030FB /* InformationPostingViewController.swift */; };
 		841828CF1B1CC2DF002C8774 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841828CE1B1CC2DF002C8774 /* AppDelegate.swift */; };
 		841828D11B1CC2DF002C8774 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841828D01B1CC2DF002C8774 /* MapViewController.swift */; };
-		841828D41B1CC2DF002C8774 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 841828D21B1CC2DF002C8774 /* Main.storyboard */; };
 		841828D61B1CC2DF002C8774 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 841828D51B1CC2DF002C8774 /* Images.xcassets */; };
-		841828D91B1CC2DF002C8774 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 841828D71B1CC2DF002C8774 /* LaunchScreen.xib */; };
 		841828E51B1CC2DF002C8774 /* OnTheMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841828E41B1CC2DF002C8774 /* OnTheMapTests.swift */; };
 		8426EE941B23D51000E95551 /* StudentAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8426EE931B23D51000E95551 /* StudentAnnotation.swift */; };
+		842C083D1B6027D700D0C70C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 841828D21B1CC2DF002C8774 /* Main.storyboard */; };
+		842C083E1B6027E900D0C70C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 841828D71B1CC2DF002C8774 /* LaunchScreen.xib */; };
 		8446BB1D1B1D2A0700B37AF8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446BB1C1B1D2A0700B37AF8 /* LoginViewController.swift */; };
 		845DA6C01B1D4F98006ADA2C /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845DA6BF1B1D4F98006ADA2C /* Client.swift */; };
 		8470401A1B335262008A1C9F /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847040191B335262008A1C9F /* TableViewController.swift */; };
@@ -110,6 +110,7 @@
 				845DA6BF1B1D4F98006ADA2C /* Client.swift */,
 				84F321BC1B1F6E26006BA869 /* StudentInformation.swift */,
 				84C2D6B91B1F80F600546D7A /* Model.swift */,
+				842C083B1B60251000D0C70C /* Frameworks */,
 				845DA6C11B1E674F006ADA2C /* ViewControllers */,
 				841828CC1B1CC2DF002C8774 /* Supporting Files */,
 				84EC2B4A1B1D478E00084471 /* BorderedButton.swift */,
@@ -120,12 +121,9 @@
 		841828CC1B1CC2DF002C8774 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				84CDB7EA1B5F3CC300AF076D /* FBSDKCoreKit.framework */,
-				84CDB7EB1B5F3CC300AF076D /* FBSDKLoginKit.framework */,
-				84CDB7EC1B5F3CC300AF076D /* FBSDKShareKit.framework */,
+				841828D71B1CC2DF002C8774 /* LaunchScreen.xib */,
 				841828D51B1CC2DF002C8774 /* Images.xcassets */,
 				841828CE1B1CC2DF002C8774 /* AppDelegate.swift */,
-				841828D71B1CC2DF002C8774 /* LaunchScreen.xib */,
 				841828CD1B1CC2DF002C8774 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -146,6 +144,16 @@
 				841828E31B1CC2DF002C8774 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		842C083B1B60251000D0C70C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				84CDB7EA1B5F3CC300AF076D /* FBSDKCoreKit.framework */,
+				84CDB7EB1B5F3CC300AF076D /* FBSDKLoginKit.framework */,
+				84CDB7EC1B5F3CC300AF076D /* FBSDKShareKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		845DA6C11B1E674F006ADA2C /* ViewControllers */ = {
@@ -242,8 +250,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				841828D41B1CC2DF002C8774 /* Main.storyboard in Resources */,
-				841828D91B1CC2DF002C8774 /* LaunchScreen.xib in Resources */,
+				842C083D1B6027D700D0C70C /* Main.storyboard in Resources */,
+				842C083E1B6027E900D0C70C /* LaunchScreen.xib in Resources */,
 				841828D61B1CC2DF002C8774 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

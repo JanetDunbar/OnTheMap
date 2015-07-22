@@ -15,13 +15,19 @@ import FBSDKShareKit
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
 
-    @IBOutlet weak var facebookLogin: FBSDKLoginButton!
+    @IBOutlet weak var facebookLoginButton: FBSDKLoginButton!
+   
     @IBOutlet weak var signUp: UIButton!
     @IBOutlet weak var udacityImage: UIImageView!
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var loginButton: BorderedButton!
     @IBOutlet weak var debugLabel: UILabel!
+    
+    @IBAction func loginToFacebook(sender: FBSDKLoginButton) {
+        let client = Client()
+        client.facebookLogin()
+    }
     
     @IBAction func visitUdacity(sender: UIButton) {
         

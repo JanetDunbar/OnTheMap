@@ -331,6 +331,13 @@
                                 <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6wQ-pz-okw" customClass="FBSDKLoginButton">
+                                <rect key="frame" x="175" y="535" width="250" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="loginToFacebook:" destination="k6H-aC-i8F" eventType="valueChanged" id="LJV-6Z-vZW"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.56183449070000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -338,6 +345,7 @@
                             <constraint firstItem="Bv1-eQ-8pV" firstAttribute="trailing" secondItem="JMj-fw-QsK" secondAttribute="trailing" id="2X5-Rx-jf1"/>
                             <constraint firstItem="6OB-Hr-8fL" firstAttribute="top" secondItem="iLF-fU-kGQ" secondAttribute="bottom" constant="1" id="4uP-Hk-Ze9"/>
                             <constraint firstItem="rkm-NS-fT9" firstAttribute="leading" secondItem="aeO-0Z-pOE" secondAttribute="leading" id="BhC-x1-XlD"/>
+                            <constraint firstItem="6wQ-pz-okw" firstAttribute="leading" secondItem="Bv1-eQ-8pV" secondAttribute="leading" id="DPs-JU-wvR"/>
                             <constraint firstItem="JMj-fw-QsK" firstAttribute="top" secondItem="rkm-NS-fT9" secondAttribute="bottom" constant="2" id="HUC-uo-khs"/>
                             <constraint firstItem="aeO-0Z-pOE" firstAttribute="top" secondItem="RB2-SA-4tI" secondAttribute="bottom" constant="6" id="IiB-h1-ejV"/>
                             <constraint firstItem="RB2-SA-4tI" firstAttribute="centerX" secondItem="6OB-Hr-8fL" secondAttribute="centerX" id="M5o-Py-5nw"/>
@@ -349,14 +357,18 @@
                             <constraint firstItem="iLF-fU-kGQ" firstAttribute="top" secondItem="IPH-x9-4dg" secondAttribute="bottom" id="WvK-xK-4Ua"/>
                             <constraint firstItem="Bv1-eQ-8pV" firstAttribute="top" secondItem="JMj-fw-QsK" secondAttribute="bottom" constant="16" id="YKf-sW-ehP"/>
                             <constraint firstItem="aeO-0Z-pOE" firstAttribute="leading" secondItem="RB2-SA-4tI" secondAttribute="leading" id="ZTg-Dm-8Q2"/>
+                            <constraint firstItem="6wQ-pz-okw" firstAttribute="trailing" secondItem="Bv1-eQ-8pV" secondAttribute="trailing" id="cRm-9u-HiR"/>
                             <constraint firstItem="Bv1-eQ-8pV" firstAttribute="leading" secondItem="rkm-NS-fT9" secondAttribute="leading" id="hU7-qC-nDX"/>
                             <constraint firstItem="rkm-NS-fT9" firstAttribute="top" secondItem="aeO-0Z-pOE" secondAttribute="bottom" constant="7" id="icm-81-lAj"/>
+                            <constraint firstItem="6wQ-pz-okw" firstAttribute="top" secondItem="Bv1-eQ-8pV" secondAttribute="bottom" constant="13" id="m96-il-SaA"/>
+                            <constraint firstItem="MRC-YL-j5K" firstAttribute="top" secondItem="6wQ-pz-okw" secondAttribute="bottom" constant="21" id="sUB-s2-9ra"/>
                             <constraint firstItem="aeO-0Z-pOE" firstAttribute="trailing" secondItem="RB2-SA-4tI" secondAttribute="trailing" id="sfd-I3-RiQ"/>
                             <constraint firstItem="rkm-NS-fT9" firstAttribute="trailing" secondItem="aeO-0Z-pOE" secondAttribute="trailing" id="ucb-VL-vAf"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="debugLabel" destination="Bv1-eQ-8pV" id="moL-Fw-xEJ"/>
+                        <outlet property="facebookLoginButton" destination="6wQ-pz-okw" id="qpz-EB-4Q6"/>
                         <outlet property="loginButton" destination="rkm-NS-fT9" id="nKI-JT-LXN"/>
                         <outlet property="password" destination="aeO-0Z-pOE" id="TL1-dy-Grd"/>
                         <outlet property="signUp" destination="JMj-fw-QsK" id="zFv-t2-qV2"/>

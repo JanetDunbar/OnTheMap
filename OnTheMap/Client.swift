@@ -118,7 +118,7 @@ class Client {
     
     func facebookLogin(){
         
-        let request = NSMutableURLRequest(URL: NSURL(string: "https://www.udacity.com/api")!)
+        let request = NSMutableURLRequest(URL: NSURL(string: "https://www.udacity.com/api/session")!)
         request.HTTPMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")

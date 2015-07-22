@@ -8,10 +8,14 @@
 
 import UIKit
 import Foundation
+import FBSDKCoreKit
+import FBSDKLoginKit
+import FBSDKShareKit
 
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
 
+    @IBOutlet weak var facebookLogin: FBSDKLoginButton!
     @IBOutlet weak var signUp: UIButton!
     @IBOutlet weak var udacityImage: UIImageView!
     @IBOutlet weak var username: UITextField!

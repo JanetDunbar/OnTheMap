@@ -161,8 +161,8 @@
 			children = (
 				8492B31D1B3C4CF2005C7B29 /* MapTabBarController.swift */,
 				847040191B335262008A1C9F /* TableViewController.swift */,
-				8446BB1C1B1D2A0700B37AF8 /* LoginViewController.swift */,
 				84F48E8F1B5D818600701DA8 /* UIViewExtensions.swift */,
+				8446BB1C1B1D2A0700B37AF8 /* LoginViewController.swift */,
 				841828D01B1CC2DF002C8774 /* MapViewController.swift */,
 				8426EE931B23D51000E95551 /* StudentAnnotation.swift */,
 				840E2C501B1D16CB005030FB /* InformationPostingViewController.swift */,

@@ -53,9 +53,11 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
     func refreshData(){
         
         println("In refreshData in TableViewController")
+        //let limit = 10
+        //let skip = 10
         
         let client = Client()
-        client.getStudentLocations(){success, errorString in
+        client.getStudentLocations(100, skip: 0) {success, errorString in
             dispatch_async(dispatch_get_main_queue(), {
                 self.tableView.reloadData()
             })

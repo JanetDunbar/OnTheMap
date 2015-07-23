@@ -63,10 +63,26 @@ class Client {
         
     }
     
+
+    
     // Get student locations, via Parse API.  TODO: Change!!!!Using small number for testing.  Need alert?
-    func getStudentLocations(completion: (success: Bool, errorString: String)->()){
+    func getStudentLocations(limit: Int, skip: Int, completion: (success: Bool, errorString: String)->()){
         
-        let request = NSMutableURLRequest(URL: NSURL(string: "https://api.parse.com/1/classes/StudentLocation?limit=100")!)
+        var limitString = "?limit=\(limit)"
+        //var skipString = "&skip= \(skip)"
+        var skipString = "&skip=\(skip)"
+        if skip == 0 {
+            skipString = ""
+        }
+        
+        var baseString = "https://api.parse.com/1/classes/StudentLocation"
+        var url = baseString + limitString + skipString
+        
+        
+        //let request = NSMutableURLRequest(URL: NSURL(string: "https://api.parse.com/1/classes/StudentLocation?limit=100")!)
+        
+        let request = NSMutableURLRequest(URL: NSURL(string: url)!)
+        
         request.addValue("QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr", forHTTPHeaderField: "X-Parse-Application-Id")
         request.addValue("QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY", forHTTPHeaderField: "X-Parse-REST-API-Key")
         let session = NSURLSession.sharedSession()

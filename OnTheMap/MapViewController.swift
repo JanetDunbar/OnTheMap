@@ -50,7 +50,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         let currentStudent = students[currentIndex]
         let annotationLocation = CLLocationCoordinate2D(latitude: currentStudent.latitude, longitude: students[currentIndex].longitude)
         //println(annotationLocation)
-        let fullName = students[currentIndex].firstName + " " + currentStudent.lastName
+        //let fullName = students[currentIndex].firstName + " " + currentStudent.lastName
+        let fullName = "\(currentIndex) \(students[currentIndex].firstName) \(currentStudent.lastName)"
         //println("fullName = \(fullName)")
         let url = currentStudent.mediaURL
         
@@ -106,7 +107,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         println("In refreshData in MapViewController")
         
         let client = Client()
-        client.getStudentLocations(100, skip:0) {success, errorString in
+        client.getStudentLocations(10, skip:10) {success, errorString in
             var studentAnnotationArray = [AnyObject]()
             
             println("Model.sharedInstance.students.count = \(Model.sharedInstance.students.count)")

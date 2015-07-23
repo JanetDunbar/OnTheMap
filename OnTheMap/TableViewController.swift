@@ -23,7 +23,7 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
-        tableView.rowHeight = 100
+        //tableView.rowHeight = 100
         self.navigationItem.rightBarButtonItems = [refresh, post]
         
     }
@@ -57,7 +57,7 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
         //let skip = 10
         
         let client = Client()
-        client.getStudentLocations(100, skip: 0) {success, errorString in
+        client.getStudentLocations(10, skip: 10) {success, errorString in
             dispatch_async(dispatch_get_main_queue(), {
                 self.tableView.reloadData()
             })
@@ -86,7 +86,7 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
         let currentElement = Model.sharedInstance.students[indexPath.row]
         let separator  = " "
         // Configure the cell...
-        cell.textLabel?.text = currentElement.firstName + separator + currentElement.lastName
+        cell.textLabel?.text = "\(indexPath.row) \(currentElement.firstName) \(currentElement.lastName)"
         cell.detailTextLabel?.text = currentElement.mediaURL
         println(currentElement.firstName + separator + currentElement.lastName)
         //cell.imageView?.image = currentElement.memedImage

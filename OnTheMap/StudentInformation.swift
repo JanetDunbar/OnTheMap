@@ -9,7 +9,7 @@
 import Foundation
 
 //  TODO: init
-struct StudentInformation{
+struct StudentInformation {
     //var createdAt:  String
     var uniqueKey : String = ""
     var firstName : String = ""

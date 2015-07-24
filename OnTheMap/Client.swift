@@ -107,10 +107,11 @@ class Client {
                 //let swiftDict:Dictionary = dict
                 if let results = dict.valueForKey("results") as? [[String : AnyObject]] {
                     //var students = StudentInformation.studentInformationFromResults(results)
-                    Model.sharedInstance.students = StudentInformation.studentInformationFromResults(results)
+                    Model.sharedInstance.students = Model.sharedInstance.students + StudentInformation.studentInformationFromResults(results)
                     // Update model singleton with current data from server
                     var students = Model.sharedInstance.students
                     println("getStudentLocations: students[0] = \(students[0])")
+                    println("getStudentLocations: students.count = \(students.count)")
                     
                     completion(success: true, errorString: "")
                     return

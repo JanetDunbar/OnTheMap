@@ -16,7 +16,8 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
     
     @IBOutlet weak var post: UIBarButtonItem!
     
-    let mapViewController = MapViewController()
+    let batchSize = 100
+    var batchNumber = 0
     
 //    var students = Model.sharedInstance.students
     
@@ -25,7 +26,6 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
         tableView.delegate = self
         //tableView.rowHeight = 100
         self.navigationItem.rightBarButtonItems = [refresh, post]
-        
     }
     
     // Setup data model and update data.
@@ -55,12 +55,14 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
         println("In refreshData in TableViewController")
         //let limit = 10
         //let skip = 10
+        //batchNumber++
         
         let client = Client()
-        client.getStudentLocations(10, skip: 10) {success, errorString in
+        client.getStudentLocations(batchSize, skip: batchNumber * batchSize) {success, errorString in
             dispatch_async(dispatch_get_main_queue(), {
                 self.tableView.reloadData()
             })
+            
             
             //self.tableView.reloadData()
 //            var studentAnnotationArray = [AnyObject]()
@@ -77,12 +79,24 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
             
             //self.mapView.addAnnotations(studentAnnotationArray)
         }
+        if batchNumber > 1{
+            println("batchNumber greater than 1")
+            return
+        }
+        
+        batchNumber++
     }
 
     
     // Create cell; add its data.
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("TableViewCell", forIndexPath: indexPath) as! UITableViewCell
+        let count = Model.sharedInstance.students.count
+        if indexPath.row % batchSize == Int(batchSize/2){
+            
+                self.refreshData()
+        }
+       
         let currentElement = Model.sharedInstance.students[indexPath.row]
         let separator  = " "
         // Configure the cell...
@@ -97,7 +111,8 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         // Return the number of rows in the section.
-        
+        println("inside numberofRowsInSection")
+        println("Model.sharedInstance.students.count = \(Model.sharedInstance.students.count)")
         return Model.sharedInstance.students.count
         
     }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-let reuseIdentifier = "CollectionViewCell"
+let reuseIdentifier = "CollectionCell"
 
 class CollectionViewController: UICollectionViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
@@ -42,20 +42,31 @@ class CollectionViewController: UICollectionViewController, UICollectionViewData
     // MARK: UICollectionViewDataSource
 
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        //#warning Incomplete method implementation -- Return the number of sections
-        return 0
+        
+        return 1
+        
     }
 
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //#warning Incomplete method implementation -- Return the number of items in the section
-        return 0
+        
+        // Return the number of items in the section.
+        println("inside numberofRowsInSection")
+        println("Model.sharedInstance.students.count = \(Model.sharedInstance.students.count)")
+        return Model.sharedInstance.students.count
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! UICollectionViewCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CollectionViewCell", forIndexPath: indexPath) as! CollectionCell
     
         // Configure the cell
+        let currentElement = Model.sharedInstance.students[indexPath.row]
+        let first = currentElement.firstName
+        let last = currentElement.lastName
+        let fullName = first + last
+        let url = currentElement.mediaURL
+        cell.nameLabel?.text = fullName
+        cell.urlLabel?.text = url
     
         return cell
     }

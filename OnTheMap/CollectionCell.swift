@@ -1,5 +1,5 @@
 //
-//  CollectionViewCell.swift
+//  CollectionCell.swift
 //  OnTheMap
 //
 //  Created by Dr. Janet M. Dunbar on 7/24/15.
@@ -8,6 +8,8 @@
 
 import UIKit
 
-class CollectionViewCell: UICollectionViewCell {
+class CollectionCell: UICollectionViewCell {
     
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var urlLabel: UILabel!
 }

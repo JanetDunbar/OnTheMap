@@ -11,32 +11,28 @@ import UIKit
 
 class TableViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate {
     
-    // TODO:  Check if these button outlets need to be weak
     @IBOutlet weak var refresh: UIBarButtonItem!
     
     @IBOutlet weak var post: UIBarButtonItem!
     
     let batchSize = 100
+    // NB: batchNumber is 0 based (0-9) to limit total number of student locations to 1000
+    let highestBatchNumberAllowed = 9
     var batchNumber = 0
-    
-//    var students = Model.sharedInstance.students
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
-        //tableView.rowHeight = 100
         self.navigationItem.rightBarButtonItems = [refresh, post]
     }
     
     // Setup data model and update data.
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-//        dispatch_async(dispatch_get_main_queue(), {
-//            self.refreshData()
-//        })
+
         self.refreshData()
         
-        //self.tableView.reloadData()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -44,47 +40,23 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
         tableView.reloadData()
     }
     
-//    override func viewDidAppear(animated: Bool) {
-//        super.viewDidAppear(true)
-//        
-//        self.tableView.reloadData()
-//    }
-    
     func refreshData(){
         
         println("In refreshData in TableViewController")
-        //let limit = 10
-        //let skip = 10
-        //batchNumber++
         
-        let client = Client()
-        client.getStudentLocations(batchSize, skip: batchNumber * batchSize) {success, errorString in
-            dispatch_async(dispatch_get_main_queue(), {
-                self.tableView.reloadData()
-            })
-            
-            
-            //self.tableView.reloadData()
-//            var studentAnnotationArray = [AnyObject]()
-//            
-//            println("Model.sharedInstance.students.count = \(Model.sharedInstance.students.count)")
-//            
-//            for (currentIndex,student) in enumerate(Model.sharedInstance.students){
-//                var studentAnnotation: AnyObject! = self.makeStudentAnnotationFromStudentInformation(currentIndex) as AnyObject
-//                
-//                println("studentAnnotation = \(studentAnnotation) in refreshData")
-//                
-//                studentAnnotationArray.append(studentAnnotation)
-//            }
-            
-            //self.mapView.addAnnotations(studentAnnotationArray)
+        if batchNumber >= highestBatchNumberAllowed{
+            println("batchNumber greater than \(highestBatchNumberAllowed)")
         }
-        if batchNumber > 1{
-            println("batchNumber greater than 1")
-            return
+        else {
+            let client = Client()
+            client.getStudentLocations(batchSize, skip: batchNumber * batchSize) {success, errorString in
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.tableView.reloadData()
+                })
+            }
+            
+            batchNumber++
         }
-        
-        batchNumber++
     }
 
     
@@ -94,16 +66,15 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
         let count = Model.sharedInstance.students.count
         if indexPath.row % batchSize == Int(batchSize/2){
             
-                self.refreshData()
+            self.refreshData()
         }
-       
+        
         let currentElement = Model.sharedInstance.students[indexPath.row]
         let separator  = " "
         // Configure the cell...
         cell.textLabel?.text = "\(indexPath.row) \(currentElement.firstName) \(currentElement.lastName)"
         cell.detailTextLabel?.text = currentElement.mediaURL
         println(currentElement.firstName + separator + currentElement.lastName)
-        //cell.imageView?.image = currentElement.memedImage
         
         return cell
     }
@@ -130,15 +101,10 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
 //??Need to add analogous refreshData func
     @IBAction func refresh(sender: UIBarButtonItem) {
         
-        
         println("TableViewController: In IBAction refresh")
         refreshData()
-//        dispatch_async(dispatch_get_main_queue(), {
-//            self.mapViewController.refreshData()
-//        })
         
     }
-    
     
     @IBAction func logout(sender: UIBarButtonItem) {
         

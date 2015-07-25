@@ -13,6 +13,7 @@ import Foundation
 
 class InformationPostingViewController: UIViewController, UITextFieldDelegate, MKMapViewDelegate {
 
+    @IBOutlet weak var browseToTheLink: UIButton!
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     @IBOutlet weak var address: UITextField!
     @IBOutlet weak var whereAreYouStudying: UILabel!
@@ -49,6 +50,7 @@ class InformationPostingViewController: UIViewController, UITextFieldDelegate, M
         enterALink.hidden = true
         url.hidden = true
         submit.hidden = true
+        browseToTheLink.hidden = true
     }
     
     func secondState(){
@@ -60,6 +62,7 @@ class InformationPostingViewController: UIViewController, UITextFieldDelegate, M
         enterALink.hidden = false
         url.hidden = false
         submit.hidden = false
+        browseToTheLink.hidden = false
     }
 
     override func didReceiveMemoryWarning() {
@@ -192,7 +195,17 @@ class InformationPostingViewController: UIViewController, UITextFieldDelegate, M
         self.dismissViewControllerAnimated(true, completion: nil)
         
     }
-
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if segue.identifier == "GoToWebViewController" {
+            let vc = segue.destinationViewController as! WebViewController
+            // set up the vc to run here
+            //vc.myWebView.loadHTMLString(url.text, baseURL: nil)
+            vc.htmlString = url.text
+        
+        }
+    }
+    
     /*
     // MARK: - Navigation
 

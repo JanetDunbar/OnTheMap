@@ -11,6 +11,12 @@ import UIKit
 let reuseIdentifier = "CollectionCell"
 
 class CollectionViewController: UICollectionViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+    
+    // Newly added
+    let batchSize = 100
+    // NB: batchNumber is 0 based (0-9) to limit total number of student locations to 1000
+    let highestBatchNumberAllowed = 9
+    var batchNumber = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,11 +28,47 @@ class CollectionViewController: UICollectionViewController, UICollectionViewData
         self.collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
+        collectionView!.delegate = self
+        //TODO:  For possible refresh and post buttons
+        //self.navigationItem.rightBarButtonItems = [refresh, post]
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        // Newly added
+        refreshData()
+
+    }
+    
+    // Newly added
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(true)
+        collectionView!.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // Newly added
+    func refreshData(){
+        
+        println("In refreshData in TableViewController")
+        
+        if batchNumber >= highestBatchNumberAllowed{
+            println("batchNumber greater than \(highestBatchNumberAllowed)")
+        }
+        else {
+            let client = Client()
+            client.getStudentLocations(batchSize, skip: batchNumber * batchSize) {success, errorString in
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.collectionView!.reloadData()
+                })
+            }
+            
+            batchNumber++
+        }
     }
 
     /*
@@ -58,12 +100,17 @@ class CollectionViewController: UICollectionViewController, UICollectionViewData
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CollectionViewCell", forIndexPath: indexPath) as! CollectionCell
-    
+        // New code
+        if indexPath.row % batchSize == Int(batchSize/2){
+            
+            self.refreshData()
+        }
+        
         // Configure the cell
         let currentElement = Model.sharedInstance.students[indexPath.row]
         let first = currentElement.firstName
         let last = currentElement.lastName
-        let fullName = first + last
+        let fullName = "\(indexPath.row) \(first) \(last)"
         let url = currentElement.mediaURL
         cell.nameLabel?.text = fullName
         cell.urlLabel?.text = url

@@ -90,6 +90,9 @@
                             <constraint firstItem="2Ck-Jg-N1H" firstAttribute="top" secondItem="isk-kd-ugJ" secondAttribute="top" id="u91-jj-mI1"/>
                         </constraints>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem systemItem="cancel" id="7Mz-xG-ymd"/>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" id="0Sc-zw-Xde">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="cxD-GK-Zrd">
                             <connections>
@@ -97,6 +100,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="mapView" destination="2Ck-Jg-N1H" id="b4v-x4-B2R"/>
                         <outlet property="post" destination="3KK-pR-0j4" id="OX5-gV-usk"/>
@@ -270,7 +274,7 @@
         <!--WebView Controller-->
         <scene sceneID="Oaj-es-hbq">
             <objects>
-                <viewController storyboardIdentifier="WebViewController" id="M5f-E1-EB4" userLabel="WebView Controller" customClass="WebViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WebViewController" title="WebViewController" id="M5f-E1-EB4" userLabel="WebView Controller" customClass="WebViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <webView key="view" contentMode="scaleToFill" id="akh-LI-qXg">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -281,6 +285,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tkv-mI-d1c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <barButtonItem systemItem="done" id="SeG-qC-aAB"/>
             </objects>
             <point key="canvasLocation" x="2613" y="567"/>
         </scene>
@@ -500,13 +505,13 @@
                                                 <constraint firstAttribute="height" constant="19" id="kVO-sD-qPo"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="urlLabel" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ahK-B3-4hr" userLabel="urlLabel">
                                             <rect key="frame" x="36" y="70" width="30" height="10"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="8"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>

@@ -22,6 +22,8 @@ class WebViewController: UIViewController, UIWebViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         myWebView.delegate = self
+        //self.navigationItem.rightBarButtonItem = self.doneButtonItem()
+
 //        myWebView.loadHTMLString(htmlString, baseURL: nil)
 
 //        let myURL = NSURL(string: "http://www.swiftdeveloperblog.com");

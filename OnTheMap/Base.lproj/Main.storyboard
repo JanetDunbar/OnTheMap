@@ -220,7 +220,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="MJU-ln-8jD" kind="presentation" id="AH8-hf-MTG"/>
+                                    <segue destination="MJU-ln-8jD" kind="presentation" identifier="GoToWebVC" id="AH8-hf-MTG"/>
                                 </connections>
                             </button>
                         </subviews>

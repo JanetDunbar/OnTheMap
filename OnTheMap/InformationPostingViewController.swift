@@ -201,7 +201,9 @@ class InformationPostingViewController: UIViewController, UITextFieldDelegate, M
             let vc = segue.destinationViewController as! WebVC
             // set up the vc to run here
             //vc.myWebView.loadHTMLString(url.text, baseURL: nil)
-            vc.searchBar?.text = url.text
+            vc.urlText = url.text
+            println("url.text = \(url.text)")
+            println("vc.urlText = \(vc.urlText)")
         
         }
     }

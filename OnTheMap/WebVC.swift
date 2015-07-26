@@ -9,23 +9,30 @@
 import UIKit
 import WebKit
 
-class WebVC: UIViewController, UISearchBarDelegate {
+class WebVC: UIViewController, UISearchBarDelegate, UIWebViewDelegate {
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var webView: UIWebView!
+    var urlText: String!
     
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        
-        searchBar.resignFirstResponder()
-        var text = searchBar.text
-        var url = NSURL(string: text)  //type "http://www.apple.com"
-        var req = NSURLRequest(URL:url!)
-        self.webView!.loadRequest(req)
-    }
+//    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+//        
+//        searchBar.resignFirstResponder()
+//        var text = searchBar.text
+//        var url = NSURL(string: text)  //type "http://www.apple.com"
+//        var req = NSURLRequest(URL:url!)
+//        self.webView!.loadRequest(req)
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.searchBar.delegate = self
+        webView.delegate = self
+        searchBar.delegate = self
+        searchBar.showsCancelButton = true
+        searchBar.text = urlText
+        var url = NSURL(string: searchBar.text)  //type "http://www.apple.com"
+        var req = NSURLRequest(URL:url!)
+        self.webView!.loadRequest(req)
 
         // Do any additional setup after loading the view.
     }
@@ -34,6 +41,8 @@ class WebVC: UIViewController, UISearchBarDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
     
     @IBAction func dismissWebVC(sender: UIBarButtonItem) {
     }

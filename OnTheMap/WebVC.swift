@@ -45,7 +45,8 @@ class WebVC: UIViewController, UISearchBarDelegate, UIWebViewDelegate {
     
     
     @IBAction func dismissWebVC(sender: UIBarButtonItem) {
-    }
+        self.dismissViewControllerAnimated(true, completion: nil)
+        }
 
     /*
     // MARK: - Navigation

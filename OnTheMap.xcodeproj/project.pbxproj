@@ -23,7 +23,6 @@
 		8470401A1B335262008A1C9F /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847040191B335262008A1C9F /* TableViewController.swift */; };
 		8492B31E1B3C4CF2005C7B29 /* MapTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8492B31D1B3C4CF2005C7B29 /* MapTabBarController.swift */; };
 		84C2D6BA1B1F80F600546D7A /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C2D6B91B1F80F600546D7A /* Model.swift */; };
-		84C695B01B64117A001D24CA /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C695AF1B64117A001D24CA /* WebViewController.swift */; };
 		84CDB7ED1B5F3CC300AF076D /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84CDB7EA1B5F3CC300AF076D /* FBSDKCoreKit.framework */; };
 		84CDB7EE1B5F3CC300AF076D /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84CDB7EB1B5F3CC300AF076D /* FBSDKLoginKit.framework */; };
 		84CDB7EF1B5F3CC300AF076D /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84CDB7EC1B5F3CC300AF076D /* FBSDKShareKit.framework */; };
@@ -63,7 +62,6 @@
 		847040191B335262008A1C9F /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		8492B31D1B3C4CF2005C7B29 /* MapTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapTabBarController.swift; sourceTree = "<group>"; };
 		84C2D6B91B1F80F600546D7A /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		84C695AF1B64117A001D24CA /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		84CDB7EA1B5F3CC300AF076D /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../../../Documents/FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		84CDB7EB1B5F3CC300AF076D /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../../../Documents/FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		84CDB7EC1B5F3CC300AF076D /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../../../../Documents/FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
@@ -169,7 +167,6 @@
 			isa = PBXGroup;
 			children = (
 				84084DD31B65580E001DC851 /* WebVC.swift */,
-				84C695AF1B64117A001D24CA /* WebViewController.swift */,
 				8492B31D1B3C4CF2005C7B29 /* MapTabBarController.swift */,
 				847040191B335262008A1C9F /* TableViewController.swift */,
 				84F48E8F1B5D818600701DA8 /* UIViewExtensions.swift */,
@@ -296,7 +293,6 @@
 				84328A781B62E123005FCACC /* CollectionViewController.swift in Sources */,
 				84F48E901B5D818600701DA8 /* UIViewExtensions.swift in Sources */,
 				84084DD41B65580E001DC851 /* WebVC.swift in Sources */,
-				84C695B01B64117A001D24CA /* WebViewController.swift in Sources */,
 				841828CF1B1CC2DF002C8774 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

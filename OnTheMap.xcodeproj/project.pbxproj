@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		84084DD41B65580E001DC851 /* WebVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84084DD31B65580E001DC851 /* WebVC.swift */; };
 		840E2C511B1D16CB005030FB /* InformationPostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840E2C501B1D16CB005030FB /* InformationPostingViewController.swift */; };
 		841828CF1B1CC2DF002C8774 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841828CE1B1CC2DF002C8774 /* AppDelegate.swift */; };
 		841828D11B1CC2DF002C8774 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841828D01B1CC2DF002C8774 /* MapViewController.swift */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		84084DD31B65580E001DC851 /* WebVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebVC.swift; sourceTree = "<group>"; };
 		840E2C501B1D16CB005030FB /* InformationPostingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationPostingViewController.swift; sourceTree = "<group>"; };
 		841828C91B1CC2DF002C8774 /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		841828CD1B1CC2DF002C8774 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 		845DA6C11B1E674F006ADA2C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				84084DD31B65580E001DC851 /* WebVC.swift */,
 				84C695AF1B64117A001D24CA /* WebViewController.swift */,
 				8492B31D1B3C4CF2005C7B29 /* MapTabBarController.swift */,
 				847040191B335262008A1C9F /* TableViewController.swift */,
@@ -292,6 +295,7 @@
 				84328A7A1B62EAD5005FCACC /* CollectionCell.swift in Sources */,
 				84328A781B62E123005FCACC /* CollectionViewController.swift in Sources */,
 				84F48E901B5D818600701DA8 /* UIViewExtensions.swift in Sources */,
+				84084DD41B65580E001DC851 /* WebVC.swift in Sources */,
 				84C695B01B64117A001D24CA /* WebViewController.swift in Sources */,
 				841828CF1B1CC2DF002C8774 /* AppDelegate.swift in Sources */,
 			);

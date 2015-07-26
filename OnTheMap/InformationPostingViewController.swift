@@ -197,11 +197,11 @@ class InformationPostingViewController: UIViewController, UITextFieldDelegate, M
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        if segue.identifier == "GoToWebViewController" {
-            let vc = segue.destinationViewController as! WebViewController
+        if segue.identifier == "GoToWebVC" {
+            let vc = segue.destinationViewController as! WebVC
             // set up the vc to run here
             //vc.myWebView.loadHTMLString(url.text, baseURL: nil)
-            vc.htmlString = url.text
+            vc.searchBar?.text = url.text
         
         }
     }

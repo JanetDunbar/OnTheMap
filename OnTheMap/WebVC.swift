@@ -15,14 +15,14 @@ class WebVC: UIViewController, UISearchBarDelegate, UIWebViewDelegate {
     @IBOutlet weak var webView: UIWebView!
     var urlText: String!
     
-//    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-//        
-//        searchBar.resignFirstResponder()
-//        var text = searchBar.text
-//        var url = NSURL(string: text)  //type "http://www.apple.com"
-//        var req = NSURLRequest(URL:url!)
-//        self.webView!.loadRequest(req)
-//    }
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        
+        searchBar.resignFirstResponder()
+        var text = searchBar.text
+        var url = NSURL(string: text)  //type "http://www.apple.com"
+        var req = NSURLRequest(URL:url!)
+        self.webView!.loadRequest(req)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

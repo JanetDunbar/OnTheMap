@@ -118,6 +118,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
             
             println("Logged in")
         }
+
         
         facebookLoginButton.delegate = self
         
@@ -134,6 +135,23 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
 //            println("didn't get token2")
 //        }
         
+    }
+
+    override func viewWillAppear(animated: Bool) {
+        
+        super.viewWillAppear(true)
+        
+        if FBSDKAccessToken.currentAccessToken() == nil {
+            println("Not logged in")
+            
+        } else {
+            
+            println("Logged in")
+            let loginManager = FBSDKLoginManager()
+            loginManager.logOut() // this is an instance function
+            
+        }
+    
     }
     
     // After typing in a textField, user presses return to end input for that textField.

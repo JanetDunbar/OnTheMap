@@ -80,8 +80,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
             else{
                 //println("TODO:  Put alert here")
                 dispatch_async(dispatch_get_main_queue(), {
-                    self.debugLabel.text! = "Please try again."
-                    self.updateDebugLabel("Please try again.")
+                    self.debugLabel.text! = "Then try again."
+                    self.updateDebugLabel("Then try again.")
                     switch (errorString){
                         case "bad request": self.debugLabel.text! = "Please re-enter your \n email and password."
                         case "forbidden": self.debugLabel.text! = "Please re-enter your \n email and password."

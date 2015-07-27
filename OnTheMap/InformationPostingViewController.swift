@@ -41,6 +41,8 @@ class InformationPostingViewController: UIViewController, UITextFieldDelegate, M
         
     }
     
+    
+    
     func initialState(){
         address.hidden = false
         whereAreYouStudying.hidden = false
@@ -75,17 +77,23 @@ class InformationPostingViewController: UIViewController, UITextFieldDelegate, M
         return true
     }
     
-    @IBAction func findOnTheMap(sender: AnyObject) {
+    @IBAction func findOnTheMap(sender: UIButton) {
         
-        //let address = "350 5th Avenue New York, NY"
+        // Highlight label to additionally show geocoding activity
+        // whereAreYouStudying label turns orange
+        self.whereAreYouStudying.highlighted = true
+        
         println(address)
         mapString = address.text
         
         activityIndicatorView.startAnimating()
+        
         forwardGeocode(mapString)
         
         let secondsFromNow = 1.0
         dispatch_after(dispatch_time (DISPATCH_TIME_NOW, Int64(secondsFromNow * Double(NSEC_PER_SEC))), dispatch_get_main_queue()){
+           
+            // Stop activityIndicatorView from spinning
             self.activityIndicatorView.stopAnimating()
         }
     }
@@ -99,7 +107,7 @@ class InformationPostingViewController: UIViewController, UITextFieldDelegate, M
         {(placemarks: [AnyObject]!, error: NSError!) in
         
         if error != nil {
-            //TODO:  Display an alert if geocoder fails
+            // Display an alert if geocoder fails
             println("Geocode failed with error: \(error.localizedDescription)")
             self.displayAlert("Please enter your location again.")
             return

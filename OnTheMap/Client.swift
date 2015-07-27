@@ -123,7 +123,7 @@ class Client {
                     return
                 }
             }
-            else{
+            else {
                 println("error from conversion = \(err)")
                 completion(success: false, errorString: "error from conversion")
                 return
@@ -146,12 +146,15 @@ class Client {
         let task = session.dataTaskWithRequest(request) { data, response, error in
             if error != nil {
                 // Handle error...
+                println("error in facebookLogin")
                 return
             }
             let newData = data.subdataWithRange(NSMakeRange(5, data.length - 5)) /* subset response data! */
             println(NSString(data: newData, encoding: NSUTF8StringEncoding))
         }
-        task.resume()    }
+        task.resume()
+    }
+}
 
     //Working code for alert view generation.
 //    func alertHelper(viewController: UIViewController){
@@ -177,4 +180,4 @@ class Client {
 //        
 //    }
     
-}
+

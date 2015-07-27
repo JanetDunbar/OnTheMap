@@ -75,8 +75,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84CDB7EE1B5F3CC300AF076D /* FBSDKLoginKit.framework in Frameworks */,
 				84CDB7ED1B5F3CC300AF076D /* FBSDKCoreKit.framework in Frameworks */,
+				84CDB7EE1B5F3CC300AF076D /* FBSDKLoginKit.framework in Frameworks */,
 				84CDB7EF1B5F3CC300AF076D /* FBSDKShareKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -116,7 +116,7 @@
 				845DA6BF1B1D4F98006ADA2C /* Client.swift */,
 				84F321BC1B1F6E26006BA869 /* StudentInformation.swift */,
 				84C2D6B91B1F80F600546D7A /* Model.swift */,
-				842C083B1B60251000D0C70C /* Frameworks */,
+				842C083B1B60251000D0C70C /* FacebookSDK.framework */,
 				845DA6C11B1E674F006ADA2C /* ViewControllers */,
 				841828CC1B1CC2DF002C8774 /* Supporting Files */,
 				84EC2B4A1B1D478E00084471 /* BorderedButton.swift */,
@@ -153,14 +153,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		842C083B1B60251000D0C70C /* Frameworks */ = {
+		842C083B1B60251000D0C70C /* FacebookSDK.framework */ = {
 			isa = PBXGroup;
 			children = (
 				84CDB7EA1B5F3CC300AF076D /* FBSDKCoreKit.framework */,
 				84CDB7EB1B5F3CC300AF076D /* FBSDKLoginKit.framework */,
 				84CDB7EC1B5F3CC300AF076D /* FBSDKShareKit.framework */,
 			);
-			name = Frameworks;
+			name = FacebookSDK.framework;
 			sourceTree = "<group>";
 		};
 		845DA6C11B1E674F006ADA2C /* ViewControllers */ = {

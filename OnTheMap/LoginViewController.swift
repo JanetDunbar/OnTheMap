@@ -13,7 +13,7 @@ import FBSDKLoginKit
 import FBSDKShareKit
 
 
-class LoginViewController: UIViewController, UITextFieldDelegate {
+class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButtonDelegate {
 
     @IBOutlet weak var facebookLoginButton: FBSDKLoginButton!
    
@@ -25,8 +25,20 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var debugLabel: UILabel!
     
     @IBAction func loginToFacebook(sender: FBSDKLoginButton) {
+        
         let client = Client()
         client.facebookLogin()
+        //completeLogin()
+        var token = FBSDKAccessToken.currentAccessToken
+        println("token is \(token)")
+        var token2 = FBSDKAccessToken.currentAccessToken()
+        if (token2 != nil){
+            println("token2: \(token2)")
+            completeLogin()
+        } else {
+            println("didn't get token2")
+        }
+        
     }
     
     @IBAction func visitUdacity(sender: UIButton) {
@@ -98,6 +110,30 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         username.delegate = self
         password.delegate = self
         udacityImage.image = UIImage(named: "udacity")
+        
+        if FBSDKAccessToken.currentAccessToken() == nil {
+            println("Not logged in")
+            
+        } else {
+            
+            println("Logged in")
+        }
+        
+        facebookLoginButton.delegate = self
+        
+//        if let token = FBSDKAccessToken.currentAccessToken?{
+//            completeLogin()
+//        }
+//        var token = FBSDKAccessToken.currentAccessToken
+//        println("token is \(token)")
+//        var token2 = FBSDKAccessToken.currentAccessToken()
+//        if (token2 != nil){
+//            println("token2: \(token2)")
+//            completeLogin()
+//        } else {
+//            println("didn't get token2")
+//        }
+        
     }
     
     // After typing in a textField, user presses return to end input for that textField.
@@ -124,6 +160,24 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 //        self.debugLabel.text = ""
 //        let controller = self.storyboard!.instantiateViewControllerWithIdentifier("MapTabBarController") as! UITabBarController
 //        self.presentViewController(controller, animated: true, completion: nil)
+    }
+    
+    // MARK: Facebook login delegate methods
+    
+    func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
+    
+        if error == nil {
+            
+            println("Login completed.")
+            completeLogin()
+            
+        } else {
+            println(error.localizedDescription)
+        }
+    }
+    
+    func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
+        println("User is logged out.")
     }
 
     /*

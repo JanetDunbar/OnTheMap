@@ -29,7 +29,7 @@ class Client {
         let task = session.dataTaskWithRequest(request) { data, response, error in
             if error != nil { // Handle error…
                 //println("!!!!!!!!!!!Error not nil")
-                completion(success: false, errorString: "Failed to connect.")
+                completion(success: false, errorString: "Failed to connect.\nPlease check your settings.")
                 return
             }
 

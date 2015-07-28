@@ -97,8 +97,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     // Get a new batch of data.
     func refreshData(){
-        
-        println("In refreshData in MapViewController")
 
         let client = Client()
         client.getStudentLocations(Model.sharedInstance.batchSize, skip: Model.sharedInstance.batchNumber * Model.sharedInstance.batchSize) {success, errorString in

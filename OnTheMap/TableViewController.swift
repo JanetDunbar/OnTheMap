@@ -35,11 +35,7 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
     // Get a batch of data.
     func refreshData(){
 
-        if Model.sharedInstance.batchNumber >= Model.sharedInstance.highestBatchNumberAllowed{
-            println("batchNumber greater than \(Model.sharedInstance.highestBatchNumberAllowed)")
-        }
-            
-        else {
+        if Model.sharedInstance.batchNumber < Model.sharedInstance.highestBatchNumberAllowed{
             let client = Client()
             client.getStudentLocations(Model.sharedInstance.batchSize, skip: Model.sharedInstance.batchNumber * Model.sharedInstance.batchSize) {success, errorString in
                 dispatch_async(dispatch_get_main_queue(), {

@@ -36,12 +36,11 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(request) { data, response, error in
             if error != nil { // Handle error…
-                //
+                
                 println(error)
                 return
             }
             let newData = data.subdataWithRange(NSMakeRange(5, data.length - 5)) /* subset response data! */
-            println(NSString(data: newData, encoding: NSUTF8StringEncoding))
             self.dismissViewControllerAnimated(true, completion: nil)
         }
         task.resume()     
@@ -104,9 +103,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         let client = Client()
         client.getStudentLocations(Model.sharedInstance.batchSize, skip: Model.sharedInstance.batchNumber * Model.sharedInstance.batchSize) {success, errorString in
             var studentAnnotationArray = [AnyObject]()
-            
-            println("Model.sharedInstance.students.count = \(Model.sharedInstance.students.count)")
-            
+                        
             for (currentIndex,student) in enumerate(Model.sharedInstance.students){
                 var studentAnnotation: AnyObject! = self.makeStudentAnnotationFromStudentInformation(currentIndex) as AnyObject
                 
@@ -123,8 +120,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     @IBAction func refresh(sender: UIBarButtonItem) {
         
         Model.sharedInstance.resetModel()
-
-        println("In refresh")
         self.refreshData()
     }
     

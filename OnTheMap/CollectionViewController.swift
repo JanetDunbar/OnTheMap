@@ -39,8 +39,6 @@ class CollectionViewController: UICollectionViewController, UICollectionViewData
     //  Get a new batch of data.
     func refreshData(){
         
-        println("In refreshData in TableViewController")
-        
         if Model.sharedInstance.batchNumber >= Model.sharedInstance.highestBatchNumberAllowed{
             println("batchNumber greater than \(Model.sharedInstance.highestBatchNumberAllowed)")
         }

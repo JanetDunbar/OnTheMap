@@ -27,9 +27,6 @@ class Client {
             }
 
             if let httpResponse = response as? NSHTTPURLResponse{
-                println("httpResponse = \(httpResponse)")
-                println("httpResponse.statusCode = \(httpResponse.statusCode)")
-                println(NSHTTPURLResponse.localizedStringForStatusCode(httpResponse.statusCode))
                 let errorMessage = NSHTTPURLResponse.localizedStringForStatusCode(httpResponse.statusCode)
                 
                 switch httpResponse.statusCode{
@@ -37,7 +34,6 @@ class Client {
                 case 200...299:
                     println("\(httpResponse.statusCode) is a success status.")
                 default:
-                    println("\(httpResponse.statusCode) is not a valid status.")
                     completion(success: false, errorString: errorMessage)
                     return
                 }
@@ -45,7 +41,6 @@ class Client {
             
             let newData = data.subdataWithRange(NSMakeRange(5, data.length - 5)) /* subset response data! */
             let loginString = NSString(data: newData, encoding: NSUTF8StringEncoding) //as! String
-            println("loginString = \(loginString)")
             // Success so call completion
             completion(success: true, errorString: "")
  

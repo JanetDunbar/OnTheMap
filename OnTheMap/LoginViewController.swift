@@ -55,20 +55,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
         // Create dictionary of userNames and passwords
         var udacity = ["username": "", "password": ""]
         udacity["username"] = username.text
-        //println("username = /(username.text)")
         udacity["password"] = password.text
         let un = username.text
         let pwd = password.text
         
         let client = Client()
         client.loginWithClient(un, pw: pwd){success, errorString in
-            println(success)
-            println(errorString)
+            
             if success{
                 self.completeLogin()
             }
             else{
-                //println("TODO:  Put alert here")
                 dispatch_async(dispatch_get_main_queue(), {
                     self.debugLabel.text! = "Then try again."
                     self.updateDebugLabel("Then try again.")
@@ -142,7 +139,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
     
         if error == nil {
             
-            println("Login completed.")
             completeLogin()
             
         } else {

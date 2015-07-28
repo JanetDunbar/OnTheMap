@@ -50,7 +50,6 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
             Model.sharedInstance.batchNumber++
         }
     }
-
     
     // Create cell; add its data.
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -66,7 +65,6 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
         // Configure the cell...
         cell.textLabel?.text = "\(indexPath.row) \(currentElement.firstName) \(currentElement.lastName)"
         cell.detailTextLabel?.text = currentElement.mediaURL
-        println(currentElement.firstName + separator + currentElement.lastName)
         
         return cell
     }
@@ -81,9 +79,8 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         if let tableCell = tableView.cellForRowAtIndexPath(indexPath){
+            
             let text = tableCell.detailTextLabel?.text
-            println(text)
-            //UIApplication.sharedApplication().openURL(NSURL(string: tableCell!.detailTextLabel?.text))
             UIApplication.sharedApplication().openURL(NSURL(string: tableCell.detailTextLabel!.text!)!)
         }
     }

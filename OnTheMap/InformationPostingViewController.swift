@@ -99,7 +99,6 @@ class InformationPostingViewController: UIViewController, UITextFieldDelegate, M
         
         if error != nil {
             // Display an alert if geocoder fails
-            println("Geocode failed with error: \(error.localizedDescription)")
             self.displayAlert("Please enter your location again.")
             return
         }
@@ -107,7 +106,6 @@ class InformationPostingViewController: UIViewController, UITextFieldDelegate, M
         if placemarks.count > 0 {
             let placemark = placemarks[0] as! CLPlacemark
             let location = placemark.location
-            println("\(location.coordinate.latitude) \(location.coordinate.longitude)")
             self.newLatitude = location.coordinate.latitude
             self.newLongitude = location.coordinate.longitude
             let annotationLocation = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
@@ -132,11 +130,6 @@ class InformationPostingViewController: UIViewController, UITextFieldDelegate, M
     }
 
     @IBAction func submitNewLocationAndUrl(sender: UIButton) {
-        
-        println("mapString = \(mapString)")
-        println("mediaUrl = \(url.text)")
-        println("newLatitude = \(newLatitude)")
-        println("newLongitude = \(newLongitude)")
         
         // Reformat strings.
         let reformattedMapString = reformatString(mapString)

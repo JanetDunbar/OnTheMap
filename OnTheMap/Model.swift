@@ -11,6 +11,17 @@ import Foundation
 class Model{
     
     var students = [StudentInformation]()
+
+    // Batching data
+    let batchSize = 100
+    // batchNumber is 0 based (0-9) to limit total number of student locations to 1000
+    let highestBatchNumberAllowed = 9
+    var batchNumber = 0
+    
+    func resetModel() {
+        students = [StudentInformation]()
+        batchNumber = 0
+    }
     
     // Make soft singleton
     class var sharedInstance: Model{

@@ -15,12 +15,6 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
     
     @IBOutlet weak var post: UIBarButtonItem!
     
-    let batchSize = 100
-    // NB: batchNumber is 0 based (0-9) to limit total number of student locations to 1000
-    let highestBatchNumberAllowed = 9
-    var batchNumber = 0
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -44,18 +38,18 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
         
         println("In refreshData in TableViewController")
         
-        if batchNumber >= highestBatchNumberAllowed{
-            println("batchNumber greater than \(highestBatchNumberAllowed)")
+        if Model.sharedInstance.batchNumber >= Model.sharedInstance.highestBatchNumberAllowed{
+            println("batchNumber greater than \(Model.sharedInstance.highestBatchNumberAllowed)")
         }
         else {
             let client = Client()
-            client.getStudentLocations(batchSize, skip: batchNumber * batchSize) {success, errorString in
+            client.getStudentLocations(Model.sharedInstance.batchSize, skip: Model.sharedInstance.batchNumber * Model.sharedInstance.batchSize) {success, errorString in
                 dispatch_async(dispatch_get_main_queue(), {
                     self.tableView.reloadData()
                 })
             }
             
-            batchNumber++
+            Model.sharedInstance.batchNumber++
         }
     }
 
@@ -64,7 +58,7 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("TableViewCell", forIndexPath: indexPath) as! UITableViewCell
         let count = Model.sharedInstance.students.count
-        if indexPath.row % batchSize == Int(batchSize/2){
+        if indexPath.row % Model.sharedInstance.batchSize == Int(Model.sharedInstance.batchSize/2){
             
             self.refreshData()
         }
@@ -100,7 +94,8 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
 // Error message:  fatal error: unexpectedly found nil while unwrapping an Optional value
 //??Need to add analogous refreshData func
     @IBAction func refresh(sender: UIBarButtonItem) {
-        
+        Model.sharedInstance.resetModel()
+
         println("TableViewController: In IBAction refresh")
         refreshData()
         

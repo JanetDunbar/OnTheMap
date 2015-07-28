@@ -57,9 +57,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         
         var span = MKCoordinateSpanMake(100, 100)
         var region = MKCoordinateRegion(center: annotationLocation, span: span)
-        
-        //mapView.setRegion(region, animated: true)
-        
+                
         studentAnnotation = StudentAnnotation(coordinate: annotationLocation, title: fullName, subtitle: url)
         return studentAnnotation
     
@@ -105,17 +103,15 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     func refreshData(){
         
         println("In refreshData in MapViewController")
-        
+
         let client = Client()
-        client.getStudentLocations(100, skip:0) {success, errorString in
+        client.getStudentLocations(Model.sharedInstance.batchSize, skip: Model.sharedInstance.batchNumber * Model.sharedInstance.batchSize) {success, errorString in
             var studentAnnotationArray = [AnyObject]()
             
             println("Model.sharedInstance.students.count = \(Model.sharedInstance.students.count)")
             
             for (currentIndex,student) in enumerate(Model.sharedInstance.students){
                 var studentAnnotation: AnyObject! = self.makeStudentAnnotationFromStudentInformation(currentIndex) as AnyObject
-                
-                println("studentAnnotation = \(studentAnnotation) in refreshData")
                 
                 studentAnnotationArray.append(studentAnnotation)
             }
@@ -127,13 +123,13 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     }
     
      // Call refreshData asynchronously when user hits refresh button.
-        @IBAction func refresh(sender: UIBarButtonItem) {
-    
-            println("In refresh")
-            dispatch_async(dispatch_get_main_queue(), {
-                self.refreshData()
-            })
-        }
+    @IBAction func refresh(sender: UIBarButtonItem) {
+        
+        Model.sharedInstance.resetModel()
+
+        println("In refresh")
+        self.refreshData()
+    }
     
     override func viewWillAppear(animated: Bool) {
         

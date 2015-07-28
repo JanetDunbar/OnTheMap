@@ -170,7 +170,6 @@ class InformationPostingViewController: UIViewController, UITextFieldDelegate, M
         
         println("request.HTTPBody = \(request.HTTPBody)")
 
-        println("request.HTTPBody = \(request.HTTPBody)")
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(request) { data, response, error in
             if error != nil { // Handle error…
@@ -179,6 +178,8 @@ class InformationPostingViewController: UIViewController, UITextFieldDelegate, M
             }
             let studentLocationString = NSString(data: data, encoding: NSUTF8StringEncoding) as! String
             println("studentLocationString = \(studentLocationString)")
+            
+            Model.sharedInstance.resetModel() // Force a refresh
             
             dispatch_async(dispatch_get_main_queue(), {
                 self.dismissViewControllerAnimated(true, completion: nil)

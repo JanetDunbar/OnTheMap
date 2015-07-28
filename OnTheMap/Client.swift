@@ -28,7 +28,6 @@ class Client {
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(request) { data, response, error in
             if error != nil { // Handle error…
-                //println("!!!!!!!!!!!Error not nil")
                 completion(success: false, errorString: "Failed to connect.\nPlease check your settings.")
                 return
             }
@@ -87,27 +86,22 @@ class Client {
         request.addValue("QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY", forHTTPHeaderField: "X-Parse-REST-API-Key")
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(request) { data, response, error in
-            if error != nil { // !!!!!!!!Handle error...
-                println("!!!!error in getStudentLocations")
+            if error != nil { // Handle error...
                 completion(success: false, errorString: "error from server")
                 return
             }
             
             var err: NSError?
             
-            //var options
-            //let studentLocationsString = NSString(data: data, encoding: NSUTF8StringEncoding) as! String
             let studentLocationsString = NSString(data: data, encoding: NSUTF8StringEncoding)
-            //println("studentLocationsString = \(studentLocationsString)")
             
             if let convertedString: AnyObject! = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(0), error: &err){
-                //println(convertedString)
+
                 let dict = convertedString as! NSDictionary
-                //println(dict)
-                //let swiftDict:Dictionary = dict
+                
                 if let results = dict.valueForKey("results") as? [[String : AnyObject]] {
-                    //var students = StudentInformation.studentInformationFromResults(results)
                     Model.sharedInstance.students = Model.sharedInstance.students + StudentInformation.studentInformationFromResults(results)
+
                     // Update model singleton with current data from server
                     var students = Model.sharedInstance.students
                     println("getStudentLocations: students[0] = \(students[0])")
@@ -115,7 +109,6 @@ class Client {
                     
                     completion(success: true, errorString: "")
                     return
-                    //self.completeLogin()
                 }
                 else {
                     println("error from conversion = \(err)")
@@ -139,7 +132,7 @@ class Client {
         request.HTTPMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        // !!!Need to obtain correct info from Udacity...
+
         request.HTTPBody = "{\"facebook_mobile\": {\"access_token\": \"DADFMS4SN9e8BAD6vMs6yWuEcrJlMZChFB0ZB0PCLZBY8FPFYxIPy1WOr402QurYWm7hj1ZCoeoXhAk2tekZBIddkYLAtwQ7PuTPGSERwH1DfZC5XSef3TQy1pyuAPBp5JJ364uFuGw6EDaxPZBIZBLg192U8vL7mZAzYUSJsZA8NxcqQgZCKdK4ZBA2l2ZA6Y1ZBWHifSM0slybL9xJm3ZBbTXSBZCMItjnZBH25irLhIvbxj01QmlKKP3iOnl8Ey;\"}}".dataUsingEncoding(NSUTF8StringEncoding)
         
         let session = NSURLSession.sharedSession()
@@ -156,28 +149,4 @@ class Client {
     }
 }
 
-    //Working code for alert view generation.
-//    func alertHelper(viewController: UIViewController){
-//        
-//        let alertController = UIAlertController(title: "Alert Popup", message: "Please try again.", preferredStyle: .Alert)
-//        
-//        let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
-//        alertController.addAction(defaultAction)
-//        
-//        viewController.presentViewController(alertController, animated: true, completion: nil)
-//    }
-
-    // Working code from experiment project:  use in view controllers
-//    @IBAction func experiment(){
-//        
-//        let alertController = UIAlertController(title: "Alert Popup", message: "Please try again.", preferredStyle: .Alert)
-//        
-//        let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
-//        alertController.addAction(defaultAction)
-//        
-//        presentViewController(alertController, animated: true, completion: nil)
-//        
-//        
-//    }
-    
 

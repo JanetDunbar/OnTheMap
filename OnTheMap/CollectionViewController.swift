@@ -59,4 +59,41 @@ class CollectionViewController: UICollectionViewController, UICollectionViewData
             Model.sharedInstance.batchNumber++
         }
     }
+
+    // MARK: UICollectionViewDataSource
+
+    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        
+        return 1
+        
+    }
+
+
+    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        // Return the number of items in the section.
+        println("inside numberofRowsInSection")
+        println("Model.sharedInstance.students.count = \(Model.sharedInstance.students.count)")
+        return Model.sharedInstance.students.count
+    }
+
+    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CollectionViewCell", forIndexPath: indexPath) as! CollectionCell
+        // New code
+        if indexPath.row % Model.sharedInstance.batchSize == Int(Model.sharedInstance.batchSize/2){
+            
+            self.refreshData()
+        }
+        
+        // Configure the cell
+        let currentElement = Model.sharedInstance.students[indexPath.row]
+        let first = currentElement.firstName
+        let last = currentElement.lastName
+        let fullName = "\(indexPath.row) \(first) \(last)"
+        let url = currentElement.mediaURL
+        cell.nameLabel?.text = fullName
+        cell.urlLabel?.text = url
+    
+        return cell
+    }
 }

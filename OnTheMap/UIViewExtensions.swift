@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+// FadeIn and FadeOut functions for animation of debugLabel.text in LoginViewController.
 extension UIView {
     func fadeIn(duration: NSTimeInterval = 1.0, delay: NSTimeInterval = 0.0, completion: ((Bool) -> Void) = {(finished: Bool) -> Void in}) {
         UIView.animateWithDuration(duration, delay: delay, options: UIViewAnimationOptions.CurveEaseIn, animations: {

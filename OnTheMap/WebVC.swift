@@ -25,6 +25,7 @@ class WebVC: UIViewController, UISearchBarDelegate, UIWebViewDelegate {
     }
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         webView.delegate = self
         searchBar.delegate = self
@@ -33,29 +34,13 @@ class WebVC: UIViewController, UISearchBarDelegate, UIWebViewDelegate {
         var url = NSURL(string: searchBar.text)  //type "http://www.apple.com"
         var req = NSURLRequest(URL:url!)
         self.webView!.loadRequest(req)
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
-    
     
     @IBAction func dismissWebVC(sender: UIBarButtonItem) {
         self.dismissViewControllerAnimated(true, completion: nil)
-        }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
     }
-    */
-
 }

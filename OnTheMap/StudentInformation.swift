@@ -8,7 +8,6 @@
 
 import Foundation
 
-//  TODO: init
 struct StudentInformation {
     //var createdAt:  String
     var uniqueKey : String = ""
@@ -22,8 +21,6 @@ struct StudentInformation {
     //var coord: (Double, Double)
     var updatedAt:  String?
 
-
-    // TODO:  !!!!Test each case for validity
     init(dictionary: [String : AnyObject]) {
         //Iterate through the keys in dictionary to initialize each property in StudentInformation
 
@@ -74,6 +71,4 @@ struct StudentInformation {
         return students
         
     }
-
-    
 }

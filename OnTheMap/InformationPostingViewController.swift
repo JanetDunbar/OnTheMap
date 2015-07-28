@@ -26,22 +26,16 @@ class InformationPostingViewController: UIViewController, UITextFieldDelegate, M
     
     var newLatitude = 0.0
     var newLongitude = 0.0
-    //var mediaUrl = ""
     var mapString = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         address.delegate = self
         url.delegate = self
         mapView.delegate = self
         activityIndicatorView.hidesWhenStopped = true
         initialState()
-        
     }
-    
-    
     
     func initialState(){
         address.hidden = false
@@ -69,7 +63,6 @@ class InformationPostingViewController: UIViewController, UITextFieldDelegate, M
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -79,11 +72,9 @@ class InformationPostingViewController: UIViewController, UITextFieldDelegate, M
     
     @IBAction func findOnTheMap(sender: UIButton) {
         
-        // Highlight label to additionally show geocoding activity
-        // whereAreYouStudying label turns orange
+        // Highlight label as additional indication of geocoding;
+        // whereAreYouStudying label turns orange.
         self.whereAreYouStudying.highlighted = true
-        
-        println(address)
         mapString = address.text
         
         activityIndicatorView.startAnimating()
@@ -120,27 +111,19 @@ class InformationPostingViewController: UIViewController, UITextFieldDelegate, M
             self.newLatitude = location.coordinate.latitude
             self.newLongitude = location.coordinate.longitude
             let annotationLocation = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-            println(annotationLocation)
             
             let url = ""
-                
             var span = MKCoordinateSpanMake(100, 100)
             var region = MKCoordinateRegion(center: annotationLocation, span: span)
             
             self.mapView.setRegion(region, animated: true)
             
             let studentAnnotation = StudentAnnotation(coordinate: annotationLocation, title: "", subtitle: "")
-            //studentAnnotation = StudentAnnotation(coordinate: annotationLocation, title: fullName, subtitle: url)
-            //return annotation
-                
             self.secondState()
             self.mapView.addAnnotation(studentAnnotation)
-
             }
         })
     }
-    
-    
     
     func reformatString(string: String)->String{
         
@@ -167,8 +150,6 @@ class InformationPostingViewController: UIViewController, UITextFieldDelegate, M
         
         // Post student location and ul; mapString, newLatitude and newLongitude post correctly.
         request.HTTPBody = "{\"uniqueKey\": \"1234\", \"firstName\": \"Janet\", \"lastName\": \"Dunbar\",\"mapString\": \"\(mapString)\", \"mediaURL\": \"\(url.text)\",\"latitude\": \(newLatitude), \"longitude\": \(newLongitude)}".dataUsingEncoding(NSUTF8StringEncoding)
-        
-        println("request.HTTPBody = \(request.HTTPBody)")
 
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(request) { data, response, error in
@@ -177,8 +158,7 @@ class InformationPostingViewController: UIViewController, UITextFieldDelegate, M
                 return
             }
             let studentLocationString = NSString(data: data, encoding: NSUTF8StringEncoding) as! String
-            println("studentLocationString = \(studentLocationString)")
-            
+
             Model.sharedInstance.resetModel() // Force a refresh
             
             dispatch_async(dispatch_get_main_queue(), {
@@ -197,8 +177,6 @@ class InformationPostingViewController: UIViewController, UITextFieldDelegate, M
         presentViewController(alertController, animated: true, completion: nil)
     }
 
-    
-    // On iPhone6 device, now not dismissing on submit.
     @IBAction func cancel(sender: UIBarButtonItem) {
         
         self.dismissViewControllerAnimated(true, completion: nil)
@@ -211,20 +189,6 @@ class InformationPostingViewController: UIViewController, UITextFieldDelegate, M
             // set up the vc to run here
             //vc.myWebView.loadHTMLString(url.text, baseURL: nil)
             vc.urlText = url.text
-            println("url.text = \(url.text)")
-            println("vc.urlText = \(vc.urlText)")
-        
         }
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

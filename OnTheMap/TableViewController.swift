@@ -24,9 +24,7 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
     // Setup data model and update data.
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-
         self.refreshData()
-        
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -34,13 +32,13 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
         tableView.reloadData()
     }
     
+    // Get a batch of data.
     func refreshData(){
-        
-        println("In refreshData in TableViewController")
-        
+
         if Model.sharedInstance.batchNumber >= Model.sharedInstance.highestBatchNumberAllowed{
             println("batchNumber greater than \(Model.sharedInstance.highestBatchNumberAllowed)")
         }
+            
         else {
             let client = Client()
             client.getStudentLocations(Model.sharedInstance.batchSize, skip: Model.sharedInstance.batchNumber * Model.sharedInstance.batchSize) {success, errorString in
@@ -76,14 +74,12 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         // Return the number of rows in the section.
-        println("inside numberofRowsInSection")
-        println("Model.sharedInstance.students.count = \(Model.sharedInstance.students.count)")
         return Model.sharedInstance.students.count
         
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        //UIApplication.sharedApplication().openURL(NSURL(string: view.annotation.subtitle!)!)
+        
         if let tableCell = tableView.cellForRowAtIndexPath(indexPath){
             let text = tableCell.detailTextLabel?.text
             println(text)
@@ -91,16 +87,15 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
             UIApplication.sharedApplication().openURL(NSURL(string: tableCell.detailTextLabel!.text!)!)
         }
     }
-// Error message:  fatal error: unexpectedly found nil while unwrapping an Optional value
-//??Need to add analogous refreshData func
+    
     @IBAction func refresh(sender: UIBarButtonItem) {
+        // Prepare model to receive new batch of data.
         Model.sharedInstance.resetModel()
-
-        println("TableViewController: In IBAction refresh")
         refreshData()
-        
     }
     
+    // Logout from Udacity; logout from Facebook occurs in LoginViewController, after TableViewController has been dismissed.
+   
     @IBAction func logout(sender: UIBarButtonItem) {
         
         let request = NSMutableURLRequest(URL: NSURL(string: "https://www.udacity.com/api/session")!)
@@ -115,8 +110,8 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
         }
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(request) { data, response, error in
-            if error != nil { // Handle error…
-                //
+            if error != nil {
+                // Handle error…
                 println(error)
                 return
             }

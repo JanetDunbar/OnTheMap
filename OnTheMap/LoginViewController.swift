@@ -28,17 +28,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
         
         let client = Client()
         client.facebookLogin()
-        //completeLogin()
-        var token = FBSDKAccessToken.currentAccessToken
-        println("token is \(token)")
-        var token2 = FBSDKAccessToken.currentAccessToken()
-        if (token2 != nil){
-            println("token2: \(token2)")
+        var token = FBSDKAccessToken.currentAccessToken()
+        if (token != nil){
             completeLogin()
         } else {
-            println("didn't get token2")
+            println("Facebook login failed, didn't receive token")
         }
-        
     }
     
     @IBAction func visitUdacity(sender: UIButton) {
@@ -64,11 +59,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
         udacity["password"] = password.text
         let un = username.text
         let pwd = password.text
-
-//        if  un  == "" || pwd  == ""{
-//            displayAlert("Please enter your user name and password.")
-//        }
-//        
         
         let client = Client()
         client.loginWithClient(un, pw: pwd){success, errorString in
@@ -87,18 +77,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
                         case "forbidden": self.debugLabel.text! = "Please re-enter your \n email and password."
                     default: self.debugLabel.text! = errorString
                     }
-                    
-                //self.displayAlert(errorString)
                 })
             }
-        
         }
-        //client.getStudentLocations()
     }
     
-    
-    
-    // Working code from experiment project:  use in view controllers
+    // Display alert with Login Error message.
     func displayAlert(errorMessage: String){
     
             let alertController = UIAlertController(title: "Login Error", message: errorMessage, preferredStyle: .Alert)
@@ -111,47 +95,21 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
         username.delegate = self
         password.delegate = self
         udacityImage.image = UIImage(named: "udacity")
-        
-        if FBSDKAccessToken.currentAccessToken() == nil {
-            println("Not logged in")
-            
-        } else {
-            
-            println("Logged in")
-        }
-
-        
         facebookLoginButton.delegate = self
-        
-//        if let token = FBSDKAccessToken.currentAccessToken?{
-//            completeLogin()
-//        }
-//        var token = FBSDKAccessToken.currentAccessToken
-//        println("token is \(token)")
-//        var token2 = FBSDKAccessToken.currentAccessToken()
-//        if (token2 != nil){
-//            println("token2: \(token2)")
-//            completeLogin()
-//        } else {
-//            println("didn't get token2")
-//        }
-        
     }
-
+    
+    // Logout from Facebook using FBSDKLoginManager.
     override func viewWillAppear(animated: Bool) {
         
         super.viewWillAppear(true)
         
         if FBSDKAccessToken.currentAccessToken() == nil {
-            println("Not logged in")
             
         } else {
             
-            println("Logged in")
             let loginManager = FBSDKLoginManager()
             loginManager.logOut() // this is an instance function
             
@@ -168,10 +126,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
-
     
     func completeLogin() {
         dispatch_async(dispatch_get_main_queue(), {
@@ -179,10 +134,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
             let controller = self.storyboard!.instantiateViewControllerWithIdentifier("MapTabBarController") as! UITabBarController
             self.presentViewController(controller, animated: true, completion: nil)
         })
-        
-//        self.debugLabel.text = ""
-//        let controller = self.storyboard!.instantiateViewControllerWithIdentifier("MapTabBarController") as! UITabBarController
-//        self.presentViewController(controller, animated: true, completion: nil)
     }
     
     // MARK: Facebook login delegate methods
@@ -202,15 +153,4 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
         println("User is logged out.")
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

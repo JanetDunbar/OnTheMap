@@ -24,12 +24,9 @@ class CollectionViewController: UICollectionViewController, UICollectionViewData
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
-        // Newly added
         refreshData()
-
     }
     
-    // Newly added
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
         collectionView!.reloadData()
@@ -37,10 +34,9 @@ class CollectionViewController: UICollectionViewController, UICollectionViewData
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-    // Newly added
+    //  Get a new batch of data.
     func refreshData(){
         
         println("In refreshData in TableViewController")
@@ -68,18 +64,15 @@ class CollectionViewController: UICollectionViewController, UICollectionViewData
         
     }
 
-
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         // Return the number of items in the section.
-        println("inside numberofRowsInSection")
-        println("Model.sharedInstance.students.count = \(Model.sharedInstance.students.count)")
         return Model.sharedInstance.students.count
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CollectionViewCell", forIndexPath: indexPath) as! CollectionCell
-        // New code
+
         if indexPath.row % Model.sharedInstance.batchSize == Int(Model.sharedInstance.batchSize/2){
             
             self.refreshData()

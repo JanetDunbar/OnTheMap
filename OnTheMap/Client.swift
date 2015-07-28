@@ -11,20 +11,14 @@ import Foundation
 
 class Client {
     
+    // Login to Udacity with user's email and password.
     func loginWithClient(un:String!, pw: String!, completion: (success: Bool, errorString: String)->()){
         
         let request = NSMutableURLRequest(URL: NSURL(string: "https://www.udacity.com/api/session")!)
         request.HTTPMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        //        request.HTTPBody = "{\"udacity\": {\"username\": \"account@domain.com\", \"password\": \"********\"}}".dataUsingEncoding(NSUTF8StringEncoding)
-        // json = { udacity : { username: "foo@bar.com", password: "1234" } }
-        //let un = username.text
-        //let un = udacity["username"]
-        //let pw = password.text
-        //let pw = udacity["password"]
         request.HTTPBody = "{\"udacity\": {\"username\": \"\(un)\", \"password\": \"\(pw)\"}}".dataUsingEncoding(NSUTF8StringEncoding)
-        //println("LoginVC request.HTTPBody = \(request.HTTPBody)")
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(request) { data, response, error in
             if error != nil { // Handle error…
@@ -49,7 +43,6 @@ class Client {
                 }
             }
             
-            
             let newData = data.subdataWithRange(NSMakeRange(5, data.length - 5)) /* subset response data! */
             let loginString = NSString(data: newData, encoding: NSUTF8StringEncoding) //as! String
             println("loginString = \(loginString)")
@@ -57,14 +50,11 @@ class Client {
             completion(success: true, errorString: "")
  
        }
-        // Needed
         task.resume()
-        
-    }
-    
 
-    
-    // Get student locations, via Parse API.  TODO: Change!!!!Using small number for testing.  Need alert?
+    }
+
+    // Get student locations, via Parse API.  
     func getStudentLocations(limit: Int, skip: Int, completion: (success: Bool, errorString: String)->()){
         
         var limitString = "?limit=\(limit)"
@@ -76,16 +66,12 @@ class Client {
         
         var baseString = "https://api.parse.com/1/classes/StudentLocation"
         var url = baseString + limitString + skipString
-        
-        
-        //let request = NSMutableURLRequest(URL: NSURL(string: "https://api.parse.com/1/classes/StudentLocation?limit=100")!)
-        
         let request = NSMutableURLRequest(URL: NSURL(string: url)!)
-        
         request.addValue("QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr", forHTTPHeaderField: "X-Parse-Application-Id")
         request.addValue("QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY", forHTTPHeaderField: "X-Parse-REST-API-Key")
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(request) { data, response, error in
+            
             if error != nil { // Handle error...
                 completion(success: false, errorString: "error from server")
                 return
@@ -104,20 +90,16 @@ class Client {
 
                     // Update model singleton with current data from server
                     var students = Model.sharedInstance.students
-                    println("getStudentLocations: students[0] = \(students[0])")
-                    println("getStudentLocations: students.count = \(students.count)")
                     
                     completion(success: true, errorString: "")
                     return
                 }
                 else {
-                    println("error from conversion = \(err)")
                     completion(success: false, errorString: "error from results not found")
                     return
                 }
             }
             else {
-                println("error from conversion = \(err)")
                 completion(success: false, errorString: "error from conversion")
                 return
             }
@@ -126,6 +108,7 @@ class Client {
         task.resume()
     }
     
+    // Login to Udacity via user's Facebook account
     func facebookLogin(){
         
         let request = NSMutableURLRequest(URL: NSURL(string: "https://www.udacity.com/api/session")!)
@@ -143,7 +126,6 @@ class Client {
                 return
             }
             let newData = data.subdataWithRange(NSMakeRange(5, data.length - 5)) /* subset response data! */
-            println(NSString(data: newData, encoding: NSUTF8StringEncoding))
         }
         task.resume()
     }

@@ -583,17 +583,13 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="post" destination="aSf-Bn-2Zc" id="cMH-3l-qcq"/>
-                        <outlet property="refresh" destination="aSf-Bn-2Zc" id="ugX-tY-BlU"/>
+                        <outlet property="post" destination="QmH-s9-vYv" id="sJ0-sl-W9x"/>
+                        <outlet property="refresh" destination="NVc-gm-05x" id="f94-Ko-hw2"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MC2-FE-xKs" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <barButtonItem systemItem="refresh" id="2uy-8e-28z" userLabel="Refresh">
-                    <connections>
-                        <action selector="refresh:" destination="ReJ-me-mTX" id="ONo-rG-fqS"/>
-                    </connections>
-                </barButtonItem>
-                <barButtonItem image="pin" id="aSf-Bn-2Zc" userLabel="Post"/>
+                <barButtonItem systemItem="refresh" id="NVc-gm-05x"/>
+                <barButtonItem image="pin" id="QmH-s9-vYv" userLabel="Post"/>
             </objects>
             <point key="canvasLocation" x="1061" y="1769"/>
         </scene>
@@ -625,6 +621,6 @@
         <image name="udacity" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hgf-Lv-Mt7"/>
+        <segue reference="Awd-qE-0Md"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -12,16 +12,11 @@ let reuseIdentifier = "CollectionCell"
 
 class CollectionViewController: UICollectionViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
-    @IBOutlet weak var refresh: UIBarButtonItem!
     
-    @IBOutlet weak var post: UIBarButtonItem!
+    @IBOutlet var refresh: UIBarButtonItem!
     
-    @IBAction func refresh(sender: UIBarButtonItem) {
-        
-        // Prepare model to receive new batch of data.
-        Model.sharedInstance.resetModel()
-        refreshData()
-    }
+    
+    @IBOutlet var post: UIBarButtonItem!
     
     @IBAction func logout(sender: UIBarButtonItem) {
         

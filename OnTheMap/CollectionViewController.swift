@@ -12,6 +12,10 @@ let reuseIdentifier = "CollectionCell"
 
 class CollectionViewController: UICollectionViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
+    @IBOutlet weak var refresh: UIBarButtonItem!
+    
+    @IBOutlet weak var post: UIBarButtonItem!
+    
     @IBAction func logout(sender: UIBarButtonItem) {
         
         let request = NSMutableURLRequest(URL: NSURL(string: "https://www.udacity.com/api/session")!)
@@ -46,6 +50,7 @@ class CollectionViewController: UICollectionViewController, UICollectionViewData
 
         // Do any additional setup after loading the view.
         collectionView!.delegate = self
+        self.navigationItem.rightBarButtonItems = [refresh, post]
     }
     
     override func viewWillAppear(animated: Bool) {

@@ -85,4 +85,20 @@ class CollectionViewController: UICollectionViewController, UICollectionViewData
     
         return cell
     }
+    
+    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        
+        if let collectionCell = collectionView.cellForItemAtIndexPath(indexPath) {
+            let cell = collectionCell as! CollectionCell
+            UIApplication.sharedApplication().openURL(NSURL(string: cell.urlLabel!.text!)!)
+        }
+    }
+//    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath, indexPath: NSIndexPath) {
+//        
+//        if let collectionCell = collectionView.cellForItemAtIndexPath(indexPath){
+//            
+//            let text = collectionCell.urlLabel?.text
+//            UIApplication.sharedApplication().openURL(NSURL(string: collectionCell.urlLabel!.text!)!)
+//        }
+//    }
 }

@@ -575,7 +575,13 @@
                             <outlet property="delegate" destination="ReJ-me-mTX" id="9m8-dz-5fS"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="uDK-j2-gvX"/>
+                    <navigationItem key="navigationItem" id="uDK-j2-gvX">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="JJr-ty-GtA">
+                            <connections>
+                                <action selector="logout:" destination="ReJ-me-mTX" id="gZM-HO-fzd"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MC2-FE-xKs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

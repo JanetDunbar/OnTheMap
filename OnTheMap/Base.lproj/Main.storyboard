@@ -588,7 +588,11 @@
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MC2-FE-xKs" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <barButtonItem systemItem="refresh" id="2uy-8e-28z" userLabel="Refresh"/>
+                <barButtonItem systemItem="refresh" id="2uy-8e-28z" userLabel="Refresh">
+                    <connections>
+                        <action selector="refresh:" destination="ReJ-me-mTX" id="ONo-rG-fqS"/>
+                    </connections>
+                </barButtonItem>
                 <barButtonItem image="pin" id="aSf-Bn-2Zc" userLabel="Post"/>
             </objects>
             <point key="canvasLocation" x="1061" y="1769"/>

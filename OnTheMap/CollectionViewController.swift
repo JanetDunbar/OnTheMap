@@ -16,6 +16,13 @@ class CollectionViewController: UICollectionViewController, UICollectionViewData
     
     @IBOutlet weak var post: UIBarButtonItem!
     
+    @IBAction func refresh(sender: UIBarButtonItem) {
+        
+        // Prepare model to receive new batch of data.
+        Model.sharedInstance.resetModel()
+        refreshData()
+    }
+    
     @IBAction func logout(sender: UIBarButtonItem) {
         
         let request = NSMutableURLRequest(URL: NSURL(string: "https://www.udacity.com/api/session")!)

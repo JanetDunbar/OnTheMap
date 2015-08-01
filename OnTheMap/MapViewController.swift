@@ -95,22 +95,40 @@ class MapViewController: UIViewController, MKMapViewDelegate {
        
     }
     
+    func displayAlert(errorMessage: String){
+        
+        let alertController = UIAlertController(title: "Problem while refreshing.", message: errorMessage, preferredStyle: .Alert)
+        
+        let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        alertController.addAction(defaultAction)
+        presentViewController(alertController, animated: true, completion: nil)
+    }
+    
     // Get a new batch of data.
     func refreshData(){
 
         let client = Client()
         client.getStudentLocations(Model.sharedInstance.batchSize, skip: Model.sharedInstance.batchNumber * Model.sharedInstance.batchSize) {success, errorString in
-            var studentAnnotationArray = [AnyObject]()
-                        
-            for (currentIndex,student) in enumerate(Model.sharedInstance.students){
-                var studentAnnotation: AnyObject! = self.makeStudentAnnotationFromStudentInformation(currentIndex) as AnyObject
-                
-                studentAnnotationArray.append(studentAnnotation)
-            }
             
-            dispatch_async(dispatch_get_main_queue(), {
-                self.mapView.addAnnotations(studentAnnotationArray)
-            })
+            if success{
+            
+                var studentAnnotationArray = [AnyObject]()
+                
+                for (currentIndex,student) in enumerate(Model.sharedInstance.students){
+                    var studentAnnotation: AnyObject! = self.makeStudentAnnotationFromStudentInformation(currentIndex) as AnyObject
+                    
+                    studentAnnotationArray.append(studentAnnotation)
+                }
+                
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.mapView.addAnnotations(studentAnnotationArray)
+                })
+
+                
+            } else {
+                self.displayAlert(errorString)
+                
+            }
         }
     }
     

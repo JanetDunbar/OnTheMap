@@ -68,7 +68,12 @@ class Client {
         let task = session.dataTaskWithRequest(request) { data, response, error in
             
             if error != nil { // Handle error...
-                completion(success: false, errorString: "error from server")
+                
+                var descrip = error.localizedDescription
+                if let reason = error.localizedFailureReason{
+                    descrip = ("\(descrip) : \(reason)")
+                }
+                completion(success: false, errorString: descrip)
                 return
             }
             

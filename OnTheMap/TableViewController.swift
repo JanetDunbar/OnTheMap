@@ -32,15 +32,30 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
         tableView.reloadData()
     }
     
+    func displayAlert(errorMessage: String){
+        
+        let alertController = UIAlertController(title: "Problem while refreshing.", message: errorMessage, preferredStyle: .Alert)
+        
+        let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        alertController.addAction(defaultAction)
+        presentViewController(alertController, animated: true, completion: nil)
+    }
+    
     // Get a batch of data.
     func refreshData(){
 
         if Model.sharedInstance.batchNumber < Model.sharedInstance.highestBatchNumberAllowed{
             let client = Client()
             client.getStudentLocations(Model.sharedInstance.batchSize, skip: Model.sharedInstance.batchNumber * Model.sharedInstance.batchSize) {success, errorString in
-                dispatch_async(dispatch_get_main_queue(), {
-                    self.tableView.reloadData()
-                })
+                
+                if success{
+                    dispatch_async(dispatch_get_main_queue(), {
+                        self.tableView.reloadData()
+                    })
+                } else {
+                    self.displayAlert(errorString)
+                    
+                }
             }
             
             Model.sharedInstance.batchNumber++

@@ -77,6 +77,15 @@ class CollectionViewController: UICollectionViewController, UICollectionViewData
         super.didReceiveMemoryWarning()
     }
     
+    func displayAlert(errorMessage: String){
+        
+        let alertController = UIAlertController(title: "Problem while refreshing.", message: errorMessage, preferredStyle: .Alert)
+        
+        let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        alertController.addAction(defaultAction)
+        presentViewController(alertController, animated: true, completion: nil)
+    }
+    
     //  Get a new batch of data.
     func refreshData(){
         
@@ -84,9 +93,15 @@ class CollectionViewController: UICollectionViewController, UICollectionViewData
        
             let client = Client()
             client.getStudentLocations(Model.sharedInstance.batchSize, skip: Model.sharedInstance.batchNumber * Model.sharedInstance.batchSize) {success, errorString in
-                dispatch_async(dispatch_get_main_queue(), {
-                    self.collectionView!.reloadData()
-                })
+                
+                if success{
+                    dispatch_async(dispatch_get_main_queue(), {
+                        self.collectionView!.reloadData()
+                    })
+                } else {
+                    self.displayAlert(errorString)
+                    
+                }
             }
             
             Model.sharedInstance.batchNumber++

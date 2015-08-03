@@ -19,6 +19,7 @@ class Model{
     var batchNumber = 0
     
     func resetModel() {
+        println("**** RESET model!!! ")
         students = [StudentInformation]()
         batchNumber = 0
     }

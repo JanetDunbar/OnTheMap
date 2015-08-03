@@ -73,9 +73,9 @@ class CollectionViewController: UICollectionViewController, UICollectionViewData
         collectionView!.reloadData()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
+//    override func didReceiveMemoryWarning() {
+//        super.didReceiveMemoryWarning()
+//    }
     
     func displayAlert(errorMessage: String){
         

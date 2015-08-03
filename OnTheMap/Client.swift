@@ -53,7 +53,6 @@ class Client {
     func getStudentLocations(limit: Int, skip: Int, completion: (success: Bool, errorString: String)->()){
         
         var limitString = "?limit=\(limit)"
-        //var skipString = "&skip= \(skip)"
         var skipString = "&skip=\(skip)"
         if skip == 0 {
             skipString = ""
@@ -86,10 +85,14 @@ class Client {
                 let dict = convertedString as! NSDictionary
                 
                 if let results = dict.valueForKey("results") as? [[String : AnyObject]] {
+                    
+                    println("getStudentLocations: results.count: \(StudentInformation.studentInformationFromResults(results).count); skip: \(skip); limit: \(limit)")
+                    
                     Model.sharedInstance.students = Model.sharedInstance.students + StudentInformation.studentInformationFromResults(results)
-
+                    
+                    println("getStudentLocations: New model count: \(Model.sharedInstance.students.count)")
                     // Update model singleton with current data from server
-                    var students = Model.sharedInstance.students
+                    //var students = Model.sharedInstance.students
                     
                     completion(success: true, errorString: "")
                     return

@@ -121,9 +121,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
         return true
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
+//    override func didReceiveMemoryWarning() {
+//        super.didReceiveMemoryWarning()
+//    }
     
     func completeLogin() {
         dispatch_async(dispatch_get_main_queue(), {

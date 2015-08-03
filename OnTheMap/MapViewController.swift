@@ -151,8 +151,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         mapView.showAnnotations(mapView.annotations, animated: true)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
+//    override func didReceiveMemoryWarning() {
+//        super.didReceiveMemoryWarning()
+//    }
 }
 

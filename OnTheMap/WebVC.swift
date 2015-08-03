@@ -36,9 +36,9 @@ class WebVC: UIViewController, UISearchBarDelegate, UIWebViewDelegate {
         self.webView!.loadRequest(req)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
+//    override func didReceiveMemoryWarning() {
+//        super.didReceiveMemoryWarning()
+//    }
     
     @IBAction func dismissWebVC(sender: UIBarButtonItem) {
         self.dismissViewControllerAnimated(true, completion: nil)

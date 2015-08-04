@@ -49,6 +49,12 @@ class Client {
 
     }
 
+    // Overloaded variant of getStudentLocations which uses model for limit and skip.
+    func getStudentLocations(completion: (success: Bool, errorString: String)->()){
+        
+        getStudentLocations(Model.sharedInstance.batchSize, skip: Model.sharedInstance.students.count, completion: completion)
+    }
+
     // Get student locations, via Parse API.  
     func getStudentLocations(limit: Int, skip: Int, completion: (success: Bool, errorString: String)->()){
         

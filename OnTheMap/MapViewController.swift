@@ -108,7 +108,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     func refreshData(){
 
         let client = Client()
-        client.getStudentLocations(Model.sharedInstance.batchSize, skip: Model.sharedInstance.batchNumber * Model.sharedInstance.batchSize) {success, errorString in
+        client.getStudentLocations() {success, errorString in
             
             if success{
             

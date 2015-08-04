@@ -46,7 +46,7 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
 
         if Model.sharedInstance.batchNumber < Model.sharedInstance.highestBatchNumberAllowed{
             let client = Client()
-            client.getStudentLocations(Model.sharedInstance.batchSize, skip: Model.sharedInstance.batchNumber * Model.sharedInstance.batchSize) {success, errorString in
+            client.getStudentLocations() {success, errorString in
                 
                 if success{
                     dispatch_async(dispatch_get_main_queue(), {
@@ -66,10 +66,16 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("TableViewCell", forIndexPath: indexPath) as! UITableViewCell
         let count = Model.sharedInstance.students.count
-        if indexPath.row % Model.sharedInstance.batchSize == Int(Model.sharedInstance.batchSize/2){
+//        if indexPath.row % Model.sharedInstance.batchSize == Int(Model.sharedInstance.batchSize/2){
+//            
+//            self.refreshData()
+//        }
+
+        if indexPath.row == Int(Model.sharedInstance.students.count - Model.sharedInstance.batchSize/2){
             
             self.refreshData()
         }
+        
         
         let currentElement = Model.sharedInstance.students[indexPath.row]
         let separator  = " "

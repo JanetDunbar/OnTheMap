@@ -92,7 +92,7 @@ class CollectionViewController: UICollectionViewController, UICollectionViewData
         if Model.sharedInstance.batchNumber < Model.sharedInstance.highestBatchNumberAllowed{
        
             let client = Client()
-            client.getStudentLocations(Model.sharedInstance.batchSize, skip: Model.sharedInstance.batchNumber * Model.sharedInstance.batchSize) {success, errorString in
+            client.getStudentLocations() {success, errorString in
                 
                 if success{
                     dispatch_async(dispatch_get_main_queue(), {

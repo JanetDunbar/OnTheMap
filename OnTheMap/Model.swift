@@ -15,7 +15,7 @@ class Model{
     // Batching data
     let batchSize = 100
     // batchNumber is 0 based (0-9) to limit total number of student locations to 1000
-    let highestBatchNumberAllowed = 9
+    let highestBatchNumberAllowed = 10
     var batchNumber = 0
     
     func resetModel() {

@@ -94,11 +94,11 @@ class Client {
                     
                     println("getStudentLocations: results.count: \(StudentInformation.studentInformationFromResults(results).count); skip: \(skip); limit: \(limit)")
                     
+                    // Add new batch to the model.
                     Model.sharedInstance.students = Model.sharedInstance.students + StudentInformation.studentInformationFromResults(results)
                     
                     println("getStudentLocations: New model count: \(Model.sharedInstance.students.count)")
-                    // Update model singleton with current data from server
-                    //var students = Model.sharedInstance.students
+                    println("batchNumber = \(Model.sharedInstance.batchNumber)")
                     
                     completion(success: true, errorString: "")
                     return

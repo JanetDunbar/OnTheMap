@@ -25,7 +25,8 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
 
-        // Refresh to pick up any new pins added by user.
+        // RefreshData to display any new pins added by user, when
+        // the Information Posting View Controller is dismissed.
         self.refreshData()
     }
     
@@ -59,7 +60,7 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
                     
                 }
             }
-            
+            // Model's batchNumber increments.
             Model.sharedInstance.batchNumber++
         }
     }

@@ -120,10 +120,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
         textField.resignFirstResponder()
         return true
     }
-
-//    override func didReceiveMemoryWarning() {
-//        super.didReceiveMemoryWarning()
-//    }
     
     func completeLogin() {
         dispatch_async(dispatch_get_main_queue(), {

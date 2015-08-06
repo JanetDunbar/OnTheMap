@@ -12,9 +12,9 @@ class Model{
     
     var students = [StudentInformation]()
 
-    // Batching data
+    // batchSize is number of student locations to get from server per batch
     let batchSize = 100
-    // batchNumber is 0 based (0-9) to limit total number of student locations to 1000, now limited by greatly reduced size of database
+    // batchNumber is 0 based (0-9) to limit total number of student locations to 1000, now limited by reduced size of database
     let highestBatchNumberAllowed = 10
     var batchNumber = 0
     

@@ -66,7 +66,8 @@ class CollectionViewController: UICollectionViewController, UICollectionViewData
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
 
-        // Refresh to pick up any new pins added by user.
+        // RefreshData to display any new pins added by user, when
+        // the Information Posting View Controller is dismissed.
         refreshData()
     }
     
@@ -74,10 +75,6 @@ class CollectionViewController: UICollectionViewController, UICollectionViewData
         super.viewDidAppear(true)
         collectionView!.reloadData()
     }
-
-//    override func didReceiveMemoryWarning() {
-//        super.didReceiveMemoryWarning()
-//    }
     
     func displayAlert(errorMessage: String){
         

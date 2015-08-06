@@ -148,11 +148,9 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
+        // Display annotations in an appropriate region
+        // according to Apple documentation
         mapView.showAnnotations(mapView.annotations, animated: true)
     }
-
-//    override func didReceiveMemoryWarning() {
-//        super.didReceiveMemoryWarning()
-//    }
 }
 

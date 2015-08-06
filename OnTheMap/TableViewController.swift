@@ -24,6 +24,8 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
     // Setup data model and update data.
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+
+        // Refresh to pick up any new pins added by user.
         self.refreshData()
     }
     
@@ -62,15 +64,12 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
         }
     }
     
-    // Create cell; add its data.
+    // Create cell; add its data and implement paging.
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("TableViewCell", forIndexPath: indexPath) as! UITableViewCell
         let count = Model.sharedInstance.students.count
-//        if indexPath.row % Model.sharedInstance.batchSize == Int(Model.sharedInstance.batchSize/2){
-//            
-//            self.refreshData()
-//        }
 
+        // Get a new batch before it's needed, when user scrolls down.
         if indexPath.row == Int(Model.sharedInstance.students.count - Model.sharedInstance.batchSize/2){
             
             self.refreshData()

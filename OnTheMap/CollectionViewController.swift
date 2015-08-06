@@ -65,6 +65,8 @@ class CollectionViewController: UICollectionViewController, UICollectionViewData
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
+
+        // Refresh to pick up any new pins added by user.
         refreshData()
     }
     
@@ -122,10 +124,12 @@ class CollectionViewController: UICollectionViewController, UICollectionViewData
         return Model.sharedInstance.students.count
     }
 
+    // Create cell; add its data and implement paging.
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CollectionViewCell", forIndexPath: indexPath) as! CollectionCell
 
-        if indexPath.row % Model.sharedInstance.batchSize == Int(Model.sharedInstance.batchSize/2){
+        // Get a new batch before it's needed, when user scrolls down.
+        if indexPath.row == Int(Model.sharedInstance.students.count - Model.sharedInstance.batchSize/2){
             
             self.refreshData()
         }

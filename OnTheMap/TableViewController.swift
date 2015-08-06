@@ -69,7 +69,7 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
         let cell = tableView.dequeueReusableCellWithIdentifier("TableViewCell", forIndexPath: indexPath) as! UITableViewCell
         let count = Model.sharedInstance.students.count
 
-        // Get a new batch before it's needed, when user scrolls down.
+        // Get a new batch before it's needed, when user scrolls to within batchSize/2 from the end of the model's size.
         if indexPath.row == Int(Model.sharedInstance.students.count - Model.sharedInstance.batchSize/2){
             
             self.refreshData()

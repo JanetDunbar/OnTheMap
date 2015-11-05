@@ -36,17 +36,17 @@ class CollectionViewController: UICollectionViewController, UICollectionViewData
             if cookie.name == "XSRF-TOKEN" { xsrfCookie = cookie }
         }
         if let xsrfCookie = xsrfCookie {
-            request.addValue(xsrfCookie.value!, forHTTPHeaderField: "X-XSRF-Token")
+            request.addValue(xsrfCookie.value, forHTTPHeaderField: "X-XSRF-Token")
         }
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(request) { data, response, error in
             if error != nil {
                 // Handle error…
-                println(error)
+                print(error)
                 return
             }
             let newData = data.subdataWithRange(NSMakeRange(5, data.length - 5)) /* subset response data! */
-            println(NSString(data: newData, encoding: NSUTF8StringEncoding))
+            print(NSString(data: newData, encoding: NSUTF8StringEncoding))
             self.dismissViewControllerAnimated(true, completion: nil)
         }
         task.resume()

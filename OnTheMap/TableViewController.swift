@@ -67,7 +67,7 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
     
     // Create cell; add its data and implement paging.
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("TableViewCell", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("TableViewCell", forIndexPath: indexPath) 
         let count = Model.sharedInstance.students.count
 
         // Get a new batch before it's needed, when user scrolls to within batchSize/2 from the end of the model's size.
@@ -120,17 +120,17 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
             if cookie.name == "XSRF-TOKEN" { xsrfCookie = cookie }
         }
         if let xsrfCookie = xsrfCookie {
-            request.addValue(xsrfCookie.value!, forHTTPHeaderField: "X-XSRF-Token")
+            request.addValue(xsrfCookie.value, forHTTPHeaderField: "X-XSRF-Token")
         }
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(request) { data, response, error in
             if error != nil {
                 // Handle error…
-                println(error)
+                print(error)
                 return
             }
             let newData = data.subdataWithRange(NSMakeRange(5, data.length - 5)) /* subset response data! */
-            println(NSString(data: newData, encoding: NSUTF8StringEncoding))
+            print(NSString(data: newData, encoding: NSUTF8StringEncoding))
             self.dismissViewControllerAnimated(true, completion: nil)
         }
         task.resume()

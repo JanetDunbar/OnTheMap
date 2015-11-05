@@ -31,13 +31,13 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             if cookie.name == "XSRF-TOKEN" { xsrfCookie = cookie }
         }
         if let xsrfCookie = xsrfCookie {
-            request.addValue(xsrfCookie.value!, forHTTPHeaderField: "X-XSRF-Token")
+            request.addValue(xsrfCookie.value, forHTTPHeaderField: "X-XSRF-Token")
         }
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(request) { data, response, error in
             if error != nil { // Handle error…
                 
-                println(error)
+                print(error)
                 return
             }
             let newData = data.subdataWithRange(NSMakeRange(5, data.length - 5)) /* subset response data! */
@@ -55,14 +55,14 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         let fullName = "\(currentIndex) \(students[currentIndex].firstName) \(currentStudent.lastName)"
         let url = currentStudent.mediaURL
         
-        var span = MKCoordinateSpanMake(100, 100)
+        let span = MKCoordinateSpanMake(100, 100)
         var region = MKCoordinateRegion(center: annotationLocation, span: span)
                 
         studentAnnotation = StudentAnnotation(coordinate: annotationLocation, title: fullName, subtitle: url)
         return studentAnnotation
     }
 
-    func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView! {
         if let annotation = annotation as? StudentAnnotation {
             let identifier = "pin"
             var view: MKPinAnnotationView
@@ -75,14 +75,14 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                 view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
                 view.canShowCallout = true
                 view.calloutOffset = CGPoint(x: -5, y: 5)
-                view.rightCalloutAccessoryView = UIButton.buttonWithType(.DetailDisclosure) as! UIView
+                view.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure) as UIView
             }
             return view
         }
         return nil
     }
     
-    func mapView(mapView: MKMapView!, annotationView view: MKAnnotationView!, calloutAccessoryControlTapped control: UIControl!) {
+    func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         
         UIApplication.sharedApplication().openURL(NSURL(string: view.annotation.subtitle!)!)
     }
@@ -114,7 +114,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             
                 var studentAnnotationArray = [AnyObject]()
                 
-                for (currentIndex,student) in enumerate(Model.sharedInstance.students){
+                for (currentIndex,student) in Model.sharedInstance.students.enumerate(){
                     var studentAnnotation: AnyObject! = self.makeStudentAnnotationFromStudentInformation(currentIndex) as AnyObject
                     
                     studentAnnotationArray.append(studentAnnotation)

@@ -143,7 +143,7 @@ class InformationPostingViewController: UIViewController, UITextFieldDelegate, M
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(request) { data, response, error in
             if error != nil { // Handle error…
-                println("Error, task, InformationPostingViewController")
+                print("Error, task, InformationPostingViewController")
                 return
             }
             let studentLocationString = NSString(data: data, encoding: NSUTF8StringEncoding) as! String

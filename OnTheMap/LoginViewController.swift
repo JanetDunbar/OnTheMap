@@ -28,11 +28,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
         
         let client = Client()
         client.facebookLogin()
-        var token = FBSDKAccessToken.currentAccessToken()
+        let token = FBSDKAccessToken.currentAccessToken()
         if (token != nil){
             completeLogin()
         } else {
-            println("Facebook login failed, didn't receive token")
+            print("Facebook login failed, didn't receive token")
         }
     }
     
@@ -138,11 +138,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
             completeLogin()
             
         } else {
-            println(error.localizedDescription)
+            print(error.localizedDescription)
         }
     }
     
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
-        println("User is logged out.")
+        print("User is logged out.")
     }
 }

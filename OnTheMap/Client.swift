@@ -32,7 +32,7 @@ class Client {
                 switch httpResponse.statusCode{
                 
                 case 200...299:
-                    println("\(httpResponse.statusCode) is a success status.")
+                    print("\(httpResponse.statusCode) is a success status.")
                 default:
                     completion(success: false, errorString: errorMessage)
                     return
@@ -86,19 +86,20 @@ class Client {
             
             let studentLocationsString = NSString(data: data, encoding: NSUTF8StringEncoding)
             
-            if let convertedString: AnyObject! = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(0), error: &err){
+            do {
+                let convertedString: AnyObject! = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
 
                 let dict = convertedString as! NSDictionary
                 
                 if let results = dict.valueForKey("results") as? [[String : AnyObject]] {
                     
-                    println("getStudentLocations: results.count: \(StudentInformation.studentInformationFromResults(results).count); skip: \(skip); limit: \(limit)")
+                    print("getStudentLocations: results.count: \(StudentInformation.studentInformationFromResults(results).count); skip: \(skip); limit: \(limit)")
                     
                     // Add new batch to the model.
                     Model.sharedInstance.students = Model.sharedInstance.students + StudentInformation.studentInformationFromResults(results)
                     
-                    println("getStudentLocations: New model count: \(Model.sharedInstance.students.count)")
-                    println("batchNumber = \(Model.sharedInstance.batchNumber)")
+                    print("getStudentLocations: New model count: \(Model.sharedInstance.students.count)")
+                    print("batchNumber = \(Model.sharedInstance.batchNumber)")
                     
                     completion(success: true, errorString: "")
                     return
@@ -107,10 +108,12 @@ class Client {
                     completion(success: false, errorString: "error from results not found")
                     return
                 }
-            }
-            else {
+            } catch var error as NSError {
+                err = error
                 completion(success: false, errorString: "error from conversion")
                 return
+            } catch {
+                fatalError()
             }
         }
         
@@ -131,7 +134,7 @@ class Client {
         let task = session.dataTaskWithRequest(request) { data, response, error in
             if error != nil {
                 // Handle error...
-                println("error in facebookLogin")
+                print("error in facebookLogin")
                 return
             }
             let newData = data.subdataWithRange(NSMakeRange(5, data.length - 5)) /* subset response data! */

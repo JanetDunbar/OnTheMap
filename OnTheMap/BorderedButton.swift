@@ -24,7 +24,7 @@
         
         // MARK: - Initialization
         
-        required init(coder aDecoder: NSCoder) {
+        required init?(coder aDecoder: NSCoder) {
             super.init(coder: aDecoder)
             self.themeBorderedButton()
         }
@@ -61,12 +61,12 @@
         
         // MARK: - Tracking
         
-        override func beginTrackingWithTouch(touch: UITouch, withEvent: UIEvent) -> Bool {
+        override func beginTrackingWithTouch(touch: UITouch, withEvent: UIEvent?) -> Bool {
             self.backgroundColor = self.highlightedBackingColor
             return true
         }
         
-        override func endTrackingWithTouch(touch: UITouch, withEvent: UIEvent) {
+        override func endTrackingWithTouch(touch: UITouch?, withEvent: UIEvent?) {
             self.backgroundColor = self.backingColor
         }
         

@@ -71,7 +71,7 @@ class InformationPostingViewController: UIViewController, UITextFieldDelegate, M
         // Highlight label as additional indication of geocoding;
         // whereAreYouStudying label turns orange.
         self.whereAreYouStudying.highlighted = true
-        mapString = address.text
+        mapString = address.text!
         
         activityIndicatorView.startAnimating()
         
@@ -102,9 +102,9 @@ class InformationPostingViewController: UIViewController, UITextFieldDelegate, M
         if placemarks.count > 0 {
             let placemark = placemarks[0] as! CLPlacemark
             let location = placemark.location
-            self.newLatitude = location.coordinate.latitude
-            self.newLongitude = location.coordinate.longitude
-            let annotationLocation = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+            self.newLatitude = location!.coordinate.latitude
+            self.newLongitude = location!.coordinate.longitude
+            let annotationLocation = CLLocationCoordinate2D(latitude: location!.coordinate.latitude, longitude: location!.coordinate.longitude)
             
             let url = ""
             var span = MKCoordinateSpanMake(100, 100)
@@ -129,7 +129,7 @@ class InformationPostingViewController: UIViewController, UITextFieldDelegate, M
         
         // Reformat strings.
         let reformattedMapString = reformatString(mapString)
-        let reformattedUrl = reformatString(url.text)
+        let reformattedUrl = reformatString(url.text!)
         
         let request = NSMutableURLRequest(URL: NSURL(string: "https://api.parse.com/1/classes/StudentLocation")!)
         request.HTTPMethod = "POST"
@@ -146,7 +146,7 @@ class InformationPostingViewController: UIViewController, UITextFieldDelegate, M
                 print("Error, task, InformationPostingViewController")
                 return
             }
-            let studentLocationString = NSString(data: data, encoding: NSUTF8StringEncoding) as! String
+            let studentLocationString = NSString(data: data!, encoding: NSUTF8StringEncoding) as! String
 
             Model.sharedInstance.resetModel() // Force a refresh
             

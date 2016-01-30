@@ -39,7 +39,7 @@ class Client {
                 }
             }
             
-            let newData = data.subdataWithRange(NSMakeRange(5, data.length - 5)) /* subset response data! */
+            let newData = data!.subdataWithRange(NSMakeRange(5, data!.length - 5)) /* subset response data! */
             let loginString = NSString(data: newData, encoding: NSUTF8StringEncoding) //as! String
             // Success so call completion
             completion(success: true, errorString: "")
@@ -74,8 +74,8 @@ class Client {
             
             if error != nil { // Handle error...
                 
-                var descrip = error.localizedDescription
-                if let reason = error.localizedFailureReason{
+                var descrip = error!.localizedDescription
+                if let reason = error!.localizedFailureReason{
                     descrip = ("\(descrip) : \(reason)")
                 }
                 completion(success: false, errorString: descrip)
@@ -84,10 +84,10 @@ class Client {
             
             var err: NSError?
             
-            let studentLocationsString = NSString(data: data, encoding: NSUTF8StringEncoding)
+            let studentLocationsString = NSString(data: data!, encoding: NSUTF8StringEncoding)
             
             do {
-                let convertedString: AnyObject! = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+                let convertedString: AnyObject! = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions(rawValue: 0))
 
                 let dict = convertedString as! NSDictionary
                 
@@ -108,7 +108,7 @@ class Client {
                     completion(success: false, errorString: "error from results not found")
                     return
                 }
-            } catch var error as NSError {
+            } catch let error as NSError {
                 err = error
                 completion(success: false, errorString: "error from conversion")
                 return
@@ -137,7 +137,7 @@ class Client {
                 print("error in facebookLogin")
                 return
             }
-            let newData = data.subdataWithRange(NSMakeRange(5, data.length - 5)) /* subset response data! */
+            let newData = data!.subdataWithRange(NSMakeRange(5, data!.length - 5)) /* subset response data! */
         }
         task.resume()
     }

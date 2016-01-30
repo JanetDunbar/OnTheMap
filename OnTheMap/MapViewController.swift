@@ -40,7 +40,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                 print(error)
                 return
             }
-            let newData = data.subdataWithRange(NSMakeRange(5, data.length - 5)) /* subset response data! */
+            let newData = data!.subdataWithRange(NSMakeRange(5, data!.length - 5)) /* subset response data! */
             self.dismissViewControllerAnimated(true, completion: nil)
         }
         task.resume()     
@@ -84,7 +84,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         
-        UIApplication.sharedApplication().openURL(NSURL(string: view.annotation.subtitle!)!)
+        UIApplication.sharedApplication().openURL(NSURL(string: view.annotation!.subtitle!)!)
     }
     
     override func viewDidLoad() {

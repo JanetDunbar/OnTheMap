@@ -10,7 +10,7 @@ import UIKit
 
 let reuseIdentifier = "CollectionCell"
 
-class CollectionViewController: UICollectionViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class CollectionViewController: UICollectionViewController {
     
     
     @IBOutlet var refresh: UIBarButtonItem!
@@ -45,7 +45,7 @@ class CollectionViewController: UICollectionViewController, UICollectionViewData
                 print(error)
                 return
             }
-            let newData = data.subdataWithRange(NSMakeRange(5, data.length - 5)) /* subset response data! */
+            let newData = data!.subdataWithRange(NSMakeRange(5, data!.length - 5)) /* subset response data! */
             print(NSString(data: newData, encoding: NSUTF8StringEncoding))
             self.dismissViewControllerAnimated(true, completion: nil)
         }

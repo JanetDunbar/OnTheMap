@@ -18,9 +18,9 @@ class WebVC: UIViewController, UISearchBarDelegate, UIWebViewDelegate {
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         
         searchBar.resignFirstResponder()
-        var text = searchBar.text
-        var url = NSURL(string: text)  //type "http://www.apple.com"
-        var req = NSURLRequest(URL:url!)
+        let text = searchBar.text
+        let url = NSURL(string: text!)  //type "http://www.apple.com"
+        let req = NSURLRequest(URL:url!)
         self.webView!.loadRequest(req)
     }
     
@@ -31,8 +31,8 @@ class WebVC: UIViewController, UISearchBarDelegate, UIWebViewDelegate {
         searchBar.delegate = self
         searchBar.showsCancelButton = true
         searchBar.text = urlText
-        var url = NSURL(string: searchBar.text)  //type "http://www.apple.com"
-        var req = NSURLRequest(URL:url!)
+        let url = NSURL(string: searchBar.text!)  //type "http://www.apple.com"
+        let req = NSURLRequest(URL:url!)
         self.webView!.loadRequest(req)
     }
 

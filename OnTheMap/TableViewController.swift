@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class TableViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate {
+class TableViewController: UITableViewController{
     
     @IBOutlet weak var refresh: UIBarButtonItem!
     
@@ -129,7 +129,7 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
                 print(error)
                 return
             }
-            let newData = data.subdataWithRange(NSMakeRange(5, data.length - 5)) /* subset response data! */
+            let newData = data!.subdataWithRange(NSMakeRange(5, data!.length - 5)) /* subset response data! */
             print(NSString(data: newData, encoding: NSUTF8StringEncoding))
             self.dismissViewControllerAnimated(true, completion: nil)
         }

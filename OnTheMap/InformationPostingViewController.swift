@@ -106,9 +106,9 @@ class InformationPostingViewController: UIViewController, UITextFieldDelegate, M
             self.newLongitude = location!.coordinate.longitude
             let annotationLocation = CLLocationCoordinate2D(latitude: location!.coordinate.latitude, longitude: location!.coordinate.longitude)
             
-            let url = ""
-            var span = MKCoordinateSpanMake(100, 100)
-            var region = MKCoordinateRegion(center: annotationLocation, span: span)
+            //let url = ""
+            let span = MKCoordinateSpanMake(100, 100)
+            let region = MKCoordinateRegion(center: annotationLocation, span: span)
             
             self.mapView.setRegion(region, animated: true)
             
@@ -127,9 +127,6 @@ class InformationPostingViewController: UIViewController, UITextFieldDelegate, M
 
     @IBAction func submitNewLocationAndUrl(sender: UIButton) {
         
-        // Reformat strings.
-        let reformattedMapString = reformatString(mapString)
-        let reformattedUrl = reformatString(url.text!)
         
         let request = NSMutableURLRequest(URL: NSURL(string: "https://api.parse.com/1/classes/StudentLocation")!)
         request.HTTPMethod = "POST"
@@ -146,7 +143,6 @@ class InformationPostingViewController: UIViewController, UITextFieldDelegate, M
                 print("Error, task, InformationPostingViewController")
                 return
             }
-            let studentLocationString = NSString(data: data!, encoding: NSUTF8StringEncoding) as! String
 
             Model.sharedInstance.resetModel() // Force a refresh
             

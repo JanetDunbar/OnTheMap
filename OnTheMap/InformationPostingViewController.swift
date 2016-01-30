@@ -91,16 +91,16 @@ class InformationPostingViewController: UIViewController, UITextFieldDelegate, M
         
         geoCoder.geocodeAddressString(mapString,
         completionHandler:
-        {(placemarks: [AnyObject]!, error: NSError!) in
+        {(placemarks: [CLPlacemark]?, error: NSError?)-> Void in
         
         if error != nil {
             // Display an alert if geocoder fails
             self.displayAlert("Please enter your location again.")
             return
         }
-        
-        if placemarks.count > 0 {
-            let placemark = placemarks[0] as! CLPlacemark
+            
+        if placemarks!.count > 0 {
+            let placemark = placemarks![0]
             let location = placemark.location
             self.newLatitude = location!.coordinate.latitude
             self.newLongitude = location!.coordinate.longitude

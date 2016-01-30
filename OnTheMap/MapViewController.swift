@@ -27,7 +27,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         request.HTTPMethod = "DELETE"
         var xsrfCookie: NSHTTPCookie? = nil
         let sharedCookieStorage = NSHTTPCookieStorage.sharedHTTPCookieStorage()
-        for cookie in sharedCookieStorage.cookies as! [NSHTTPCookie] {
+        for cookie in sharedCookieStorage.cookies as [NSHTTPCookie]! {
             if cookie.name == "XSRF-TOKEN" { xsrfCookie = cookie }
         }
         if let xsrfCookie = xsrfCookie {
@@ -123,7 +123,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                 }
                 
                 dispatch_async(dispatch_get_main_queue(), {
-                    self.mapView.addAnnotations(studentAnnotationArray)
+                    self.mapView.addAnnotations(studentAnnotationArray as! [MKAnnotation])
                 })
 
                 

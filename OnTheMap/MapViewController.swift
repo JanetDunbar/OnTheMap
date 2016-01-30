@@ -83,8 +83,10 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     }
     
     func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        let str = view.annotation!.subtitle
+        let url = NSURL(string: str!!)
         
-        UIApplication.sharedApplication().openURL(NSURL(string: view.annotation!.subtitle!)!)
+        UIApplication.sharedApplication().openURL(url!)
     }
     
     override func viewDidLoad() {

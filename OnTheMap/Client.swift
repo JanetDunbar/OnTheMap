@@ -39,8 +39,6 @@ class Client {
                 }
             }
             
-            let newData = data!.subdataWithRange(NSMakeRange(5, data!.length - 5)) /* subset response data! */
-            let loginString = NSString(data: newData, encoding: NSUTF8StringEncoding) //as! String
             // Success so call completion
             completion(success: true, errorString: "")
  
@@ -58,14 +56,14 @@ class Client {
     // Get student locations, via Parse API.  
     func getStudentLocations(limit: Int, skip: Int, completion: (success: Bool, errorString: String)->()){
         
-        var limitString = "?limit=\(limit)"
+        let limitString = "?limit=\(limit)"
         var skipString = "&skip=\(skip)"
         if skip == 0 {
             skipString = ""
         }
         
-        var baseString = "https://api.parse.com/1/classes/StudentLocation"
-        var url = baseString + limitString + skipString
+        let baseString = "https://api.parse.com/1/classes/StudentLocation"
+        let url = baseString + limitString + skipString
         let request = NSMutableURLRequest(URL: NSURL(string: url)!)
         request.addValue("QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr", forHTTPHeaderField: "X-Parse-Application-Id")
         request.addValue("QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY", forHTTPHeaderField: "X-Parse-REST-API-Key")
@@ -81,11 +79,7 @@ class Client {
                 completion(success: false, errorString: descrip)
                 return
             }
-            
-            var err: NSError?
-            
-            let studentLocationsString = NSString(data: data!, encoding: NSUTF8StringEncoding)
-            
+        
             do {
                 let convertedString: AnyObject! = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions(rawValue: 0))
 
@@ -109,8 +103,8 @@ class Client {
                     return
                 }
             } catch let error as NSError {
-                err = error
-                completion(success: false, errorString: "error from conversion")
+                
+                completion(success: false, errorString: "error from conversion: \(error)")
                 return
             } catch {
                 fatalError()
@@ -137,7 +131,6 @@ class Client {
                 print("error in facebookLogin")
                 return
             }
-            let newData = data!.subdataWithRange(NSMakeRange(5, data!.length - 5)) /* subset response data! */
         }
         task.resume()
     }

@@ -1,4 +1,4 @@
-//
+////
 //  MapViewController.swift
 //  OnTheMap
 //
@@ -40,7 +40,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                 print(error)
                 return
             }
-            let newData = data!.subdataWithRange(NSMakeRange(5, data!.length - 5)) /* subset response data! */
             self.dismissViewControllerAnimated(true, completion: nil)
         }
         task.resume()     
@@ -55,14 +54,14 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         let fullName = "\(currentIndex) \(students[currentIndex].firstName) \(currentStudent.lastName)"
         let url = currentStudent.mediaURL
         
-        let span = MKCoordinateSpanMake(100, 100)
-        var region = MKCoordinateRegion(center: annotationLocation, span: span)
+        //let span = MKCoordinateSpanMake(100, 100)
+        //var region = MKCoordinateRegion(center: annotationLocation, span: span)
                 
         studentAnnotation = StudentAnnotation(coordinate: annotationLocation, title: fullName, subtitle: url)
         return studentAnnotation
     }
 
-    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView! {
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         if let annotation = annotation as? StudentAnnotation {
             let identifier = "pin"
             var view: MKPinAnnotationView
@@ -116,8 +115,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             
                 var studentAnnotationArray = [AnyObject]()
                 
-                for (currentIndex,student) in Model.sharedInstance.students.enumerate(){
-                    var studentAnnotation: AnyObject! = self.makeStudentAnnotationFromStudentInformation(currentIndex) as AnyObject
+                for (currentIndex,_) in Model.sharedInstance.students.enumerate(){
+                    let studentAnnotation: AnyObject! = self.makeStudentAnnotationFromStudentInformation(currentIndex) as AnyObject
                     
                     studentAnnotationArray.append(studentAnnotation)
                 }

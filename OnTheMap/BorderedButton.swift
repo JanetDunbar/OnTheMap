@@ -35,7 +35,7 @@
         }
         
         func themeBorderedButton() -> Void {
-            let userInterfaceIdiom = UIDevice.currentDevice().userInterfaceIdiom
+
             self.layer.masksToBounds = true
             self.layer.cornerRadius = borderedButtonCornerRadius
             self.highlightedBackingColor = darkerBlue
@@ -77,7 +77,6 @@
         // MARK: - Layout
         
         override func sizeThatFits(size: CGSize) -> CGSize {
-            let userInterfaceIdiom = UIDevice.currentDevice().userInterfaceIdiom
             let extraButtonPadding : CGFloat = phoneBorderedButtonExtraPadding
             var sizeThatFits = CGSizeZero
             sizeThatFits.width = super.sizeThatFits(size).width + extraButtonPadding

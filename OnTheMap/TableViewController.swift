@@ -68,7 +68,6 @@ class TableViewController: UITableViewController{
     // Create cell; add its data and implement paging.
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("TableViewCell", forIndexPath: indexPath) 
-        let count = Model.sharedInstance.students.count
 
         // Get a new batch before it's needed, when user scrolls to within batchSize/2 from the end of the model's size.
         if indexPath.row == Int(Model.sharedInstance.students.count - Model.sharedInstance.batchSize/2){
@@ -76,9 +75,7 @@ class TableViewController: UITableViewController{
             self.refreshData()
         }
         
-        
         let currentElement = Model.sharedInstance.students[indexPath.row]
-        let separator  = " "
         // Configure the cell...
         cell.textLabel?.text = "\(indexPath.row) \(currentElement.firstName) \(currentElement.lastName)"
         cell.detailTextLabel?.text = currentElement.mediaURL
@@ -97,7 +94,6 @@ class TableViewController: UITableViewController{
         
         if let tableCell = tableView.cellForRowAtIndexPath(indexPath){
             
-            let text = tableCell.detailTextLabel?.text
             UIApplication.sharedApplication().openURL(NSURL(string: tableCell.detailTextLabel!.text!)!)
         }
     }
